@@ -1,0 +1,43 @@
+/*
+ * Game.hpp
+ *
+ *  Created on: 6 lis 2014
+ *      Author: slawek
+ */
+
+#ifndef GAME_HPP_
+#define GAME_HPP_
+#include <SFML/Graphics.hpp>
+#include "Player.hpp"
+
+namespace sfml_playground
+{
+
+class Game
+{
+public:
+	Game();
+
+	void run();
+
+	static const sf::Time cTimePerFrame;
+
+private:
+
+	void processEvents();
+
+	void update();
+
+	void render();
+
+	void handlePlayerInput(const sf::Keyboard::Key key, bool isPressed);
+
+private:
+
+	sf::RenderWindow	mWindow;
+	Player				mPlayer;
+};
+
+} /* namespace sfml_playground */
+
+#endif /* GAME_HPP_ */
