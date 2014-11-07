@@ -3,6 +3,7 @@
 *.lo
 *.o
 *.obj
+*.bc
 
 # Precompiled Headers
 *.gch
@@ -12,9 +13,6 @@
 *.so
 *.dylib
 *.dll
-
-# Fortran module files
-*.mod
 
 # Compiled Static libraries
 *.lai
