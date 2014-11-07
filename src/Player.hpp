@@ -36,7 +36,8 @@ public:
 private:
 
 	sf::RenderWindow*	mWindow;
-	sf::CircleShape		mShape;
+	sf::Sprite			mSprite;
+	sf::Texture			mTexture;
 
 	bool isMovingUp;
 	bool isMovingDown;

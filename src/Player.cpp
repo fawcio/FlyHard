@@ -12,16 +12,19 @@
 namespace sfml_playground
 {
 
-Player::Player() : mWindow(nullptr), mShape()
+Player::Player() : mWindow(nullptr), mSprite(), mTexture()
 {
 	isMovingUp = false;
 	isMovingDown = false;
 	isMovingLeft = false;
 	isMovingRight = false;
 
-	mShape.setRadius(20.f);
-	mShape.setPosition(100.f, 100.f);
-	mShape.setFillColor(sf::Color::White);
+	if (!mTexture.loadFromFile("Resources/F-22.png"))
+	{
+		abort();
+	}
+	mSprite.setTexture(mTexture);
+	mSprite.setPosition(100.f, 100.f);
 }
 
 Player::~Player()
@@ -50,7 +53,7 @@ void Player::setMovingRight(bool isMoving)
 
 void Player::draw()
 {
-	mWindow->draw(mShape);
+	mWindow->draw(mSprite);
 }
 
 void Player::setWindow(const sf::RenderWindow* window)
@@ -78,7 +81,7 @@ void Player::update()
 		movement.x += cSpeed;
 	}
 
-	mShape.move(movement * static_cast<float>(Game::cTimePerFrame.asMilliseconds()));
+	mSprite.move(movement * static_cast<float>(Game::cTimePerFrame.asMilliseconds()));
 }
 
 } /* namespace sfml_playground */
