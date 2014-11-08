@@ -12,7 +12,7 @@
 namespace sfml_playground
 {
 
-Player::Player() : mWindow(nullptr), mSprite(), mTexture()
+Player::Player() : mWindow(nullptr), mTexture()
 {
 	isMovingUp = false;
 	isMovingDown = false;
@@ -23,7 +23,7 @@ Player::Player() : mWindow(nullptr), mSprite(), mTexture()
 	{
 		abort();
 	}
-	mSprite.setTexture(mTexture);
+	mSprite = sf::Sprite(mTexture);
 	mSprite.setPosition(100.f, 100.f);
 }
 
@@ -56,9 +56,9 @@ void Player::draw()
 	mWindow->draw(mSprite);
 }
 
-void Player::setWindow(const sf::RenderWindow* window)
+void Player::setWindow(sf::RenderWindow* window)
 {
-	mWindow = const_cast<sf::RenderWindow*>(window);
+	mWindow = window;
 }
 
 void Player::update()

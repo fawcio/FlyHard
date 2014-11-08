@@ -27,7 +27,7 @@ public:
 
 	void setMovingRight(bool isMoving);
 
-	void setWindow(const sf::RenderWindow* window);
+	virtual void setWindow(sf::RenderWindow* window);
 
 	virtual void draw() override;
 

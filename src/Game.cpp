@@ -13,10 +13,10 @@ namespace sfml_playground
 
 const sf::Time Game::cTimePerFrame = sf::milliseconds(10);
 
-Game::Game() : mWindow(sf::VideoMode(800, 600), "SFML playground"), mPlayer()
+Game::Game() : mWindow(sf::VideoMode(800, 600), "SFML playground"), mPlayer(), mFpsDisplay(mWindow)
 {
-	mWindow.setVerticalSyncEnabled(true);
-	mPlayer.setWindow(&mWindow);
+	addDrawable(mPlayer);
+	addDrawable(mFpsDisplay);
 }
 
 void Game::run()
@@ -28,6 +28,7 @@ void Game::run()
 	{
 		processEvents();
 		timeSinceLastUpdate += clock.restart();
+		mFpsDisplay.update(timeSinceLastUpdate);
 
 		while (timeSinceLastUpdate > cTimePerFrame)
 		{
@@ -69,8 +70,17 @@ void Game::update()
 void Game::render()
 {
 	mWindow.clear();
-	mPlayer.draw();
+	for (IDrawable* drawable : mDrawables)
+	{
+		drawable->draw();
+	}
 	mWindow.display();
+}
+
+void Game::addDrawable(IDrawable& drawable)
+{
+	drawable.setWindow(&mWindow);
+	mDrawables.push_back(&drawable);
 }
 
 void Game::handlePlayerInput(const sf::Keyboard::Key key, bool isPressed)

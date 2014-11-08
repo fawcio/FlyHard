@@ -7,6 +7,7 @@
 
 #ifndef IDRAWABLE_HPP_
 #define IDRAWABLE_HPP_
+#include <SFML/Graphics.hpp>
 
 class IDrawable
 {
@@ -15,6 +16,8 @@ public:
 	virtual ~IDrawable() {}
 
 	virtual void draw() = 0;
+
+	virtual void setWindow(sf::RenderWindow* window) = 0;
 
 };
 

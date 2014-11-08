@@ -8,7 +8,11 @@
 #ifndef GAME_HPP_
 #define GAME_HPP_
 #include <SFML/Graphics.hpp>
+#include <vector>
 #include "Player.hpp"
+#include "FPSDisplay.hpp"
+#include "IDrawable.hpp"
+
 
 namespace sfml_playground
 {
@@ -19,6 +23,8 @@ public:
 	Game();
 
 	void run();
+
+	void addDrawable(IDrawable &drawable);
 
 	static const sf::Time cTimePerFrame;
 
@@ -34,8 +40,10 @@ private:
 
 private:
 
-	sf::RenderWindow	mWindow;
-	Player				mPlayer;
+	sf::RenderWindow		mWindow;
+	Player					mPlayer;
+	std::vector<IDrawable*>	mDrawables;
+	FPS_Display				mFpsDisplay;
 };
 
 } /* namespace sfml_playground */
