@@ -11,12 +11,14 @@
 namespace sfml_playground
 {
 
-const sf::Time Game::cTimePerFrame = sf::milliseconds(10);
+const sf::Time Game::cTimePerFrame = sf::milliseconds(2);
 
-Game::Game() : mWindow(sf::VideoMode(800, 600), "SFML playground"), mPlayer(), mFpsDisplay(mWindow)
+Game::Game() : mWindow(sf::VideoMode(1680, 1050), "SFML playground", sf::Style::Fullscreen), mPlayer(),
+		mFps(&mWindow)
 {
 	addDrawable(mPlayer);
-	addDrawable(mFpsDisplay);
+	addDrawable(mFps);
+	mWindow.setFramerateLimit(500);
 }
 
 void Game::run()
@@ -27,8 +29,8 @@ void Game::run()
 	while (mWindow.isOpen())
 	{
 		processEvents();
+		mWindow.clear();
 		timeSinceLastUpdate += clock.restart();
-		mFpsDisplay.update(timeSinceLastUpdate);
 
 		while (timeSinceLastUpdate > cTimePerFrame)
 		{
@@ -37,6 +39,7 @@ void Game::run()
 			update();
 		}
 		render();
+		mFps++;
 	}
 }
 
@@ -52,6 +55,10 @@ void Game::processEvents()
 			break;
 		case sf::Event::KeyReleased:
 			handlePlayerInput(event.key.code, false);
+			if(sf::Keyboard::Escape == event.key.code)
+			{
+				mWindow.close();
+			}
 			break;
 		case sf::Event::Closed:
 			mWindow.close();
@@ -69,7 +76,6 @@ void Game::update()
 
 void Game::render()
 {
-	mWindow.clear();
 	for (IDrawable* drawable : mDrawables)
 	{
 		drawable->draw();

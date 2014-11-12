@@ -7,12 +7,14 @@
 //============================================================================
 #include "Game.hpp"
 #include <iostream>
+#include <X11/Xlib.h>
 
 using namespace sfml_playground;
 
 int main()
 {
-	std::cout << "Maximum texture size is: " << sf::Texture::getMaximumSize()/1024 << " kBytes" << std::endl;
+	XInitThreads();
+
 	Game game;
 
 	game.run();

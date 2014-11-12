@@ -44,7 +44,7 @@ private:
 	bool isMovingLeft;
 	bool isMovingRight;
 
-	const float cSpeed = 0.2f; //(200 pix/s)
+	const float cSpeed = 0.4f; //(400 pix/s)
 };
 
 } /* namespace sfml_playground */

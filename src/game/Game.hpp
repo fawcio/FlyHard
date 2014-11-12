@@ -10,9 +10,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "Player.hpp"
-#include "FPSDisplay.hpp"
-#include "IDrawable.hpp"
-
+#include "FPS.hpp"
 
 namespace sfml_playground
 {
@@ -41,9 +39,10 @@ private:
 private:
 
 	sf::RenderWindow		mWindow;
-	Player					mPlayer;
 	std::vector<IDrawable*>	mDrawables;
-	FPS_Display				mFpsDisplay;
+
+	Player					mPlayer;
+	FPS						mFps;
 };
 
 } /* namespace sfml_playground */
