@@ -11,6 +11,7 @@
 #include <vector>
 #include "Player.hpp"
 #include "FPS.hpp"
+#include "ResourceHolder.hpp"
 
 namespace sfml_playground
 {
@@ -37,6 +38,8 @@ private:
 	void handlePlayerInput(const sf::Keyboard::Key key, bool isPressed);
 
 private:
+
+	ResourceHolder<sf::Texture, TextureID> mTextureHolder;
 
 	sf::RenderWindow		mWindow;
 	std::vector<IDrawable*>	mDrawables;

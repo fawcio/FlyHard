@@ -18,7 +18,8 @@ Game::Game() : mWindow(sf::VideoMode(1680, 1050), "SFML playground", sf::Style::
 {
 	addDrawable(mPlayer);
 	addDrawable(mFps);
-	mWindow.setFramerateLimit(500);
+	mWindow.setFramerateLimit(100);
+
 }
 
 void Game::run()

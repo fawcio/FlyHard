@@ -6,9 +6,9 @@
  */
 
 #include <string>
+#include <exception>
 
 #include "FPS.hpp"
-#include "Exception.hpp"
 
 namespace sfml_playground
 {
@@ -17,7 +17,7 @@ FPS::FPS(sf::RenderWindow* window) : mTimer(this, 500)
 {
 	if (!mFont.loadFromFile("/usr/share/fonts/TTF/DejaVuSansMono.ttf"))
 	{
-		throw new Exception("Could not load font DejaVuSansMono for FPS");
+		throw new std::runtime_error("Could not load font DejaVuSansMono for FPS");
 	}
 	mText.setFont(mFont);
 	mText.setCharacterSize(12);
