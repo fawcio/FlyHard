@@ -26,18 +26,20 @@ public:
 	virtual	~ResourceHolder() = default;
 
 	void				load(IdentifierT id, std::string& filename);
+
+	template <typename ParameterT>
+	void				load(IdentifierT id, const std::string& filename, const ParameterT& secondParam);
+
 	ResourceT&			get(IdentifierT id);
+
 	const ResourceT&	get(IdentifierT id) const;
 
 private:
 	std::map<IdentifierT, std::unique_ptr<ResourceT>> mTextureMap;
 };
 
-} /* namespace sfml_playground */
-
 template <typename ResourceT, typename IdentifierT>
-void sfml_playground::ResourceHolder<ResourceT, IdentifierT>::load(
-		IdentifierT id, std::string& filename)
+void ResourceHolder<ResourceT, IdentifierT>::load(IdentifierT id, std::string& filename)
 {
 	std::unique_ptr<ResourceT> resource(new ResourceT);
 
@@ -48,9 +50,22 @@ void sfml_playground::ResourceHolder<ResourceT, IdentifierT>::load(
 	assert(true == inserted.second);
 }
 
+template <typename ResourceT, typename IdentifierT>
+template <typename ParameterT>
+void ResourceHolder<ResourceT, IdentifierT>::load(IdentifierT id, const std::string& filename,
+		const ParameterT& secondParam)
+{
+	std::unique_ptr<ResourceT> resource(new ResourceT);
+
+	if (!resource->loadFromFile(filename, secondParam))
+			throw new std::runtime_error("ResourceHolder::load - Failed to load: " + filename);
+
+	auto inserted = mTextureMap.insert(std::make_pair(id, std::move(resource)));
+		assert(true == inserted.second);
+}
+
 template<typename ResourceT, typename IdentifierT>
-ResourceT& sfml_playground::ResourceHolder<ResourceT, IdentifierT>::get(
-		IdentifierT id)
+ResourceT& ResourceHolder<ResourceT, IdentifierT>::get(IdentifierT id)
 {
 	auto found = mTextureMap.find(id);
 	assert(mTextureMap.end() != found);
@@ -59,13 +74,14 @@ ResourceT& sfml_playground::ResourceHolder<ResourceT, IdentifierT>::get(
 }
 
 template<typename ResourceT, typename IdentifierT>
-const ResourceT& sfml_playground::ResourceHolder<ResourceT, IdentifierT>::get(
-		IdentifierT id) const
+const ResourceT& ResourceHolder<ResourceT, IdentifierT>::get(IdentifierT id) const
 {
 	auto found = mTextureMap.find(id);
 	assert(mTextureMap.end() != found);
 
 	return *found->second;
 }
+
+} /* namespace sfml_playground */
 
 #endif /* RESOURCE_MGMT_RESOURCEHOLDER_HPP_ */
