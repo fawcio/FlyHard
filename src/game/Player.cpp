@@ -19,7 +19,7 @@ Player::Player() : mWindow(nullptr), mTexture()
 	isMovingLeft = false;
 	isMovingRight = false;
 
-	if (!mTexture.loadFromFile("Resources/F-22.png"))
+	if (!mTexture.loadFromFile("Resources/images/F-22.png"))
 	{
 		abort();
 	}

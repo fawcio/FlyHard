@@ -15,7 +15,7 @@ namespace sfml_playground
 
 FPS::FPS(sf::RenderWindow* window) : mTimer(this, 500)
 {
-	if (!mFont.loadFromFile("/usr/share/fonts/TTF/DejaVuSansMono.ttf"))
+	if (!mFont.loadFromFile("./Resources/fonts/DejaVuSansMono.ttf"))
 	{
 		throw new std::runtime_error("Could not load font DejaVuSansMono for FPS");
 	}

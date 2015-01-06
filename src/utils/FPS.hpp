@@ -18,7 +18,7 @@
 namespace sfml_playground
 {
 
-class FPS: public IDrawable, IUpdateable
+class FPS : public IDrawable, IUpdateable
 {
 public:
 	FPS(sf::RenderWindow* window);

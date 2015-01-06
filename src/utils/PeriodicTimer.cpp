@@ -24,9 +24,9 @@ PeriodicTimer::~PeriodicTimer()
 bool PeriodicTimer::start()
 {
 	mAsioTimer->async_wait(boost::bind(&PeriodicTimer::periodicEvent, this));
-	mWorker = std::thread([this]()->void{
-		this->mIoService.run();
-	});
+	mWorker = std::thread([this]()->void {
+			this->mIoService.run();
+		});
 
 	return true;
 }
