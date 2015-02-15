@@ -5,9 +5,10 @@
  *      Author: slawek
  */
 
-#include <Entity.hpp>
+#include "Entity.hpp"
 
 namespace sfml_playground
 {
+
 
 } /* namespace sfml_playground */

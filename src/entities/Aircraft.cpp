@@ -5,7 +5,7 @@
  *      Author: slawek
  */
 
-#include <Aircraft.hpp>
+#include "Aircraft.hpp"
 
 namespace sfml_playground
 {

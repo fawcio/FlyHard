@@ -8,7 +8,7 @@
 #ifndef ENTITIES_AIRCRAFT_HPP_
 #define ENTITIES_AIRCRAFT_HPP_
 
-#include <Entity.hpp>
+#include "Entity.hpp"
 
 namespace sfml_playground
 {

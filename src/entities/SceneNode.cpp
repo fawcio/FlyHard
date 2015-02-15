@@ -5,7 +5,7 @@
  *      Author: slawek
  */
 
-#include <SceneNode.hpp>
+#include "SceneNode.hpp"
 
 namespace sfml_playground
 {
