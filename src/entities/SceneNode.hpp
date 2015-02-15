@@ -10,11 +10,12 @@
 
 #include <memory>
 #include <vector>
+#include <SFML/Graphics.hpp>
 
 namespace sfml_playground
 {
 
-class SceneNode
+class SceneNode : public sf::Drawable, public sf::Transformable, private sf::NonCopyable
 {
 public:
 	using SceneNodePtr = std::unique_ptr<SceneNode>;
@@ -27,6 +28,16 @@ public:
 
 	void			attachChild(SceneNodePtr child);
 	SceneNodePtr	detachChild(const SceneNode& node);
+
+	void			update();
+
+private:
+	virtual void	draw(sf::RenderTarget& target, sf::RenderStates states) const final;
+	virtual void	drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
+	void			drawChildren(sf::RenderTarget& target, sf::RenderStates states) const;
+
+	virtual void	updateCurrent();
+	void			updateChildren();
 
 private:
 	std::vector<SceneNodePtr>	mChildren;

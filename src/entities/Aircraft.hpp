@@ -9,6 +9,8 @@
 #define ENTITIES_AIRCRAFT_HPP_
 
 #include "Entity.hpp"
+#include <SFML/Graphics.hpp>
+#include "ResourceHolder.hpp"
 
 namespace sfml_playground
 {
@@ -18,14 +20,17 @@ class Aircraft: public Entity
 public:
 	enum class Type
 	{
-		Eagle,
-		Raptor
+		eEagle,
+		eRaptor
 	};
 
-	explicit Aircraft(Type type) { mType = type; }
+	explicit 		Aircraft(Type type, TextureHolder& textures);
+
+	virtual void	drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
 
 private:
-	Type	mType;
+	Type		mType;
+	sf::Sprite	mSprite;
 };
 
 } /* namespace sfml_playground */

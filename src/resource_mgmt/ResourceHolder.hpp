@@ -35,7 +35,7 @@ public:
 	const ResourceT&	get(IdentifierT id) const;
 
 private:
-	std::map<IdentifierT, std::unique_ptr<ResourceT>> mTextureMap;
+	std::map<IdentifierT, std::unique_ptr<ResourceT>> mResourceMap;
 };
 
 template <typename ResourceT, typename IdentifierT>
@@ -46,7 +46,7 @@ void ResourceHolder<ResourceT, IdentifierT>::load(IdentifierT id, std::string& f
 	if (!resource->loadFromFile(filename))
 		throw new std::runtime_error("ResourceHolder::load - Failed to load: " + filename);
 
-	auto inserted = mTextureMap.insert(std::make_pair(id, std::move(resource)));
+	auto inserted = mResourceMap.insert(std::make_pair(id, std::move(resource)));
 	assert(true == inserted.second);
 }
 
@@ -60,15 +60,15 @@ void ResourceHolder<ResourceT, IdentifierT>::load(IdentifierT id, const std::str
 	if (!resource->loadFromFile(filename, secondParam))
 			throw new std::runtime_error("ResourceHolder::load - Failed to load: " + filename);
 
-	auto inserted = mTextureMap.insert(std::make_pair(id, std::move(resource)));
+	auto inserted = mResourceMap.insert(std::make_pair(id, std::move(resource)));
 		assert(true == inserted.second);
 }
 
 template<typename ResourceT, typename IdentifierT>
 ResourceT& ResourceHolder<ResourceT, IdentifierT>::get(IdentifierT id)
 {
-	auto found = mTextureMap.find(id);
-	assert(mTextureMap.end() != found);
+	auto found = mResourceMap.find(id);
+	assert(mResourceMap.end() != found);
 
 	return *found->second;
 }
@@ -76,11 +76,13 @@ ResourceT& ResourceHolder<ResourceT, IdentifierT>::get(IdentifierT id)
 template<typename ResourceT, typename IdentifierT>
 const ResourceT& ResourceHolder<ResourceT, IdentifierT>::get(IdentifierT id) const
 {
-	auto found = mTextureMap.find(id);
-	assert(mTextureMap.end() != found);
+	auto found = mResourceMap.find(id);
+	assert(mResourceMap.end() != found);
 
 	return *found->second;
 }
+
+using TextureHolder = ResourceHolder<sf::Texture, TextureID>;
 
 } /* namespace sfml_playground */
 

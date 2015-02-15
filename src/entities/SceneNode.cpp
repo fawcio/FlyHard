@@ -6,6 +6,8 @@
  */
 
 #include "SceneNode.hpp"
+#include <cassert>
+#include <algorithm>
 
 namespace sfml_playground
 {
@@ -22,7 +24,53 @@ void SceneNode::attachChild(SceneNodePtr child)
 
 SceneNode::SceneNodePtr SceneNode::detachChild(const SceneNode& node)
 {
-	return nullptr;
+	auto found = std::find_if(mChildren.begin(), mChildren.end(),
+			[&] (const SceneNodePtr& p) -> bool { return p.get() == &node; });
+	assert(mChildren.end() != found);
+
+	SceneNodePtr result = std::move(*found);
+	result->mParent = nullptr;
+	mChildren.erase(found);
+
+	return result;
+}
+
+void SceneNode::draw(sf::RenderTarget& target, sf::RenderStates states) const
+{
+	states.transform *= getTransform();
+
+	drawCurrent(target, states);
+	drawChildren(target, states);
+}
+
+void SceneNode::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
+{
+}
+
+void SceneNode::drawChildren(sf::RenderTarget& target, sf::RenderStates states) const
+{
+	for (const SceneNodePtr& child : mChildren)
+	{
+		child->draw(target, states);
+	}
+}
+
+void SceneNode::update()
+{
+	updateCurrent();
+	updateChildren();
+}
+
+void SceneNode::updateCurrent()
+{
+}
+
+void SceneNode::updateChildren()
+{
+	for (SceneNodePtr& child : mChildren)
+	{
+		child->update();
+	}
 }
 
 } /* namespace sfml_playground */
