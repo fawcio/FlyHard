@@ -8,10 +8,8 @@
 #ifndef GAME_HPP_
 #define GAME_HPP_
 #include <SFML/Graphics.hpp>
-#include <vector>
-#include "Player.hpp"
 #include "FPS.hpp"
-#include "ResourceHolder.hpp"
+#include "World.hpp"
 
 namespace sfml_playground
 {
@@ -23,10 +21,6 @@ public:
 
 	void run();
 
-	void addDrawable(IDrawable &drawable);
-
-	static const sf::Time cTimePerFrame;
-
 private:
 
 	void processEvents();
@@ -35,17 +29,14 @@ private:
 
 	void render();
 
-	void handlePlayerInput(const sf::Keyboard::Key key, bool isPressed);
+	//void handlePlayerInput(const sf::Keyboard::Key key, bool isPressed);
 
 private:
 
-	ResourceHolder<sf::Texture, TextureID> mTextureHolder;
+	sf::RenderWindow	mWindow;
+	World				mWorld;
 
-	sf::RenderWindow		mWindow;
-	std::vector<IDrawable*>	mDrawables;
-
-	Player					mPlayer;
-	FPS						mFps;
+//	FPS					mFps;
 };
 
 } /* namespace sfml_playground */

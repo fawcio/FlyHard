@@ -22,7 +22,7 @@ public:
 	sf::Vector2f	getVelocity() const { return mVelocity; }
 
 private:
-	virtual void 	updateCurrent();
+	virtual void 	updateCurrent() override;
 
 private:
 	sf::Vector2f	mVelocity;

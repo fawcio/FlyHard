@@ -6,14 +6,14 @@
  */
 
 #include "Entity.hpp"
-#include "Game.hpp"
+#include "World.hpp"
 
 namespace sfml_playground
 {
 
 void Entity::updateCurrent()
 {
-	move(mVelocity * Game::cTimePerFrame.asSeconds());
+	move(mVelocity * World::cTimePerFrame.asSeconds());
 }
 
 } /* namespace sfml_playground */

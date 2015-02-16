@@ -81,7 +81,7 @@ void Player::update()
 		movement.x += cSpeed;
 	}
 
-	mSprite.move(movement * static_cast<float>(Game::cTimePerFrame.asMilliseconds()));
+	//mSprite.move(movement * static_cast<float>(Game::cTimePerFrame.asMilliseconds()));
 }
 
 } /* namespace sfml_playground */

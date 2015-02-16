@@ -11,15 +11,10 @@
 namespace sfml_playground
 {
 
-const sf::Time Game::cTimePerFrame = sf::milliseconds(2);
-
-Game::Game() : mWindow(sf::VideoMode(1680, 1050), "SFML playground", sf::Style::Fullscreen), mPlayer(),
-		mFps(&mWindow)
+Game::Game() : mWindow(sf::VideoMode(1680, 1050), "SFML playground", sf::Style::Fullscreen),
+		mWorld(mWindow)
 {
-	addDrawable(mPlayer);
-	addDrawable(mFps);
 	mWindow.setFramerateLimit(100);
-
 }
 
 void Game::run()
@@ -29,18 +24,18 @@ void Game::run()
 
 	while (mWindow.isOpen())
 	{
-		processEvents();
+		//processEvents();
 		mWindow.clear();
 		timeSinceLastUpdate += clock.restart();
 
-		while (timeSinceLastUpdate > cTimePerFrame)
+		while (timeSinceLastUpdate > World::cTimePerFrame)
 		{
-			timeSinceLastUpdate -= cTimePerFrame;
-			processEvents();
+			timeSinceLastUpdate -= World::cTimePerFrame;
+			//processEvents();
 			update();
 		}
 		render();
-		mFps++;
+//		mFps++;
 	}
 }
 
@@ -52,10 +47,10 @@ void Game::processEvents()
 		switch (event.type)
 		{
 		case sf::Event::KeyPressed:
-			handlePlayerInput(event.key.code, true);
+//			handlePlayerInput(event.key.code, true);
 			break;
 		case sf::Event::KeyReleased:
-			handlePlayerInput(event.key.code, false);
+//			handlePlayerInput(event.key.code, false);
 			if(sf::Keyboard::Escape == event.key.code)
 			{
 				mWindow.close();
@@ -72,43 +67,32 @@ void Game::processEvents()
 
 void Game::update()
 {
-	mPlayer.update();
 }
 
 void Game::render()
 {
-	for (IDrawable* drawable : mDrawables)
-	{
-		drawable->draw();
-	}
+	mWindow.display();
+	mWorld.draw();
+
+	mWindow.setView(mWindow.getDefaultView());
 	mWindow.display();
 }
 
-void Game::addDrawable(IDrawable& drawable)
-{
-	drawable.setWindow(&mWindow);
-	mDrawables.push_back(&drawable);
-}
-
-void Game::handlePlayerInput(const sf::Keyboard::Key key, bool isPressed)
-{
-	switch (key)
-	{
-	case sf::Keyboard::W:
-		mPlayer.setMovingUp(isPressed);
-		break;
-	case sf::Keyboard::S:
-		mPlayer.setMovingDown(isPressed);
-		break;
-	case sf::Keyboard::A:
-		mPlayer.setMovingLeft(isPressed);
-		break;
-	case sf::Keyboard::D:
-		mPlayer.setMovingRight(isPressed);
-		break;
-	default:
-		break;
-	}
-}
+//void Game::handlePlayerInput(const sf::Keyboard::Key key, bool isPressed)
+//{
+//	switch (key)
+//	{
+//	case sf::Keyboard::W:
+//		break;
+//	case sf::Keyboard::S:
+//		break;
+//	case sf::Keyboard::A:
+//		break;
+//	case sf::Keyboard::D:
+//		break;
+//	default:
+//		break;
+//	}
+//}
 
 } /* namespace sfml_playground */
