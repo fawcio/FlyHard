@@ -16,34 +16,24 @@ const sf::Time World::cTimePerFrame = sf::milliseconds(2);
 World::World(sf::RenderWindow& window) :
 		mWindow(window),
 		mWorldView(window.getDefaultView()),
-		mWorldBoudns(0.0f, 0.0f, mWorldView.getSize().x, 2000.0f),
+		mWorldBoudns(0.0f, 0.0f, mWorldView.getSize().x, 100000.0f),
 		mSpawnPosition(mWorldView.getSize().x / 2.0f, mWorldBoudns.height - mWorldView.getSize().y),
-				mPlayerAircraft(nullptr),
-		mScrollSpeed(0.1f)
+		mScrollSpeed(-400.0f),
+		mPlayerAircraft(nullptr)
 {
 	loadTextures();
 	buildScene();
 
-	mWorldView.setCenter(mSpawnPosition);
+	mWorldView.setCenter(mSpawnPosition - sf::Vector2f(0.0f, 300.0f));
 }
 
 World::~World()
 {
-	// TODO Auto-generated destructor stub
 }
 
 void World::update()
 {
 	mWorldView.move(0.0f, mScrollSpeed * cTimePerFrame.asSeconds());
-
-	sf::Vector2f position = mPlayerAircraft->getPosition();
-	sf::Vector2f velocity = mPlayerAircraft->getVelocity();
-
-	if (position.x <= mWorldBoudns.left + 150 || position.x >= mWorldBoudns.left + mWorldBoudns.width - 150)
-	{
-		velocity.x = -velocity.x;
-		mPlayerAircraft->setVelocity(velocity);
-	}
 
 	mScenGraph.update();
 }
@@ -83,7 +73,7 @@ void World::buildScene()
 	std::unique_ptr<Aircraft> leader(new Aircraft(Aircraft::Type::eRaptor, mTextures));
 	mPlayerAircraft = leader.get();
 	mPlayerAircraft->setPosition(mSpawnPosition);
-	mPlayerAircraft->setVelocity(40.0f, mScrollSpeed);
+	mPlayerAircraft->setVelocity(0.0f, mScrollSpeed);
 	mSceneLayers[static_cast<std::size_t>(LayerID::eAir)]
 	             ->attachChild(std::move(leader));
 }

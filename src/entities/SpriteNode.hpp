@@ -10,6 +10,7 @@
 
 #include "SceneNode.hpp"
 #include <SFML/Graphics.hpp>
+#include "ResourceHolder.hpp"
 
 namespace sfml_playground
 {
@@ -17,8 +18,7 @@ namespace sfml_playground
 class SpriteNode: public SceneNode
 {
 public:
-	explicit		SpriteNode(const sf::Texture& texture);
-					SpriteNode(const sf::Texture& texture, const sf::IntRect& rect);
+	explicit		SpriteNode(const sf::Texture& texture, const sf::IntRect& rect);
 	virtual 		~SpriteNode();
 
 private:

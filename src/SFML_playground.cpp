@@ -17,7 +17,7 @@ int main()
 
 	try
 	{
-		Game game;
+		Game game {sf::VideoMode::getDesktopMode()};
 		game.run();
 	}
 	catch (std::exception& e)

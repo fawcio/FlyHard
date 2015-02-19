@@ -24,7 +24,6 @@ TextureID getTextureId(Aircraft::Type type)
 }
 
 Aircraft::Aircraft(Type type, TextureHolder& textures) :
-		mType(type),
 		mSprite(textures.get(getTextureId(type)))
 {
 	sf::FloatRect bounds = mSprite.getLocalBounds();

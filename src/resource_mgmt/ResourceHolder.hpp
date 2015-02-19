@@ -47,6 +47,7 @@ void ResourceHolder<ResourceT, IdentifierT>::load(IdentifierT id, const std::str
 		throw new std::runtime_error("ResourceHolder::load - Failed to load: " + filename);
 
 	auto inserted = mResourceMap.insert(std::make_pair(id, std::move(resource)));
+	(void)inserted;
 	assert(true == inserted.second);
 }
 

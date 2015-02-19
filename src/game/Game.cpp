@@ -7,13 +7,15 @@
 
 #include "Game.hpp"
 #include <iostream>
+#include <vector>
 
 namespace sfml_playground
 {
 
-Game::Game() : mWindow(sf::VideoMode(1680, 1050), "SFML playground", sf::Style::Fullscreen),
+Game::Game(const sf::VideoMode & vMode) : mWindow(vMode, "SFML playground", sf::Style::Fullscreen),
 		mWorld(mWindow)
 {
+
 	mWindow.setFramerateLimit(100);
 }
 
@@ -24,14 +26,13 @@ void Game::run()
 
 	while (mWindow.isOpen())
 	{
-		//processEvents();
-		mWindow.clear();
+		processEvents();
 		timeSinceLastUpdate += clock.restart();
 
 		while (timeSinceLastUpdate > World::cTimePerFrame)
 		{
 			timeSinceLastUpdate -= World::cTimePerFrame;
-			//processEvents();
+			processEvents();
 			update();
 		}
 		render();
@@ -67,14 +68,15 @@ void Game::processEvents()
 
 void Game::update()
 {
+	mWorld.update();
 }
 
 void Game::render()
 {
-	mWindow.display();
+	mWindow.clear();
 	mWorld.draw();
 
-	mWindow.setView(mWindow.getDefaultView());
+//	mWindow.setView(mWindow.getDefaultView());
 	mWindow.display();
 }
 
