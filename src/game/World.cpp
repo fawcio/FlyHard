@@ -5,8 +5,10 @@
  *      Author: slawek
  */
 
+#include <cassert>
 #include "World.hpp"
 #include "SpriteNode.hpp"
+#include "FPS.hpp"
 
 namespace sfml_playground
 {
@@ -53,7 +55,8 @@ void World::loadTextures()
 
 void World::buildScene()
 {
-	for (std::size_t i=0; i < cLayerCount; ++i)
+	// Add layers to scene graph
+	for (std::size_t i=0; i < LayerID::eLayerCount; ++i)
 	{
 		SceneNode::SceneNodePtr layer(new SceneNode());
 		mSceneLayers[i] = layer.get();
@@ -65,16 +68,20 @@ void World::buildScene()
 	sf::IntRect  textureRect(mWorldBoudns);
 	texture.setRepeated(true);
 
+	std::unique_ptr<FPS> fpsMeter(new FPS());
+	mSceneLayers[LayerID::eForeground]
+				 ->attachChild(std::move(fpsMeter));
+
 	std::unique_ptr<SpriteNode> backgroundSprite(new SpriteNode(texture, textureRect));
 	backgroundSprite->setPosition(mWorldBoudns.left, mWorldBoudns.top);
-	mSceneLayers[static_cast<std::size_t>(LayerID::eBackground)]
+	mSceneLayers[LayerID::eBackground]
 	             ->attachChild(std::move(backgroundSprite));
 
 	std::unique_ptr<Aircraft> leader(new Aircraft(Aircraft::Type::eRaptor, mTextures));
 	mPlayerAircraft = leader.get();
 	mPlayerAircraft->setPosition(mSpawnPosition);
 	mPlayerAircraft->setVelocity(0.0f, mScrollSpeed);
-	mSceneLayers[static_cast<std::size_t>(LayerID::eAir)]
+	mSceneLayers[LayerID::eAir]
 	             ->attachChild(std::move(leader));
 }
 

@@ -6,6 +6,7 @@
  */
 
 #include <string>
+#include <iostream>
 #include <exception>
 
 #include "FPS.hpp"
@@ -13,7 +14,7 @@
 namespace sfml_playground
 {
 
-FPS::FPS(sf::RenderWindow* window) : mTimer(this, 500)
+FPS::FPS() : mTimer(this, 500), mFrameCounter(0)
 {
 	if (!mFont.loadFromFile("./Resources/fonts/DejaVuSansMono.ttf"))
 	{
@@ -23,8 +24,7 @@ FPS::FPS(sf::RenderWindow* window) : mTimer(this, 500)
 	mText.setCharacterSize(12);
 	mText.setPosition(5.f, 5.f);
 	mText.setString("0 fps");
-	mText.setColor(sf::Color::White);
-	setWindow(window);
+	mText.setColor(sf::Color::Black);
 
 	mTimer.start();
 }
@@ -34,23 +34,19 @@ FPS::~FPS()
 	mTimer.stop();
 }
 
-void FPS::draw()
+void FPS::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	mWindow->draw(mText);
+	target.draw(mText, states);
+	std::cerr << "drawing FPS..." << std::endl;
 }
 
-void FPS::setWindow(sf::RenderWindow* window)
-{
-	mWindow = window;
-}
-
-int FPS::operator ++(int)
+int FPS::operator++(int)
 {
 	this->mFrameCounter++;
 	return mFrameCounter;
 }
 
-void FPS::update()
+void FPS::updateCurrent()
 {
 	std::string fpsStr = std::to_string(2*mFrameCounter);
 	mFrameCounter = 0;

@@ -11,8 +11,8 @@
 namespace sfml_playground
 {
 
-PeriodicTimer::PeriodicTimer(IUpdateable* const updateable, const unsigned int milliseconds)
-	: mUpdateable(updateable), mIoService(), mMilliseconds(milliseconds)
+PeriodicTimer::PeriodicTimer(SceneNode* const updateable, const unsigned int milliseconds)
+	: mNode(updateable), mIoService(), mMilliseconds(milliseconds)
 {
 	mAsioTimer = new boost::asio::deadline_timer(mIoService, boost::posix_time::milliseconds(mMilliseconds));
 }
@@ -41,7 +41,7 @@ bool PeriodicTimer::stop()
 
 void PeriodicTimer::periodicEvent()
 {
-	mUpdateable->update();
+	mNode->update();
 	mAsioTimer->expires_at(mAsioTimer->expires_at() + boost::posix_time::milliseconds(mMilliseconds));
 	mAsioTimer->async_wait(boost::bind(&PeriodicTimer::periodicEvent, this));
 }

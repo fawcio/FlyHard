@@ -12,10 +12,9 @@
 namespace sfml_playground
 {
 
-Game::Game(const sf::VideoMode & vMode) : mWindow(vMode, "SFML playground", sf::Style::Fullscreen),
+Game::Game(const sf::VideoMode & vMode) : mWindow(vMode, "SFML playground", sf::Style::Default),
 		mWorld(mWindow)
 {
-
 	mWindow.setFramerateLimit(100);
 }
 

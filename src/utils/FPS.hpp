@@ -10,34 +10,29 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "IDrawable.hpp"
-#include "IUpdateable.hpp"
+#include "SceneNode.hpp"
 #include "PeriodicTimer.hpp"
 
 
 namespace sfml_playground
 {
 
-class FPS : public IDrawable, IUpdateable
+class FPS : public SceneNode
 {
 public:
-	FPS(sf::RenderWindow* window);
+	FPS();
 	virtual ~FPS();
 
-	virtual void draw();
-
-	void setWindow(sf::RenderWindow* window);
-
-	int operator ++(int);
-
-	virtual void update();
+	int 			operator++(int);
 
 private:
+	virtual void	drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const override;
+	virtual void	updateCurrent() override;
 
+private:
 	PeriodicTimer		mTimer;
 	int					mFrameCounter;
 
-	sf::RenderWindow*	mWindow;
 	sf::Font			mFont;
 	sf::Text			mText;
 };

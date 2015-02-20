@@ -32,16 +32,16 @@ private:
 	void			buildScene();
 
 private:
-	enum class LayerID : std::size_t
+	enum LayerID : std::size_t
 	{
 		eBackground,
 		eAir,
+		eForeground,
 		eLayerCount
 	};
 
 public:
 	static const sf::Time cTimePerFrame;
-	static const std::size_t cLayerCount = static_cast<std::size_t>(LayerID::eLayerCount);
 
 private:
 
@@ -51,7 +51,7 @@ private:
 	sf::View				mWorldView;
 	TextureHolder			mTextures;
 	SceneNode				mScenGraph;
-	std::array<SceneNode*, cLayerCount> mSceneLayers;
+	std::array<SceneNode*, LayerID::eLayerCount> mSceneLayers;
 
 	sf::FloatRect			mWorldBoudns;
 	sf::Vector2f			mSpawnPosition;

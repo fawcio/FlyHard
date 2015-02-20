@@ -12,7 +12,7 @@
 #include <boost/bind.hpp>
 #include <boost/asio.hpp>
 
-#include "IUpdateable.hpp"
+#include "SceneNode.hpp"
 
 namespace sfml_playground
 {
@@ -20,7 +20,7 @@ namespace sfml_playground
 class PeriodicTimer
 {
 public:
-	PeriodicTimer(IUpdateable* const updateable, const unsigned int milliseconds);
+	PeriodicTimer(SceneNode* const node, const unsigned int milliseconds);
 	virtual ~PeriodicTimer();
 	bool start();
 	bool stop();
@@ -29,7 +29,7 @@ public:
 
 private:
 
-	IUpdateable*					mUpdateable;
+	SceneNode*						mNode;
 
 	std::thread						mWorker;
 

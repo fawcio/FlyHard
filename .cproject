@@ -104,13 +104,54 @@
 							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.966718485" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.1908967915">
 								<option id="llvm.c_cpp.compiler.option.include.paths.1467269228" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/resource_mgmt}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/interface}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/game}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/utils}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.1643670197" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
 							</tool>
+						</toolChain>
+					</folderInfo>
+					<folderInfo id="cdt.managedbuild.config.llvm.clang.linux.exe.debug.1482127535.1845611827" name="/" resourcePath="src/resource_mgmt">
+						<toolChain id="cdt.managedbuild.toolchain.llvm.clang.linux.exe.debug.868005539" name="LLVM with Clang (Linux)" superClass="cdt.managedbuild.toolchain.llvm.clang.linux.exe.debug" unusedChildren="">
+							<targetPlatform archList="all" id="cdt.managedbuild.target.llvm.clang.linux.platform.exe.debug" name="Debug Platform" osList="linux,hpux,aix,qnx" superClass="cdt.managedbuild.target.llvm.clang.linux.platform.exe.debug"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.debug.1166973321" name="LLVM assembler" superClass="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.debug.635344241"/>
+							<tool id="cdt.managedbuild.tool.llvm.archiver.base.1782161821" name="LLVM archiver" superClass="cdt.managedbuild.tool.llvm.archiver.base.834540421"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.compiler.exe.debug.1688051414" name="LLVM Clang" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.compiler.exe.debug.1402715890">
+								<inputType id="cdt.managedbuild.tool.llvm.c.compiler.input.1898710130" superClass="cdt.managedbuild.tool.llvm.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.526390535" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.1908967915">
+								<option id="llvm.c_cpp.compiler.option.include.paths.1044989639" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/resource_mgmt}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/game}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/utils}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.1719687108" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.debug.287203184" name="LLVM C linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.debug.851779676"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.debug.254254426" name="LLVM C++ linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.debug.109625626"/>
+						</toolChain>
+					</folderInfo>
+					<folderInfo id="cdt.managedbuild.config.llvm.clang.linux.exe.debug.1482127535.531431695" name="/" resourcePath="src/entities">
+						<toolChain id="cdt.managedbuild.toolchain.llvm.clang.linux.exe.debug.580191843" name="LLVM with Clang (Linux)" superClass="cdt.managedbuild.toolchain.llvm.clang.linux.exe.debug" unusedChildren="">
+							<targetPlatform archList="all" id="cdt.managedbuild.target.llvm.clang.linux.platform.exe.debug" name="Debug Platform" osList="linux,hpux,aix,qnx" superClass="cdt.managedbuild.target.llvm.clang.linux.platform.exe.debug"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.debug.1034273935" name="LLVM assembler" superClass="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.debug.635344241"/>
+							<tool id="cdt.managedbuild.tool.llvm.archiver.base.506867437" name="LLVM archiver" superClass="cdt.managedbuild.tool.llvm.archiver.base.834540421"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.compiler.exe.debug.1047495099" name="LLVM Clang" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.compiler.exe.debug.1402715890">
+								<inputType id="cdt.managedbuild.tool.llvm.c.compiler.input.1761502306" superClass="cdt.managedbuild.tool.llvm.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.114559280" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.1908967915">
+								<option id="llvm.c_cpp.compiler.option.include.paths.1377593313" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/resource_mgmt}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/game}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/utils}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.1388523705" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.debug.780715892" name="LLVM C linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.debug.851779676"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.debug.1899350176" name="LLVM C++ linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.debug.109625626"/>
 						</toolChain>
 					</folderInfo>
 					<folderInfo id="cdt.managedbuild.config.llvm.clang.linux.exe.debug.1482127535.1806543617" name="/" resourcePath="src/utils">
@@ -125,7 +166,6 @@
 							</tool>
 							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.1355622150" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.1010640109">
 								<option id="llvm.c_cpp.compiler.option.include.paths.416281967" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/interface}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.1385257521" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
@@ -238,12 +278,53 @@
 							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.544603951" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.1199441504">
 								<option id="llvm.c_cpp.compiler.option.include.paths.1667016030" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/utils}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/interface}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/resource_mgmt}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.1139578244" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
 							</tool>
+						</toolChain>
+					</folderInfo>
+					<folderInfo id="cdt.managedbuild.config.llvm.clang.linux.exe.release.1933441567.1986576087" name="/" resourcePath="src/resource_mgmt">
+						<toolChain id="cdt.managedbuild.toolchain.llvm.clang.linux.exe.release.685056023" name="LLVM with Clang (Linux)" superClass="cdt.managedbuild.toolchain.llvm.clang.linux.exe.release" unusedChildren="">
+							<targetPlatform archList="all" id="cdt.managedbuild.target.llvm.clang.linux.platform.exe.release" name="Debug Platform" osList="linux,hpux,aix,qnx" superClass="cdt.managedbuild.target.llvm.clang.linux.platform.exe.release"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.release.809633112" name="LLVM assembler" superClass="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.release.264466181"/>
+							<tool id="cdt.managedbuild.tool.llvm.archiver.base.1417467901" name="LLVM archiver" superClass="cdt.managedbuild.tool.llvm.archiver.base.20431671"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.compiler.exe.release.1957489931" name="LLVM Clang" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.compiler.exe.release.1201500374">
+								<inputType id="cdt.managedbuild.tool.llvm.c.compiler.input.1182486205" superClass="cdt.managedbuild.tool.llvm.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.1730666868" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.229902483">
+								<option id="llvm.c_cpp.compiler.option.include.paths.1453860218" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/game}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/utils}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/resource_mgmt}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.1214037694" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.release.1624498538" name="LLVM C linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.release.1544041504"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.release.1559647220" name="LLVM C++ linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.release.683238577"/>
+						</toolChain>
+					</folderInfo>
+					<folderInfo id="cdt.managedbuild.config.llvm.clang.linux.exe.release.1933441567.169685467" name="/" resourcePath="src/entities">
+						<toolChain id="cdt.managedbuild.toolchain.llvm.clang.linux.exe.release.1404597836" name="LLVM with Clang (Linux)" superClass="cdt.managedbuild.toolchain.llvm.clang.linux.exe.release" unusedChildren="">
+							<targetPlatform archList="all" id="cdt.managedbuild.target.llvm.clang.linux.platform.exe.release" name="Debug Platform" osList="linux,hpux,aix,qnx" superClass="cdt.managedbuild.target.llvm.clang.linux.platform.exe.release"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.release.852186360" name="LLVM assembler" superClass="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.release.264466181"/>
+							<tool id="cdt.managedbuild.tool.llvm.archiver.base.971010804" name="LLVM archiver" superClass="cdt.managedbuild.tool.llvm.archiver.base.20431671"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.compiler.exe.release.1738777413" name="LLVM Clang" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.compiler.exe.release.1201500374">
+								<inputType id="cdt.managedbuild.tool.llvm.c.compiler.input.524326776" superClass="cdt.managedbuild.tool.llvm.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.84875842" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.229902483">
+								<option id="llvm.c_cpp.compiler.option.include.paths.1738519059" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/game}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/utils}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/resource_mgmt}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.1659630280" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.release.952039700" name="LLVM C linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.release.1544041504"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.release.1050540106" name="LLVM C++ linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.release.683238577"/>
 						</toolChain>
 					</folderInfo>
 					<folderInfo id="cdt.managedbuild.config.llvm.clang.linux.exe.release.1933441567.1763020350" name="/" resourcePath="src/utils">
@@ -258,7 +339,6 @@
 							</tool>
 							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.124423127" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.1199441504">
 								<option id="llvm.c_cpp.compiler.option.include.paths.1641506229" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/interface}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.665505077" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
@@ -376,13 +456,54 @@
 							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.1666610453" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.1837506348">
 								<option id="llvm.c_cpp.compiler.option.include.paths.1593659932" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/resource_mgmt}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/interface}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/game}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/utils}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.502757650" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
 							</tool>
+						</toolChain>
+					</folderInfo>
+					<folderInfo id="cdt.managedbuild.config.llvm.clang.linux.exe.debug.1482127535.1009998587.1561996476" name="/" resourcePath="src/resource_mgmt">
+						<toolChain id="cdt.managedbuild.toolchain.llvm.clang.linux.exe.debug.1829434349" name="LLVM with Clang (Linux)" superClass="cdt.managedbuild.toolchain.llvm.clang.linux.exe.debug" unusedChildren="">
+							<targetPlatform archList="all" id="cdt.managedbuild.target.llvm.clang.linux.platform.exe.debug" name="Debug Platform" osList="linux,hpux,aix,qnx" superClass="cdt.managedbuild.target.llvm.clang.linux.platform.exe.debug"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.debug.698176675" name="LLVM assembler" superClass="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.debug.1526813084"/>
+							<tool id="cdt.managedbuild.tool.llvm.archiver.base.1154668967" name="LLVM archiver" superClass="cdt.managedbuild.tool.llvm.archiver.base.576698056"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.compiler.exe.debug.367105343" name="LLVM Clang" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.compiler.exe.debug.1488222333">
+								<inputType id="cdt.managedbuild.tool.llvm.c.compiler.input.4896394" superClass="cdt.managedbuild.tool.llvm.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.814308934" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.1837506348">
+								<option id="llvm.c_cpp.compiler.option.include.paths.873470503" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/resource_mgmt}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/game}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/utils}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.613905884" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.debug.204833745" name="LLVM C linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.debug.598695429"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.debug.1611705610" name="LLVM C++ linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.debug.208547212"/>
+						</toolChain>
+					</folderInfo>
+					<folderInfo id="cdt.managedbuild.config.llvm.clang.linux.exe.debug.1482127535.1009998587.950433314" name="/" resourcePath="src/entities">
+						<toolChain id="cdt.managedbuild.toolchain.llvm.clang.linux.exe.debug.511440409" name="LLVM with Clang (Linux)" superClass="cdt.managedbuild.toolchain.llvm.clang.linux.exe.debug" unusedChildren="">
+							<targetPlatform archList="all" id="cdt.managedbuild.target.llvm.clang.linux.platform.exe.debug" name="Debug Platform" osList="linux,hpux,aix,qnx" superClass="cdt.managedbuild.target.llvm.clang.linux.platform.exe.debug"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.debug.691457236" name="LLVM assembler" superClass="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.debug.1526813084"/>
+							<tool id="cdt.managedbuild.tool.llvm.archiver.base.1683730953" name="LLVM archiver" superClass="cdt.managedbuild.tool.llvm.archiver.base.576698056"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.compiler.exe.debug.648416830" name="LLVM Clang" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.compiler.exe.debug.1488222333">
+								<inputType id="cdt.managedbuild.tool.llvm.c.compiler.input.89653815" superClass="cdt.managedbuild.tool.llvm.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.1122340641" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.1837506348">
+								<option id="llvm.c_cpp.compiler.option.include.paths.930943795" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/resource_mgmt}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/game}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/utils}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.87081" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.debug.1449075320" name="LLVM C linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.debug.598695429"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.debug.385601189" name="LLVM C++ linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.debug.208547212"/>
 						</toolChain>
 					</folderInfo>
 					<folderInfo id="cdt.managedbuild.config.llvm.clang.linux.exe.debug.1482127535.1009998587.src/utils" name="/" resourcePath="src/utils">
@@ -397,7 +518,6 @@
 							</tool>
 							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.1360172576" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.40164251">
 								<option id="llvm.c_cpp.compiler.option.include.paths.966011704" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/interface}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.985528503" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
@@ -511,12 +631,53 @@
 							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.1081951908" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.1998793817">
 								<option id="llvm.c_cpp.compiler.option.include.paths.1210480679" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/utils}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/interface}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/resource_mgmt}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.179534174" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
 							</tool>
+						</toolChain>
+					</folderInfo>
+					<folderInfo id="cdt.managedbuild.config.llvm.clang.linux.exe.release.1933441567.1925071417.1680536352" name="/" resourcePath="src/resource_mgmt">
+						<toolChain id="cdt.managedbuild.toolchain.llvm.clang.linux.exe.release.2038802787" name="LLVM with Clang (Linux)" superClass="cdt.managedbuild.toolchain.llvm.clang.linux.exe.release" unusedChildren="">
+							<targetPlatform archList="all" id="cdt.managedbuild.target.llvm.clang.linux.platform.exe.release" name="Debug Platform" osList="linux,hpux,aix,qnx" superClass="cdt.managedbuild.target.llvm.clang.linux.platform.exe.release"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.release.1492687352" name="LLVM assembler" superClass="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.release.1214609715"/>
+							<tool id="cdt.managedbuild.tool.llvm.archiver.base.939299026" name="LLVM archiver" superClass="cdt.managedbuild.tool.llvm.archiver.base.1437449303"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.compiler.exe.release.53685323" name="LLVM Clang" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.compiler.exe.release.1004632282">
+								<inputType id="cdt.managedbuild.tool.llvm.c.compiler.input.1176248343" superClass="cdt.managedbuild.tool.llvm.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.2141261838" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.1108347238">
+								<option id="llvm.c_cpp.compiler.option.include.paths.1755996882" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/game}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/utils}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/resource_mgmt}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.2016557191" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.release.693345748" name="LLVM C linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.release.1420279491"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.release.1110296597" name="LLVM C++ linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.release.793542039"/>
+						</toolChain>
+					</folderInfo>
+					<folderInfo id="cdt.managedbuild.config.llvm.clang.linux.exe.release.1933441567.1925071417.1939973794" name="/" resourcePath="src/entities">
+						<toolChain id="cdt.managedbuild.toolchain.llvm.clang.linux.exe.release.1886216098" name="LLVM with Clang (Linux)" superClass="cdt.managedbuild.toolchain.llvm.clang.linux.exe.release" unusedChildren="">
+							<targetPlatform archList="all" id="cdt.managedbuild.target.llvm.clang.linux.platform.exe.release" name="Debug Platform" osList="linux,hpux,aix,qnx" superClass="cdt.managedbuild.target.llvm.clang.linux.platform.exe.release"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.release.1134653219" name="LLVM assembler" superClass="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.release.1214609715"/>
+							<tool id="cdt.managedbuild.tool.llvm.archiver.base.1240180222" name="LLVM archiver" superClass="cdt.managedbuild.tool.llvm.archiver.base.1437449303"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.compiler.exe.release.724912773" name="LLVM Clang" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.compiler.exe.release.1004632282">
+								<inputType id="cdt.managedbuild.tool.llvm.c.compiler.input.1020469148" superClass="cdt.managedbuild.tool.llvm.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.96103892" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.1108347238">
+								<option id="llvm.c_cpp.compiler.option.include.paths.1097257038" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/game}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/utils}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/resource_mgmt}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.1492200178" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.release.942586979" name="LLVM C linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.release.1420279491"/>
+							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.release.126502176" name="LLVM C++ linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.release.793542039"/>
 						</toolChain>
 					</folderInfo>
 					<folderInfo id="cdt.managedbuild.config.llvm.clang.linux.exe.release.1933441567.1925071417.src/utils" name="/" resourcePath="src/utils">
@@ -531,7 +692,6 @@
 							</tool>
 							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.1404217796" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.1998793817">
 								<option id="llvm.c_cpp.compiler.option.include.paths.212099750" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/interface}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.77018635" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
