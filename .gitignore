@@ -26,3 +26,5 @@
 *.app
 /Release/
 /Debug/
+/Release64/
+/Debug64/
