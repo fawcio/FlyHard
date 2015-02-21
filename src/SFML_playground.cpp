@@ -7,20 +7,20 @@
 //============================================================================
 #include "Game.hpp"
 #include <iostream>
-//#include <X11/Xlib.h>
+#include <X11/Xlib.h>
 
 using namespace sfml_playground;
 class TestClass;
 
 int main()
 {
-//	XInitThreads();
+	XInitThreads();
 
 	try
 	{
 		// Run the game in default desktop resolution (and in fullscreen).
-		Game game {sf::VideoMode::getDesktopMode()};
-		//Game game {sf::VideoMode(1024, 600)};
+		Game game {sf::VideoMode::getDesktopMode(), sf::Style::Fullscreen};
+		//Game game {sf::VideoMode(1024, 600), sf::Style::Default};
 		game.run();
 	}
 	catch (std::exception& e)

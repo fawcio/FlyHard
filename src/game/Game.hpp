@@ -17,7 +17,7 @@ namespace sfml_playground
 class Game
 {
 public:
-	explicit Game(const sf::VideoMode& vMode);
+	explicit Game(const sf::VideoMode &, const unsigned int);
 
 	void run();
 

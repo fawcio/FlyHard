@@ -72,19 +72,22 @@ void World::buildScene()
 	backgroundSprite->setPosition(mWorldBoudns.left, mWorldBoudns.top);
 	mSceneLayers[LayerID::eBackground]->attachChild(std::move(backgroundSprite));
 
-	SceneNode::SceneNodePtr playerAircraft(new SceneNode());
+	std::unique_ptr<Entity> playerAircraft(new Entity());
 	playerAircraft->setPosition(mSpawnPosition);
-	mSceneLayers[LayerID::eAir]->attachChild(std::move(playerAircraft));
 
 	std::unique_ptr<Aircraft> raptor(new Aircraft(TextureID::eRaptor, mTextures));
 	std::unique_ptr<Aircraft> raptor_shadow(new Aircraft(TextureID::eRaptor_shadow, mTextures));
-	raptor_shadow->setPosition(-20.0f, 30.0f);
-	playerAircraft->attachChild(std::move(raptor_shadow));
-	playerAircraft->attachChild(std::move(raptor));
-
+	raptor_shadow->setPosition(-40.0f, 60.0f);
 	raptor->setVelocity(0.0f, mScrollSpeed);
 	raptor_shadow->setVelocity(0.0f, mScrollSpeed);
 	mPlayerAircraft = playerAircraft.get();
+
+	playerAircraft->attachChild(std::move(raptor_shadow));
+	playerAircraft->attachChild(std::move(raptor));
+
+	mSceneLayers[LayerID::eAir]->attachChild(std::move(playerAircraft));
+
+
 }
 
 } /* namespace sfml_playground */
