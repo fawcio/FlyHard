@@ -725,5 +725,11 @@
 	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.llvm.clang.linux.exe.debug.1482127535;cdt.managedbuild.config.llvm.clang.linux.exe.debug.1482127535.;cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.1010640109;cdt.managedbuild.tool.llvm.cpp.compiler.input.1337778102">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.llvm.ui.LLVMManagedMakePerProjectProfileClang++"/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.llvm.clang.linux.exe.release.1933441567;cdt.managedbuild.config.llvm.clang.linux.exe.release.1933441567.;cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.1199441504;cdt.managedbuild.tool.llvm.cpp.compiler.input.426170504">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.llvm.ui.LLVMManagedMakePerProjectProfileClang++"/>
+		</scannerConfigBuildInfo>
 	</storageModule>
 </cproject>

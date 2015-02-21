@@ -56,7 +56,7 @@ private:
 	sf::FloatRect			mWorldBoudns;
 	sf::Vector2f			mSpawnPosition;
 	float					mScrollSpeed;
-	Aircraft*				mPlayerAircraft;
+	SceneNode*				mPlayerAircraft;
 };
 
 } /* namespace sfml_playground */

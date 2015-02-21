@@ -10,21 +10,8 @@
 namespace sfml_playground
 {
 
-TextureID getTextureId(Aircraft::Type type)
-{
-	switch (type)
-	{
-	case Aircraft::Type::eEagle:
-		return TextureID::eEagle;
-	case Aircraft::Type::eRaptor:
-		return TextureID::eRaptor;
-	default:
-		return TextureID::eDefaultTextureId;
-	}
-}
-
-Aircraft::Aircraft(Type type, TextureHolder& textures) :
-		mSprite(textures.get(getTextureId(type)))
+Aircraft::Aircraft(TextureID type, TextureHolder& textures) :
+		mSprite(textures.get(type))
 {
 	sf::FloatRect bounds = mSprite.getLocalBounds();
 	mSprite.setOrigin(bounds.width/2.0f, bounds.height/2.0f);

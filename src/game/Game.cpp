@@ -12,10 +12,10 @@
 namespace sfml_playground
 {
 
-Game::Game(const sf::VideoMode & vMode) : mWindow(vMode, "SFML playground", sf::Style::Default),
+Game::Game(const sf::VideoMode & vMode) : mWindow(vMode, "SFML playground", sf::Style::Fullscreen),
 		mWorld(mWindow)
 {
-	mWindow.setFramerateLimit(100);
+	mWindow.setFramerateLimit(1000);
 }
 
 void Game::run()
@@ -35,7 +35,7 @@ void Game::run()
 			update();
 		}
 		render();
-//		mFps++;
+		mFps++;
 	}
 }
 
@@ -75,7 +75,8 @@ void Game::render()
 	mWindow.clear();
 	mWorld.draw();
 
-//	mWindow.setView(mWindow.getDefaultView());
+	mWindow.setView(mWindow.getDefaultView());
+	mWindow.draw(mFps, sf::RenderStates::Default);
 	mWindow.display();
 }
 

@@ -14,8 +14,8 @@ enum class TextureID
 {
 	eLandscape,
 	eMissle,
-	eEagle,
 	eRaptor,
+	eRaptor_shadow,
 	eDefaultTextureId
 };
 

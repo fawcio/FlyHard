@@ -36,7 +36,7 @@ private:
 	sf::RenderWindow	mWindow;
 	World				mWorld;
 
-//	FPS					mFps;
+	FPS					mFps;
 };
 
 } /* namespace sfml_playground */

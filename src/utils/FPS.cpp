@@ -21,10 +21,10 @@ FPS::FPS() : mTimer(this, 500), mFrameCounter(0)
 		throw new std::runtime_error("Could not load font DejaVuSansMono for FPS");
 	}
 	mText.setFont(mFont);
-	mText.setCharacterSize(12);
+	mText.setCharacterSize(14);
 	mText.setPosition(5.f, 5.f);
 	mText.setString("0 fps");
-	mText.setColor(sf::Color::Black);
+	mText.setColor(sf::Color::White);
 
 	mTimer.start();
 }
@@ -37,7 +37,6 @@ FPS::~FPS()
 void FPS::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	target.draw(mText, states);
-	std::cerr << "drawing FPS..." << std::endl;
 }
 
 int FPS::operator++(int)
