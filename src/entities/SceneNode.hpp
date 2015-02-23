@@ -18,16 +18,13 @@ namespace sfml_playground
 class SceneNode : public sf::Drawable, public sf::Transformable, private sf::NonCopyable
 {
 public:
-	using SceneNodePtr = std::unique_ptr<SceneNode>;
-
-public:
 					SceneNode();
 	virtual 		~SceneNode() = default;
 
 	SceneNode*		getParent() const { return mParent; }
 
-	void			attachChild(SceneNodePtr child);
-	SceneNodePtr	detachChild(const SceneNode& node);
+	void						attachChild(std::unique_ptr<SceneNode> child);
+	std::unique_ptr<SceneNode>	detachChild(const SceneNode& node);
 
 	void			update();
 
@@ -43,8 +40,8 @@ private:
 	void			updateChildren();
 
 private:
-	std::vector<SceneNodePtr>	mChildren;
-	SceneNode*					mParent;
+	std::vector<std::unique_ptr<SceneNode>>	mChildren;
+	SceneNode*								mParent;
 };
 
 } /* namespace sfml_playground */

@@ -58,7 +58,7 @@ void World::buildScene()
 	// Add layers to scene graph
 	for (std::size_t i=0; i < LayerID::eLayerCount; ++i)
 	{
-		SceneNode::SceneNodePtr layer(new SceneNode());
+		std::unique_ptr<SceneNode> layer(new SceneNode());
 		mSceneLayers[i] = layer.get();
 
 		mScenGraph.attachChild(std::move(layer));

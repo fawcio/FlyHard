@@ -10,7 +10,7 @@
 namespace sfml_playground
 {
 
-Aircraft::Aircraft(TextureID type, TextureHolder& textures) :
+Aircraft::Aircraft(const TextureID type, const TextureHolder& textures) :
 		mSprite(textures.get(type))
 {
 	sf::FloatRect bounds = mSprite.getLocalBounds();

@@ -19,7 +19,7 @@ class Aircraft: public Entity
 {
 public:
 
-	explicit 		Aircraft(TextureID type, TextureHolder& textures);
+	explicit 		Aircraft(const TextureID type, const TextureHolder& textures);
 
 	virtual void	drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const override;
 
