@@ -33,6 +33,7 @@ private:
 
 private:
 
+	bool				mIsPaused;
 	sf::RenderWindow	mWindow;
 	World				mWorld;
 

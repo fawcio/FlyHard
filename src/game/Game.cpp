@@ -12,7 +12,7 @@
 namespace sfml_playground
 {
 
-Game::Game(const sf::VideoMode & vMode, const unsigned int style) : mWindow(vMode, "SFML playground", style),
+Game::Game(const sf::VideoMode & vMode, const unsigned int style) : mIsPaused(false), mWindow(vMode, "SFML playground", style),
 		mWorld(mWindow)
 {
 	mWindow.setFramerateLimit(100);
@@ -25,8 +25,14 @@ void Game::run()
 
 	while (mWindow.isOpen())
 	{
+		if (mIsPaused)
+		{
+			processEvents();
+			continue;
+		}
 		processEvents();
 		timeSinceLastUpdate += clock.restart();
+		update();
 
 		while (timeSinceLastUpdate > World::cTimePerFrame)
 		{
@@ -54,6 +60,12 @@ void Game::processEvents()
 			break;
 		case sf::Event::Closed:
 			mWindow.close();
+			break;
+		case sf::Event::GainedFocus:
+			mIsPaused = false;
+			break;
+		case sf::Event::LostFocus:
+			mIsPaused = true;
 			break;
 		default:
 			break;

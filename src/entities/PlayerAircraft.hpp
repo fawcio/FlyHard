@@ -25,6 +25,8 @@ private:
 
 	virtual void 	updateCurrent() override;
 
+	void			move(const sf::Vector2f& offset);
+
 	sf::Sprite mRaptor;
 	sf::Sprite mShadow;
 };

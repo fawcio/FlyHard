@@ -34,7 +34,20 @@ void PlayerAircraft::drawCurrent(sf::RenderTarget& target,
 
 void PlayerAircraft::updateCurrent()
 {
-	move(getVelocity() * World::cTimePerFrame.asSeconds());
+	sf::Vector2f movement = getVelocity();
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		movement.x -= 300.f;
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		movement.x += 300.f;
+
+	move(movement * World::cTimePerFrame.asSeconds());
+}
+
+void PlayerAircraft::move(const sf::Vector2f& offset)
+{
+	//TODO Check bounds and collisions.
+	Entity::move(offset);
 }
 
 } //namespace sfml_playground
