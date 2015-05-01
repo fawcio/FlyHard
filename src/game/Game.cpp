@@ -46,11 +46,7 @@ void Game::processEvents()
 	{
 		switch (event.type)
 		{
-		case sf::Event::KeyPressed:
-//			handlePlayerInput(event.key.code, true);
-			break;
 		case sf::Event::KeyReleased:
-//			handlePlayerInput(event.key.code, false);
 			if(sf::Keyboard::Escape == event.key.code)
 			{
 				mWindow.close();
@@ -79,22 +75,5 @@ void Game::render()
 	mWindow.draw(mFps, sf::RenderStates::Default);
 	mWindow.display();
 }
-
-//void Game::handlePlayerInput(const sf::Keyboard::Key key, bool isPressed)
-//{
-//	switch (key)
-//	{
-//	case sf::Keyboard::W:
-//		break;
-//	case sf::Keyboard::S:
-//		break;
-//	case sf::Keyboard::A:
-//		break;
-//	case sf::Keyboard::D:
-//		break;
-//	default:
-//		break;
-//	}
-//}
 
 } /* namespace sfml_playground */

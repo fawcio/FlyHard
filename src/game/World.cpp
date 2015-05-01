@@ -8,6 +8,7 @@
 #include <cassert>
 #include "World.hpp"
 #include "SpriteNode.hpp"
+#include "PlayerAircraft.hpp"
 
 namespace sfml_playground
 {
@@ -72,18 +73,8 @@ void World::buildScene()
 	backgroundSprite->setPosition(mWorldBoudns.left, mWorldBoudns.top);
 	mSceneLayers[LayerID::eBackground]->attachChild(std::move(backgroundSprite));
 
-	std::unique_ptr<Entity> playerAircraft(new Entity());
-	playerAircraft->setPosition(mSpawnPosition);
-
-	std::unique_ptr<Aircraft> raptor(new Aircraft(TextureID::eRaptor, mTextures));
-	std::unique_ptr<Aircraft> raptor_shadow(new Aircraft(TextureID::eRaptor_shadow, mTextures));
-	raptor_shadow->setPosition(-40.0f, 60.0f);
-	raptor->setVelocity(0.0f, mScrollSpeed);
-	raptor_shadow->setVelocity(0.0f, mScrollSpeed);
+	std::unique_ptr<PlayerAircraft> playerAircraft { new PlayerAircraft {mSpawnPosition, mScrollSpeed, mTextures} };
 	mPlayerAircraft = playerAircraft.get();
-
-	playerAircraft->attachChild(std::move(raptor_shadow));
-	playerAircraft->attachChild(std::move(raptor));
 
 	mSceneLayers[LayerID::eAir]->attachChild(std::move(playerAircraft));
 

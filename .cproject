@@ -18,27 +18,38 @@
 					<folderInfo id="cdt.managedbuild.config.llvm.clang.linux.exe.debug.1482127535." name="/" resourcePath="">
 						<toolChain id="cdt.managedbuild.toolchain.llvm.clang.linux.exe.debug.2019655850" name="LLVM with Clang (Linux)" nonInternalBuilderId="cdt.managedbuild.builder.gnu.cross" superClass="cdt.managedbuild.toolchain.llvm.clang.linux.exe.debug">
 							<targetPlatform archList="all" id="cdt.managedbuild.target.llvm.clang.linux.platform.exe.debug.1323085166" name="Debug Platform" osList="linux,hpux,aix,qnx" superClass="cdt.managedbuild.target.llvm.clang.linux.platform.exe.debug"/>
-							<builder buildPath="${workspace_loc:/SFML_playground}/Debug32" enableCleanBuild="false" id="cdt.managedbuild.builder.gnu.cross.153021917" name="Gnu Make Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<builder buildPath="${workspace_loc:/SFML_playground}/Debug32" enableCleanBuild="false" id="cdt.managedbuild.builder.gnu.cross.153021917" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="cdt.managedbuild.builder.gnu.cross"/>
 							<tool id="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.debug.638989128" name="LLVM assembler" superClass="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.debug"/>
 							<tool id="cdt.managedbuild.tool.llvm.archiver.base.1909324342" name="LLVM archiver" superClass="cdt.managedbuild.tool.llvm.archiver.base"/>
 							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.debug.265414612" name="LLVM C linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.debug">
 								<option defaultValue="true" id="llvm.c.link.option.native.2131767513" name="Create native binary (with LLVM native code generator)" superClass="llvm.c.link.option.native" valueType="boolean"/>
 								<option defaultValue="false" id="llvm.c.link.option.nativeCBackEnd.249386106" name="Create native binary (with C backend code generator)" superClass="llvm.c.link.option.nativeCBackEnd" valueType="boolean"/>
+								<option id="llvm.c.link.option.libs.965959952" name="Libraries (-l)" superClass="llvm.c.link.option.libs" valueType="libs">
+									<listOptionValue builtIn="false" value="stdc++"/>
+									<listOptionValue builtIn="false" value="pthread"/>
+									<listOptionValue builtIn="false" value="X11"/>
+									<listOptionValue builtIn="false" value="boost_system"/>
+									<listOptionValue builtIn="false" value="sfml-system"/>
+									<listOptionValue builtIn="false" value="sfml-graphics"/>
+									<listOptionValue builtIn="false" value="sfml-window"/>
+								</option>
 							</tool>
 							<tool command="clang++" id="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.debug.1076208109" name="LLVM C++ linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.debug">
 								<option defaultValue="true" id="llvm.c.link.option.native.1980424254" name="Create native binary (with LLVM native code generator)" superClass="llvm.c.link.option.native" value="false" valueType="boolean"/>
 								<option defaultValue="false" id="llvm.c.link.option.nativeCBackEnd.1275284213" name="Create native binary (with C backend code generator)" superClass="llvm.c.link.option.nativeCBackEnd" valueType="boolean"/>
 								<option id="llvm.c.link.option.libs.1821396014" name="Libraries (-l)" superClass="llvm.c.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" value="stdc++"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="X11"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_system"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="sfml-system"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="sfml-graphics"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="sfml-window"/>
+									<listOptionValue builtIn="false" value="pthread"/>
+									<listOptionValue builtIn="false" value="X11"/>
+									<listOptionValue builtIn="false" value="boost_system"/>
+									<listOptionValue builtIn="false" value="sfml-system"/>
+									<listOptionValue builtIn="false" value="sfml-graphics"/>
+									<listOptionValue builtIn="false" value="sfml-window"/>
 								</option>
 								<option id="llvm.c.link.option.paths.1081636614" name="Library search path (-L)" superClass="llvm.c.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="/usr/lib/"/>
 									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-redhat-linux/4.9.2/32/"/>
+									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-linux-gnu/4.9/"/>
 								</option>
 								<option id="llvm.c.link.option.verbose.942146421" name="Verbose mode" superClass="llvm.c.link.option.verbose" value="false" valueType="boolean"/>
 								<inputType id="cdt.managedbuild.tool.llvm.c.linker.input.1249008981" superClass="cdt.managedbuild.tool.llvm.c.linker.input">
@@ -58,8 +69,10 @@
 								<option id="llvm.c_cpp.compiler.option.misc.other.646131075" name="Other flags" superClass="llvm.c_cpp.compiler.option.misc.other" value="-c -fmessage-length=0 -march=native --std=c++11" valueType="string"/>
 								<option id="llvm.c_cpp.compiler.option.preprocessor.def.2036095104" name="Defined symbols (-D)" superClass="llvm.c_cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__cplusplus=201103L"/>
+									<listOptionValue builtIn="false" value="__GXX_EXPERIMENTAL_CXX0X__"/>
 								</option>
 								<option id="llvm.c_cpp.compiler.option.warnings.allwarn.1290056502" name="All warnings (-Wall)" superClass="llvm.c_cpp.compiler.option.warnings.allwarn" value="true" valueType="boolean"/>
+								<option id="llvm.c_cpp.compiler.option.include.paths.239263815" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath"/>
 								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.1337778102" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
 							</tool>
 						</toolChain>
@@ -77,7 +90,6 @@
 							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.1908967915" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.1010640109">
 								<option id="llvm.c_cpp.compiler.option.include.paths.2025003241" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/resource_mgmt}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/interface}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/game}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/utils}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
@@ -197,21 +209,32 @@
 							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.release.21501578" name="LLVM C linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.release">
 								<option defaultValue="true" id="llvm.c.link.option.native.1925212491" name="Create native binary (with LLVM native code generator)" superClass="llvm.c.link.option.native" valueType="boolean"/>
 								<option defaultValue="false" id="llvm.c.link.option.nativeCBackEnd.1379743516" name="Create native binary (with C backend code generator)" superClass="llvm.c.link.option.nativeCBackEnd" valueType="boolean"/>
+								<option id="llvm.c.link.option.libs.1061721832" name="Libraries (-l)" superClass="llvm.c.link.option.libs" valueType="libs">
+									<listOptionValue builtIn="false" value="stdc++"/>
+									<listOptionValue builtIn="false" value="pthread"/>
+									<listOptionValue builtIn="false" value="X11"/>
+									<listOptionValue builtIn="false" value="boost_system"/>
+									<listOptionValue builtIn="false" value="sfml-system"/>
+									<listOptionValue builtIn="false" value="sfml-graphics"/>
+									<listOptionValue builtIn="false" value="sfml-window"/>
+								</option>
 							</tool>
 							<tool command="clang++" id="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.release.1147190885" name="LLVM C++ linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.release">
 								<option defaultValue="true" id="llvm.c.link.option.native.1237840624" name="Create native binary (with LLVM native code generator)" superClass="llvm.c.link.option.native" value="false" valueType="boolean"/>
 								<option defaultValue="false" id="llvm.c.link.option.nativeCBackEnd.1532268979" name="Create native binary (with C backend code generator)" superClass="llvm.c.link.option.nativeCBackEnd" valueType="boolean"/>
 								<option id="llvm.c.link.option.libs.1563534225" name="Libraries (-l)" superClass="llvm.c.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" value="stdc++"/>
+									<listOptionValue builtIn="false" value="pthread"/>
+									<listOptionValue builtIn="false" value="X11"/>
+									<listOptionValue builtIn="false" value="boost_system"/>
 									<listOptionValue builtIn="false" value="sfml-system"/>
 									<listOptionValue builtIn="false" value="sfml-graphics"/>
 									<listOptionValue builtIn="false" value="sfml-window"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_system"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="X11"/>
 								</option>
 								<option id="llvm.c.link.option.paths.252392201" name="Library search path (-L)" superClass="llvm.c.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="/usr/lib/"/>
 									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-redhat-linux/4.9.2/32/"/>
+									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-linux-gnu/4.9/"/>
 								</option>
 								<option id="llvm.c.link.option.verbose.1328539838" name="Verbose mode" superClass="llvm.c.link.option.verbose" value="false" valueType="boolean"/>
 								<inputType id="cdt.managedbuild.tool.llvm.c.linker.input.1484428934" superClass="cdt.managedbuild.tool.llvm.c.linker.input">
@@ -231,9 +254,11 @@
 								<option id="llvm.c_cpp.compiler.option.preprocessor.def.1570672769" name="Defined symbols (-D)" superClass="llvm.c_cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__cplusplus=201103L"/>
 									<listOptionValue builtIn="false" value="NDEBUG"/>
+									<listOptionValue builtIn="false" value="__GXX_EXPERIMENTAL_CXX0X__"/>
 								</option>
 								<option id="llvm.c_cpp.compiler.option.warnings.allwarn.511774724" name="All warnings (-Wall)" superClass="llvm.c_cpp.compiler.option.warnings.allwarn" value="true" valueType="boolean"/>
 								<option id="llvm.c_cpp.compiler.option.warnings.pedantic.1825756965" name="Pedantic (-pedantic)" superClass="llvm.c_cpp.compiler.option.warnings.pedantic" value="true" valueType="boolean"/>
+								<option id="llvm.c_cpp.compiler.option.include.paths.1909628628" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath"/>
 								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.426170504" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
 							</tool>
 						</toolChain>
@@ -251,7 +276,6 @@
 							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.229902483" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.1199441504">
 								<option id="llvm.c_cpp.compiler.option.include.paths.1311960285" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/game}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/interface}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/utils}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/resource_mgmt}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
@@ -362,35 +386,41 @@
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="64bit debug build" id="cdt.managedbuild.config.llvm.clang.linux.exe.debug.1482127535.1009998587" name="Debug64" parent="cdt.managedbuild.config.llvm.clang.linux.exe.debug">
 					<folderInfo id="cdt.managedbuild.config.llvm.clang.linux.exe.debug.1482127535.1009998587." name="/" resourcePath="">
-						<toolChain id="cdt.managedbuild.toolchain.llvm.clang.linux.exe.debug.1048839120" name="LLVM with Clang (Linux)" superClass="cdt.managedbuild.toolchain.llvm.clang.linux.exe.debug">
+						<toolChain id="cdt.managedbuild.toolchain.llvm.clang.linux.exe.debug.1048839120" name="LLVM with Clang (Linux)" nonInternalBuilderId="cdt.managedbuild.builder.gnu.cross" superClass="cdt.managedbuild.toolchain.llvm.clang.linux.exe.debug">
 							<targetPlatform archList="all" id="cdt.managedbuild.target.llvm.clang.linux.platform.exe.debug.1371428015" name="Debug Platform" osList="linux,hpux,aix,qnx" superClass="cdt.managedbuild.target.llvm.clang.linux.platform.exe.debug"/>
-							<builder buildPath="${workspace_loc:/SFML_playground}/Debug" enableCleanBuild="false" id="cdt.managedbuild.builder.gnu.cross.1338611233" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="cdt.managedbuild.builder.gnu.cross">
-								<outputEntries>
-									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Debug"/>
-									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Release"/>
-								</outputEntries>
-							</builder>
-							<tool id="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.debug.547458287" name="LLVM assembler" superClass="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.debug"/>
+							<builder buildPath="${workspace_loc:/SFML_playground}/Debug64" enableCleanBuild="false" id="cdt.managedbuild.builder.gnu.cross.1450305072" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<tool command="llvm-as" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" id="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.debug.547458287" name="LLVM assembler" superClass="cdt.managedbuild.tool.llvm.clang.linux.assembler.exe.debug"/>
 							<tool id="cdt.managedbuild.tool.llvm.archiver.base.1630440162" name="LLVM archiver" superClass="cdt.managedbuild.tool.llvm.archiver.base"/>
 							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.debug.1271922075" name="LLVM C linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.debug">
 								<option defaultValue="true" id="llvm.c.link.option.native.784985182" name="Create native binary (with LLVM native code generator)" superClass="llvm.c.link.option.native" valueType="boolean"/>
 								<option defaultValue="false" id="llvm.c.link.option.nativeCBackEnd.1809259127" name="Create native binary (with C backend code generator)" superClass="llvm.c.link.option.nativeCBackEnd" valueType="boolean"/>
+								<option id="llvm.c.link.option.libs.486607071" name="Libraries (-l)" superClass="llvm.c.link.option.libs" valueType="libs">
+									<listOptionValue builtIn="false" value="stdc++"/>
+									<listOptionValue builtIn="false" value="pthread"/>
+									<listOptionValue builtIn="false" value="X11"/>
+									<listOptionValue builtIn="false" value="boost_system"/>
+									<listOptionValue builtIn="false" value="sfml-system"/>
+									<listOptionValue builtIn="false" value="sfml-graphics"/>
+									<listOptionValue builtIn="false" value="sfml-window"/>
+								</option>
 							</tool>
 							<tool command="clang++" id="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.debug.461510006" name="LLVM C++ linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.debug">
 								<option defaultValue="true" id="llvm.c.link.option.native.9150653" name="Create native binary (with LLVM native code generator)" superClass="llvm.c.link.option.native" value="false" valueType="boolean"/>
 								<option defaultValue="false" id="llvm.c.link.option.nativeCBackEnd.622158068" name="Create native binary (with C backend code generator)" superClass="llvm.c.link.option.nativeCBackEnd" valueType="boolean"/>
 								<option id="llvm.c.link.option.libs.924360250" name="Libraries (-l)" superClass="llvm.c.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" value="stdc++"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="X11"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_system"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="sfml-system"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="sfml-graphics"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="sfml-window"/>
+									<listOptionValue builtIn="false" value="pthread"/>
+									<listOptionValue builtIn="false" value="X11"/>
+									<listOptionValue builtIn="false" value="boost_system"/>
+									<listOptionValue builtIn="false" value="sfml-system"/>
+									<listOptionValue builtIn="false" value="sfml-graphics"/>
+									<listOptionValue builtIn="false" value="sfml-window"/>
 								</option>
 								<option id="llvm.c.link.option.paths.1142313463" name="Library search path (-L)" superClass="llvm.c.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="/usr/lib/"/>
 									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-redhat-linux/4.9.2/"/>
 									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-redhat-linux/4.9.2/32/"/>
+									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-linux-gnu/4.9/"/>
 								</option>
 								<option id="llvm.c.link.option.verbose.2004419111" name="Verbose mode" superClass="llvm.c.link.option.verbose" value="false" valueType="boolean"/>
 								<inputType id="cdt.managedbuild.tool.llvm.c.linker.input.150267541" superClass="cdt.managedbuild.tool.llvm.c.linker.input">
@@ -410,8 +440,10 @@
 								<option id="llvm.c_cpp.compiler.option.misc.other.1062183590" name="Other flags" superClass="llvm.c_cpp.compiler.option.misc.other" value="-c -fmessage-length=0 -march=native --std=c++11" valueType="string"/>
 								<option id="llvm.c_cpp.compiler.option.preprocessor.def.770338085" name="Defined symbols (-D)" superClass="llvm.c_cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__cplusplus=201103L"/>
+									<listOptionValue builtIn="false" value="__GXX_EXPERIMENTAL_CXX0X__"/>
 								</option>
 								<option id="llvm.c_cpp.compiler.option.warnings.allwarn.1188914727" name="All warnings (-Wall)" superClass="llvm.c_cpp.compiler.option.warnings.allwarn" value="true" valueType="boolean"/>
+								<option id="llvm.c_cpp.compiler.option.include.paths.1408206552" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath"/>
 								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.1148073270" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
 							</tool>
 						</toolChain>
@@ -429,7 +461,6 @@
 							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.1837506348" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.40164251">
 								<option id="llvm.c_cpp.compiler.option.include.paths.721347313" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/resource_mgmt}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/interface}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/game}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/utils}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
@@ -549,22 +580,33 @@
 							<tool id="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.release.246321324" name="LLVM C linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.c.linker.exe.release">
 								<option defaultValue="true" id="llvm.c.link.option.native.1590349221" name="Create native binary (with LLVM native code generator)" superClass="llvm.c.link.option.native" valueType="boolean"/>
 								<option defaultValue="false" id="llvm.c.link.option.nativeCBackEnd.541509433" name="Create native binary (with C backend code generator)" superClass="llvm.c.link.option.nativeCBackEnd" valueType="boolean"/>
+								<option id="llvm.c.link.option.libs.1108901083" name="Libraries (-l)" superClass="llvm.c.link.option.libs" valueType="libs">
+									<listOptionValue builtIn="false" value="stdc++"/>
+									<listOptionValue builtIn="false" value="pthread"/>
+									<listOptionValue builtIn="false" value="X11"/>
+									<listOptionValue builtIn="false" value="boost_system"/>
+									<listOptionValue builtIn="false" value="sfml-system"/>
+									<listOptionValue builtIn="false" value="sfml-graphics"/>
+									<listOptionValue builtIn="false" value="sfml-window"/>
+								</option>
 							</tool>
 							<tool command="clang++" id="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.release.339450418" name="LLVM C++ linker" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.linker.exe.release">
 								<option defaultValue="true" id="llvm.c.link.option.native.1869308449" name="Create native binary (with LLVM native code generator)" superClass="llvm.c.link.option.native" value="false" valueType="boolean"/>
 								<option defaultValue="false" id="llvm.c.link.option.nativeCBackEnd.851482787" name="Create native binary (with C backend code generator)" superClass="llvm.c.link.option.nativeCBackEnd" valueType="boolean"/>
 								<option id="llvm.c.link.option.libs.79197899" name="Libraries (-l)" superClass="llvm.c.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" value="stdc++"/>
+									<listOptionValue builtIn="false" value="pthread"/>
+									<listOptionValue builtIn="false" value="X11"/>
+									<listOptionValue builtIn="false" value="boost_system"/>
 									<listOptionValue builtIn="false" value="sfml-system"/>
 									<listOptionValue builtIn="false" value="sfml-graphics"/>
 									<listOptionValue builtIn="false" value="sfml-window"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_system"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="X11"/>
 								</option>
 								<option id="llvm.c.link.option.paths.1035061258" name="Library search path (-L)" superClass="llvm.c.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="/usr/lib/"/>
 									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-redhat-linux/4.9.2/"/>
 									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-redhat-linux/4.9.2/32/"/>
+									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-linux-gnu/4.9/"/>
 								</option>
 								<option id="llvm.c.link.option.verbose.1966889800" name="Verbose mode" superClass="llvm.c.link.option.verbose" value="false" valueType="boolean"/>
 								<inputType id="cdt.managedbuild.tool.llvm.c.linker.input.2010652812" superClass="cdt.managedbuild.tool.llvm.c.linker.input">
@@ -584,9 +626,11 @@
 								<option id="llvm.c_cpp.compiler.option.preprocessor.def.480348953" name="Defined symbols (-D)" superClass="llvm.c_cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__cplusplus=201103L"/>
 									<listOptionValue builtIn="false" value="NDEBUG"/>
+									<listOptionValue builtIn="false" value="__GXX_EXPERIMENTAL_CXX0X__"/>
 								</option>
 								<option id="llvm.c_cpp.compiler.option.warnings.allwarn.664632334" name="All warnings (-Wall)" superClass="llvm.c_cpp.compiler.option.warnings.allwarn" value="true" valueType="boolean"/>
 								<option id="llvm.c_cpp.compiler.option.warnings.pedantic.1419390901" name="Pedantic (-pedantic)" superClass="llvm.c_cpp.compiler.option.warnings.pedantic" value="true" valueType="boolean"/>
+								<option id="llvm.c_cpp.compiler.option.include.paths.700388191" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath"/>
 								<inputType id="cdt.managedbuild.tool.llvm.cpp.compiler.input.908854837" superClass="cdt.managedbuild.tool.llvm.cpp.compiler.input"/>
 							</tool>
 						</toolChain>
@@ -604,7 +648,6 @@
 							<tool id="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.1108347238" name="LLVM Clang++" superClass="cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.1998793817">
 								<option id="llvm.c_cpp.compiler.option.include.paths.943544515" name="Include paths (-I)" superClass="llvm.c_cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/game}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/interface}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/utils}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/resource_mgmt}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SFML_playground/src/entities}&quot;"/>
@@ -721,6 +764,12 @@
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.llvm.clang.linux.exe.debug.1482127535;cdt.managedbuild.config.llvm.clang.linux.exe.debug.1482127535.;cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.1010640109;cdt.managedbuild.tool.llvm.cpp.compiler.input.1337778102">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.llvm.ui.LLVMManagedMakePerProjectProfileClang++"/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.llvm.clang.linux.exe.release.1933441567.1925071417;cdt.managedbuild.config.llvm.clang.linux.exe.release.1933441567.1925071417.;cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.1998793817;cdt.managedbuild.tool.llvm.cpp.compiler.input.908854837">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.llvm.ui.LLVMManagedMakePerProjectProfileClang++"/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.llvm.clang.linux.exe.debug.1482127535.1009998587;cdt.managedbuild.config.llvm.clang.linux.exe.debug.1482127535.1009998587.;cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.debug.40164251;cdt.managedbuild.tool.llvm.cpp.compiler.input.1148073270">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.llvm.ui.LLVMManagedMakePerProjectProfileClang++"/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.llvm.clang.linux.exe.release.1933441567;cdt.managedbuild.config.llvm.clang.linux.exe.release.1933441567.;cdt.managedbuild.tool.llvm.clang.linux.cpp.compiler.exe.release.1199441504;cdt.managedbuild.tool.llvm.cpp.compiler.input.426170504">

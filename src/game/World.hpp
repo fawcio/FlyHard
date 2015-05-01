@@ -13,7 +13,6 @@
 
 #include "ResourceHolder.hpp"
 #include "SceneNode.hpp"
-#include "Aircraft.hpp"
 
 namespace sfml_playground
 {
