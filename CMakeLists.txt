@@ -3,7 +3,6 @@ project( SFML_Playground )
 
 include( cmake/cmake_defines.cmake )
 
-add_definitions( __cplusplus=201103L )
 set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -march=native -std=c++11")
 
 include_directories( ./src )
