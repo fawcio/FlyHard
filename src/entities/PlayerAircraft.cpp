@@ -6,7 +6,7 @@
  */
 
 #include "PlayerAircraft.hpp"
-#include "World.hpp"
+#include "game/World.hpp"
 
 namespace sfml_playground
 {

@@ -11,8 +11,8 @@
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 
-#include "ResourceHolder.hpp"
-#include "SceneNode.hpp"
+#include "resource_mgmt/ResourceHolder.hpp"
+#include "entities/SceneNode.hpp"
 
 namespace sfml_playground
 {

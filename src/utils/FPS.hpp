@@ -10,7 +10,7 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "SceneNode.hpp"
+#include "entities/SceneNode.hpp"
 #include "PeriodicTimer.hpp"
 
 

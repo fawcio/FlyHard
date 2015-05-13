@@ -11,9 +11,14 @@
 #include <memory>
 #include <vector>
 #include <SFML/Graphics.hpp>
+#include "utils/Command.hpp"
+#include "utils/Category.hpp"
 
 namespace sfml_playground
 {
+
+// Forward declaration of SceneNode
+enum class Category;
 
 class SceneNode : public sf::Drawable, public sf::Transformable, private sf::NonCopyable
 {
@@ -22,6 +27,7 @@ public:
 	virtual 		~SceneNode() = default;
 
 	SceneNode*		getParent() const { return mParent; }
+	unsigned int	getCategory() const { return int(Category::Scene); }
 
 	void						attachChild(std::unique_ptr<SceneNode> child);
 	std::unique_ptr<SceneNode>	detachChild(const SceneNode& node);

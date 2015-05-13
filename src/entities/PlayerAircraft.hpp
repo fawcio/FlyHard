@@ -9,7 +9,7 @@
 #define ENTITIES_PLAYERAIRCRAFT_HPP_
 
 #include "Entity.hpp"
-#include "ResourceHolder.hpp"
+#include "resource_mgmt/ResourceHolder.hpp"
 
 namespace sfml_playground
 {

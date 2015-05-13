@@ -7,8 +7,8 @@
 
 #include <cassert>
 #include "World.hpp"
-#include "SpriteNode.hpp"
-#include "PlayerAircraft.hpp"
+#include "entities/SpriteNode.hpp"
+#include "entities/PlayerAircraft.hpp"
 
 namespace sfml_playground
 {
@@ -20,7 +20,7 @@ World::World(sf::RenderWindow& window) :
 		mWorldView(window.getDefaultView()),
 		mWorldBoudns(0.0f, 0.0f, mWorldView.getSize().x, 100000.0f),
 		mSpawnPosition(mWorldView.getSize().x / 2.0f, mWorldBoudns.height - 100.0f),
-		mScrollSpeed(-400.0f),
+		mScrollSpeed(-100.0f),
 		mPlayerAircraft(nullptr)
 {
 	loadTextures();

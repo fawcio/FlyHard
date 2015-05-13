@@ -5,17 +5,14 @@
 // Copyright   : 2014 All rights reserved
 // Description : Hello World in C++, Ansi-style
 //============================================================================
-#include "Game.hpp"
 #include <iostream>
-#include <X11/Xlib.h>
+#include "game/Game.hpp"
 
 using namespace sfml_playground;
 class TestClass;
 
 int main()
 {
-	XInitThreads();
-
 	try
 	{
 		// Run the game in default desktop resolution (and in fullscreen).

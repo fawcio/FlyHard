@@ -12,7 +12,7 @@
 #include <boost/bind.hpp>
 #include <boost/asio.hpp>
 
-#include "SceneNode.hpp"
+#include "entities/SceneNode.hpp"
 
 namespace sfml_playground
 {

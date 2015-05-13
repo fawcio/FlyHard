@@ -8,7 +8,7 @@
 #ifndef GAME_HPP_
 #define GAME_HPP_
 #include <SFML/Graphics.hpp>
-#include "FPS.hpp"
+#include "utils/FPS.hpp"
 #include "World.hpp"
 
 namespace sfml_playground
