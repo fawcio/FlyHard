@@ -1,4 +1,4 @@
-SfmlAddStaticModule( entities
+AddStaticModule( entities
   Entity.cpp
   PlayerAircraft.cpp
   SceneNode.cpp

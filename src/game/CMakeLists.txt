@@ -1,4 +1,4 @@
-SfmlAddStaticModule( game
+AddStaticModule( game
   Game.cpp
   World.cpp
 )

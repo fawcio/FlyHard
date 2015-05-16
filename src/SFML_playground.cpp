@@ -1,11 +1,12 @@
 //============================================================================
 // Name        : SFML_playground.cpp
 // Author      : Sławomir Cielepak
-// Version     :
+// Version     : 0.1
 // Copyright   : 2014 All rights reserved
-// Description : Hello World in C++, Ansi-style
+// Description : A simple game to test SFML library.
 //============================================================================
 #include <iostream>
+#include "utils/TypesAndTools.hpp"
 #include "game/Game.hpp"
 
 using namespace sfml_playground;

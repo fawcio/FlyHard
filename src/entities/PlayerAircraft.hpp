@@ -17,15 +17,17 @@ namespace sfml_playground
 class PlayerAircraft: public Entity
 {
 public:
-	explicit		PlayerAircraft(const sf::Vector2f& spawnPosition, const float scrollSpeed, const TextureHolder& textureHolder);
+	explicit			PlayerAircraft(const sf::Vector2f& spawnPosition, const float scrollSpeed, const TextureHolder& textureHolder);
 
-	virtual void	drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const override;
+	virtual CommandCategory	getCommandCategory() const { return CommandCategory {CommandCategory::ePlayerAircraft}; }
 
 private:
 
-	virtual void 	updateCurrent() override;
+	virtual void		drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const override;
 
-	void			move(const sf::Vector2f& offset);
+	virtual void 		updateCurrent() override;
+
+	void				move(const sf::Vector2f& offset);
 
 	sf::Sprite mRaptor;
 	sf::Sprite mShadow;

@@ -9,6 +9,7 @@
 #define UTILS_COMMAND_HPP_
 #include <functional>
 #include <SFML/System.hpp>
+#include <utils/CommandCategory.hpp>
 
 #include "entities/SceneNode.hpp"
 
@@ -18,13 +19,13 @@ namespace sfml_playground
 // Forward declaration of SceneNode
 class SceneNode;
 
-class Command
+struct Command
 {
-public:
-	Command()			= default;
+	Command();
 	virtual ~Command()	= default;
 
-	std::function<void(SceneNode&, sf::Time)> action;
+	std::function<void(const SceneNode&, sf::Time&)>	Action;
+	CommandCategory										Category;
 };
 
 } /* namespace sfml_playground */

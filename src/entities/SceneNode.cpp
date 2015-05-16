@@ -6,13 +6,14 @@
  */
 
 #include "SceneNode.hpp"
+#include "utils/TypesAndTools.hpp"
 #include <cassert>
 #include <algorithm>
 
 namespace sfml_playground
 {
 
-SceneNode::SceneNode() : mParent(nullptr)
+SceneNode::SceneNode() : mParent(nullptr), mForwardCommands(false)
 {
 }
 
@@ -45,6 +46,8 @@ void SceneNode::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 void SceneNode::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
 {
+	unused(target);
+	unused(states);
 }
 
 void SceneNode::drawChildren(sf::RenderTarget& target, sf::RenderStates states) const
@@ -89,4 +92,21 @@ void SceneNode::updateChildren()
 	}
 }
 
+void SceneNode::onCommand(const Command& command, sf::Time dt)
+{
+	if ( (command.Category & this->getCommandCategory()) )
+	{
+		command.Action(*this, dt);
+	}
+
+	if (mForwardCommands)
+	{
+		for (auto& child : mChildren)
+		{
+			child->onCommand(command, dt);
+		}
+	}
+}
+
 } /* namespace sfml_playground */
+

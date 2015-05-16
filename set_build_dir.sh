@@ -58,6 +58,9 @@ SOURCE_DIRECTORY=`pwd`
 mkdir -p $BUILD_DIRECTORY
 cd $BUILD_DIRECTORY
 
+#Soft link game resources
+ln -s $SOURCE_DIRECTORY/Resources $BUILD_DIRECTORY/Resources
+
 echo " Calling cmake ..."
 echo "cmake -G \"Eclipse CDT4 - Unix Makefiles\" -D CMAKE_BUILD_TYPE='$BUILD_TYPE_CMAKE $BUILD_DIRECTORY'"
 cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_ECLIPSE_VERSION=4.0 -D CMAKE_BUILD_TYPE=$BUILD_TYPE_CMAKE $BUILD_DIRECTORY $SOURCE_DIRECTORY

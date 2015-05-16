@@ -5,10 +5,12 @@
  *      Author: slawek
  */
 
+#include <utils/CommandCategory.hpp>
 #include <cassert>
 #include "World.hpp"
 #include "entities/SpriteNode.hpp"
 #include "entities/PlayerAircraft.hpp"
+#include "utils/TypesAndTools.hpp"
 
 namespace sfml_playground
 {
@@ -77,8 +79,6 @@ void World::buildScene()
 	mPlayerAircraft = playerAircraft.get();
 
 	mSceneLayers[LayerID::eAir]->attachChild(std::move(playerAircraft));
-
-
 }
 
 } /* namespace sfml_playground */
