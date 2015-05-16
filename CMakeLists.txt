@@ -4,9 +4,9 @@ project( SFML_Playground )
 include( cmake/cmake_defines.cmake )
 
 if( ${CMAKE_BUILD_TYPE} STREQUAL "Debug" )
-  set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -march=native -std=c++11")
+  set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -g3 -fstack-protector-all -march=native -std=c++11 -Wall -Wextra -pedantic -Werror" )
 elseif( ${CMAKE_BUILD_TYPE} STREQUAL "Release" )
-  set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -march=native -std=c++11")
+  set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -march=native -std=c++11 -Wall -Wextra -pedantic -Werror")
 endif()
 
 include_directories( ./src )
