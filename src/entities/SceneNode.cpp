@@ -13,7 +13,7 @@
 namespace sfml_playground
 {
 
-SceneNode::SceneNode() : mParent(nullptr), mForwardCommands(false)
+SceneNode::SceneNode() : mParent(nullptr)
 {
 }
 
@@ -92,19 +92,16 @@ void SceneNode::updateChildren()
 	}
 }
 
-void SceneNode::onCommand(const Command& command, sf::Time dt)
+void SceneNode::onCommand(const Command& command)
 {
 	if ( (command.Category & this->getCommandCategory()) )
 	{
-		command.Action(*this, dt);
+		command.Action(*this);
 	}
 
-	if (mForwardCommands)
+	for (auto& child : mChildren)
 	{
-		for (auto& child : mChildren)
-		{
-			child->onCommand(command, dt);
-		}
+		child->onCommand(command);
 	}
 }
 

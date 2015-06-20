@@ -37,6 +37,11 @@ World::~World()
 
 void World::update()
 {
+	while (!mCommandQueue.isEmpty())
+	{
+		mScenGraph.onCommand(mCommandQueue.pop());
+	}
+
 	mWorldView.move(0.0f, mScrollSpeed * cTimePerFrame.asSeconds());
 
 	mScenGraph.update();

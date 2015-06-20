@@ -10,7 +10,8 @@
 namespace sfml_playground
 {
 
-Command::Command() : Action( [](const SceneNode&, sf::Time&)->void {} ), Category(CommandCategory::eNone)
+Command::Command() :
+		Action([](const SceneNode&)->void{}), Category(CommandCategory::eNone)
 {
 }
 

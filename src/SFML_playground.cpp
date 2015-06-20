@@ -26,7 +26,7 @@ int main()
 		// Run the game in default desktop resolution (and in fullscreen).
 		//Game game {sf::VideoMode::getDesktopMode(), sf::Style::Fullscreen};
 
-		Game game {sf::VideoMode(1280, 800), sf::Style::Default};
+		Game game { sf::VideoMode(1280, 800), sf::Style::Default };
 		game.run();
 	}
 	catch (std::exception& e)
