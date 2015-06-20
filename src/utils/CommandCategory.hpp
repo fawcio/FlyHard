@@ -17,8 +17,8 @@ struct CommandCategory
 	{
 		eNone			= 0,
 		eScene			= 1,
-		ePlayerAircraft	= 1 << 1,
-		eEnemyAircraft	= 1 << 2
+		ePlayerAircraft	= 2,
+		eEnemyAircraft	= 4
 	} value;
 
 	explicit CommandCategory() : value(eNone) {}

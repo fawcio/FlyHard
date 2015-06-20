@@ -23,7 +23,8 @@ World::World(sf::RenderWindow& window) :
 		mWorldBoudns(0.0f, 0.0f, mWorldView.getSize().x, 100000.0f),
 		mSpawnPosition(mWorldView.getSize().x / 2.0f, mWorldBoudns.height - 100.0f),
 		mScrollSpeed(-100.0f),
-		mPlayerAircraft(nullptr)
+		mPlayerAircraft(nullptr),
+		mCommandQueue(new CommandQueue {})
 {
 	loadTextures();
 	buildScene();
@@ -37,6 +38,11 @@ World::~World()
 
 void World::update()
 {
+	while (!mCommandQueue->isEmpty())
+	{
+		mScenGraph.onCommand(mCommandQueue->pop());
+	}
+
 	mWorldView.move(0.0f, mScrollSpeed * cTimePerFrame.asSeconds());
 
 	mScenGraph.update();

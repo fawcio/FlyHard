@@ -13,6 +13,7 @@
 
 #include "resource_mgmt/ResourceHolder.hpp"
 #include "entities/SceneNode.hpp"
+#include "utils/CommandQueue.hpp"
 
 namespace sfml_playground
 {
@@ -25,6 +26,8 @@ public:
 
 	void			update();
 	void 			draw();
+
+	std::shared_ptr<CommandQueue> getCommandQueue() { return mCommandQueue; }
 
 private:
 	void			loadTextures();
@@ -43,9 +46,6 @@ public:
 	static const sf::Time cTimePerFrame;
 
 private:
-
-
-private:
 	sf::RenderWindow&		mWindow;
 	sf::View				mWorldView;
 	TextureHolder			mTextures;
@@ -56,6 +56,8 @@ private:
 	sf::Vector2f			mSpawnPosition;
 	float					mScrollSpeed;
 	SceneNode*				mPlayerAircraft;
+
+	std::shared_ptr<CommandQueue> mCommandQueue;
 };
 
 } /* namespace sfml_playground */

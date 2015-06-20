@@ -8,6 +8,8 @@
 #ifndef GAME_HPP_
 #define GAME_HPP_
 #include <SFML/Graphics.hpp>
+
+#include "Player.hpp"
 #include "utils/FPS.hpp"
 #include "World.hpp"
 
@@ -23,11 +25,13 @@ public:
 
 private:
 
-	void processEvents();
+	void processInput();
 
 	void update();
 
 	void render();
+
+	void pause(sf::Clock&);
 
 	//void handlePlayerInput(const sf::Keyboard::Key key, bool isPressed);
 
@@ -36,6 +40,7 @@ private:
 	bool				mIsPaused;
 	sf::RenderWindow	mWindow;
 	World				mWorld;
+	Player				mPlayer;
 
 	FPS					mFps;
 };

@@ -36,8 +36,7 @@ public:
 	sf::Transform				getWorldTransform() const;
 	sf::Vector2f				getWorldPosition() const;
 
-	void						onCommand(const Command& command, sf::Time dt);
-	void						setForwardCommands(bool fwd) { mForwardCommands = fwd; }
+	void						onCommand(const Command& command);
 
 private:
 	virtual void		draw(sf::RenderTarget& target, sf::RenderStates states) const final override;
@@ -50,7 +49,6 @@ private:
 private:
 	std::vector<std::unique_ptr<SceneNode>>	mChildren;
 	SceneNode*								mParent;
-	bool									mForwardCommands;
 };
 
 } /* namespace sfml_playground */
