@@ -31,6 +31,7 @@ target_link_libraries( SFML_Playground
   sfml-system
   sfml-window
   sfml-graphics
+  X11
 )
 
 endmacro( BuildProject )
