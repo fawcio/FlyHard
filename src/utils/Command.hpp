@@ -22,6 +22,7 @@ class SceneNode;
 
 struct Command
 {
+	Command(std::function<void(SceneNode&)>&& action, CommandCategory&& category);
 	Command();
 	virtual ~Command()	= default;
 

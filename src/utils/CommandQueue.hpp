@@ -21,7 +21,8 @@ public:
 	CommandQueue() 			= default;
 	virtual ~CommandQueue()	= default;
 
-	void	push(Command&& command) { mQueue.push(std::move(command)); }
+	void push(Command&& command) { mQueue.push(std::move(command)); }
+	void push(const Command& command) { mQueue.push(command); }
 
 	Command	pop();
 

@@ -33,7 +33,6 @@ public:
 	}
 
 private:
-
 	virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 	virtual void updateCurrent() override;
@@ -42,6 +41,7 @@ private:
 
 	sf::Sprite mRaptor;
 	sf::Sprite mShadow;
+	const sf::Vector2f mMaxVelocity;
 };
 
 
@@ -55,7 +55,7 @@ public:
 		aircraft.accelerate(mVelocity);
 	}
 private:
-		sf::Vector2f mVelocity;
+	sf::Vector2f mVelocity;
 };
 
 } //namespace sfml_playground

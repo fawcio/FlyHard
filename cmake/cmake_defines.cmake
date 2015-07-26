@@ -5,9 +5,13 @@ macro( CreateProject project_name project_main_src_file)
 
 project( ${project_name} )
 
-if( ${CMAKE_BUILD_TYPE} STREQUAL "Debug" )
+if( NOT ${CMAKE_BUILD_TYPE})
+  set( CMAKE_BUILD_TYPE "Debug" )
+endif()
+
+if( ${CMAKE_BUILD_TYPE} MATCHES "Debug" )
   set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -g3 -fstack-protector-all -march=native -std=c++11 -Wall -Wextra -pedantic -Werror" )
-elseif( ${CMAKE_BUILD_TYPE} STREQUAL "Release" )
+elseif( ${CMAKE_BUILD_TYPE} MATCHES "Release" )
   set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -march=native -std=c++11 -Wall -Wextra -pedantic -Werror")
 endif()
 
@@ -23,15 +27,8 @@ endmacro( CreateProject )
 ##
 macro( BuildProject project_name )
 
-target_link_libraries( SFML_Playground
+target_link_libraries( ${project_name}
   -Wl,--start-group ${PROJECT_MODULES} -Wl,--end-group
-  rt
-  pthread
-  boost_system
-  sfml-system
-  sfml-window
-  sfml-graphics
-  X11
 )
 
 endmacro( BuildProject )

@@ -10,4 +10,14 @@ add_subdirectory( src/entities )
 add_subdirectory( src/game )
 add_subdirectory( src/utils )
 
+target_link_libraries( SFML_Playground
+  rt
+  pthread
+  boost_system
+  sfml-system
+  sfml-window
+  sfml-graphics
+  X11
+)
+
 BuildProject( SFML_Playground )

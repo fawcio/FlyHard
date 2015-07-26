@@ -12,7 +12,9 @@ namespace sfml_playground
 {
 
 PlayerAircraft::PlayerAircraft(const sf::Vector2f& spawnPosition, const float scrollSpeed, const TextureHolder& textureHolder) :
-		mRaptor(textureHolder.get(TextureID::eRaptor)), mShadow(textureHolder.get(TextureID::eRaptor_shadow))
+		mRaptor(textureHolder.get(TextureID::eRaptor)),
+		mShadow(textureHolder.get(TextureID::eRaptor_shadow)),
+		mMaxVelocity(sf::Vector2f {5.0f,0.0f})
 {
 	sf::FloatRect bounds = mRaptor.getLocalBounds();
 	mRaptor.setOrigin(bounds.width/2.0f, bounds.height/2.0f);
@@ -34,14 +36,7 @@ void PlayerAircraft::drawCurrent(sf::RenderTarget& target,
 
 void PlayerAircraft::updateCurrent()
 {
-	sf::Vector2f movement = getVelocity();
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-		movement.x -= 300.f;
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-		movement.x += 300.f;
-
-	move(movement * World::cTimePerFrame.asSeconds());
+	move(getVelocity() * World::cTimePerFrame.asSeconds());
 }
 
 void PlayerAircraft::move(const sf::Vector2f& offset)
