@@ -20,9 +20,9 @@ Player::Player()
 	mKeyBinding[sf::Keyboard::Key::Space] = Action::eFirePrimary;
 	mKeyBinding[sf::Keyboard::Key::LControl] = Action::eFireSecondary;
 
-	mActionBinding[Action::eMoveLeft] = Command { derivedAction<PlayerAircraft>(AircraftMover(-0.5f, 0.0f)),
+	mActionBinding[Action::eMoveLeft] = Command { derivedAction<PlayerAircraft>(AircraftMover{-6.f}),
 										CommandCategory {CommandCategory::ePlayerAircraft} };
-	mActionBinding[Action::eMoveRight] = Command { derivedAction<PlayerAircraft>(AircraftMover(0.5f, 0.0f)),
+	mActionBinding[Action::eMoveRight] = Command { derivedAction<PlayerAircraft>(AircraftMover{6.f}),
 										 CommandCategory {CommandCategory::ePlayerAircraft} };
 }
 

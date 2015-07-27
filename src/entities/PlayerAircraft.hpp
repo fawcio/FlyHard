@@ -20,16 +20,23 @@ class PlayerAircraft: public Entity
 public:
 	explicit PlayerAircraft(const sf::Vector2f& spawnPosition,
 							const float scrollSpeed,
-							const TextureHolder& textureHolder);
+							const TextureHolder& textureHolder,
+							World* world);
 
 	virtual CommandCategory	getCommandCategory() const
 	{
 		return CommandCategory {CommandCategory::ePlayerAircraft};
 	}
 
-	void accelerate(const sf::Vector2f& velocity)
+	void accelerate(const float vX)
 	{
-		setVelocity(getVelocity() + velocity);
+		float newXVelocity = getVelocity().x + vX;
+		if (newXVelocity > mMaxVelocity )
+			setVelocity(sf::Vector2f{mMaxVelocity, getVelocity().y});
+		else if (newXVelocity < -mMaxVelocity)
+			setVelocity(sf::Vector2f{-mMaxVelocity, getVelocity().y});
+		else
+			setVelocity(sf::Vector2f{newXVelocity, getVelocity().y});
 	}
 
 private:
@@ -37,25 +44,27 @@ private:
 
 	virtual void updateCurrent() override;
 
-	void move(const sf::Vector2f& offset);
+	void move(float offsetX, float offsetY);
 
 	sf::Sprite mRaptor;
 	sf::Sprite mShadow;
-	const sf::Vector2f mMaxVelocity;
+	const float mMaxVelocity;
+
+	World* mWorld;
 };
 
 
 class AircraftMover
 {
 public:
-	AircraftMover(float vX, float vY) : mVelocity(vX, vY) {}
+	AircraftMover(float vX) : mVelocity(vX) {}
 
 	void operator() (PlayerAircraft& aircraft) const
 	{
 		aircraft.accelerate(mVelocity);
 	}
 private:
-	sf::Vector2f mVelocity;
+	float mVelocity;
 };
 
 } //namespace sfml_playground

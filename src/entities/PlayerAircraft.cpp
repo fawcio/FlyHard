@@ -11,10 +11,11 @@
 namespace sfml_playground
 {
 
-PlayerAircraft::PlayerAircraft(const sf::Vector2f& spawnPosition, const float scrollSpeed, const TextureHolder& textureHolder) :
+PlayerAircraft::PlayerAircraft(const sf::Vector2f& spawnPosition, const float scrollSpeed, const TextureHolder& textureHolder, World* world) :
 		mRaptor(textureHolder.get(TextureID::eRaptor)),
 		mShadow(textureHolder.get(TextureID::eRaptor_shadow)),
-		mMaxVelocity(sf::Vector2f {5.0f,0.0f})
+		mMaxVelocity(500.0f),
+		mWorld(world)
 {
 	sf::FloatRect bounds = mRaptor.getLocalBounds();
 	mRaptor.setOrigin(bounds.width/2.0f, bounds.height/2.0f);
@@ -36,13 +37,18 @@ void PlayerAircraft::drawCurrent(sf::RenderTarget& target,
 
 void PlayerAircraft::updateCurrent()
 {
-	move(getVelocity() * World::cTimePerFrame.asSeconds());
+	move(getVelocity().x * World::cTimePerFrame.asSeconds(),
+		 getVelocity().y * World::cTimePerFrame.asSeconds());
 }
 
-void PlayerAircraft::move(const sf::Vector2f& offset)
+void PlayerAircraft::move(float offsetX, float offsetY)
 {
-	//TODO Check bounds and collisions.
-	Entity::move(offset);
+	float newPosition = getPosition().x + offsetX;
+
+	if (newPosition > 0 && newPosition < mWorld->getWorldBounds().width)
+		Entity::move(offsetX, offsetY);
+	else
+		Entity::move(0.0f, offsetY);
 }
 
 } //namespace sfml_playground

@@ -29,6 +29,8 @@ public:
 
 	std::shared_ptr<CommandQueue> getCommandQueue() { return mCommandQueue; }
 
+	const sf::FloatRect& getWorldBounds() { return mWorldBoudns; }
+
 private:
 	void			loadTextures();
 	void			buildScene();

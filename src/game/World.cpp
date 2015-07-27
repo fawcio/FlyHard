@@ -81,7 +81,7 @@ void World::buildScene()
 	backgroundSprite->setPosition(mWorldBoudns.left, mWorldBoudns.top);
 	mSceneLayers[LayerID::eBackground]->attachChild(std::move(backgroundSprite));
 
-	std::unique_ptr<PlayerAircraft> playerAircraft { new PlayerAircraft {mSpawnPosition, mScrollSpeed, mTextures} };
+	std::unique_ptr<PlayerAircraft> playerAircraft { new PlayerAircraft {mSpawnPosition, mScrollSpeed, mTextures, this} };
 	mPlayerAircraft = playerAircraft.get();
 
 	mSceneLayers[LayerID::eAir]->attachChild(std::move(playerAircraft));
