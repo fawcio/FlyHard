@@ -9,6 +9,7 @@ CreateProject( SFML_Playground
 add_subdirectory( src/entities )
 add_subdirectory( src/game )
 add_subdirectory( src/utils )
+add_subdirectory( src/state_mgmt )
 
 target_link_libraries( SFML_Playground
   rt
