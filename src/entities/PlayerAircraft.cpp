@@ -48,7 +48,10 @@ void PlayerAircraft::move(float offsetX, float offsetY)
 	if (newPosition > 0 && newPosition < mWorld->getWorldBounds().width)
 		Entity::move(offsetX, offsetY);
 	else
+	{
 		Entity::move(0.0f, offsetY);
+		setVelocity(0.0f, mWorld->getScrollSpeed());
+	}
 }
 
 } //namespace sfml_playground
