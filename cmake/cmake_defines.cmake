@@ -6,7 +6,7 @@ macro( CreateProject project_name project_main_src_file)
 project( ${project_name} )
 
 if( NOT ${CMAKE_BUILD_TYPE})
-  set( CMAKE_BUILD_TYPE "Debug" )
+  set( CMAKE_BUILD_TYPE Debug )
 endif()
 
 if( ${CMAKE_BUILD_TYPE} MATCHES "Debug" )
