@@ -84,6 +84,7 @@ const ResourceT& ResourceHolder<ResourceT, IdentifierT>::get(IdentifierT id) con
 }
 
 using TextureHolder = ResourceHolder<sf::Texture, TextureID>;
+using FontHolder    = ResourceHolder<sf::Font, FontID>;
 
 } /* namespace sfml_playground */
 

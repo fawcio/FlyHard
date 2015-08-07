@@ -1,13 +1,14 @@
 ##
 # Create and set up basic project properties
 ##
-macro( CreateProject project_name version_major version_minor project_main_src_file)
+macro( CreateProject project_name version_major version_minor version_revison project_main_src_file)
 
 project( ${project_name} )
 
 set( PROJECT_NAME ${project_name} )
 set( PROJECT_VERSION_MAJOR ${version_major} )
 set( PROJECT_VERSION_MINOR ${version_minor} )
+set( PROJECT_VERSION_REVISION ${version_revison} )
 
 if( NOT ${CMAKE_BUILD_TYPE} OR ${CMAKE_BUILD_TYPE} STREQUAL "" )
   set( CMAKE_BUILD_TYPE Debug )

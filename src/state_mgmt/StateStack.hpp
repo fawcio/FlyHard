@@ -5,6 +5,11 @@
 
 #include "State.hpp"
 
+class State;
+
+namespace sfml_playground
+{
+
 class StateStack : private sf::NonCopyable
 {
 public:
@@ -18,5 +23,7 @@ public:
 public:
 	explicit StateStack();
 };
+
+}
 
 #endif // STATESTACK_HPP
