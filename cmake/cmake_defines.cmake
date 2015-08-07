@@ -9,7 +9,9 @@ if( NOT ${CMAKE_BUILD_TYPE})
   set( CMAKE_BUILD_TYPE Debug )
 endif()
 
-if( ${CMAKE_BUILD_TYPE} MATCHES "Debug" )
+message( STATUS "Configuring project ${project_name} for ${CMAKE_BUILD_TYPE} build" )
+
+if( ${CMAKE_BUILD_TYPE} MATCHES Debug )
   set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -g3 -fstack-protector-all -march=native -std=c++11 -Wall -Wextra -pedantic -Werror" )
 elseif( ${CMAKE_BUILD_TYPE} MATCHES "Release" )
   set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -march=native -std=c++11 -Wall -Wextra -pedantic -Werror")
@@ -26,6 +28,7 @@ endmacro( CreateProject )
 # Finish set up of a project
 ##
 macro( BuildProject project_name )
+message( STATUS "Linking modules with project ${project_name}" )
 
 target_link_libraries( ${project_name}
   -Wl,--start-group ${PROJECT_MODULES} -Wl,--end-group
@@ -38,6 +41,7 @@ endmacro( BuildProject )
 # Add a static project module.
 ##
 macro( AddStaticModule module_name )
+message( STATUS "Adding static module ${module_name}" )
 set( PROJECT_MODULES ${PROJECT_MODULES} ${module_name} PARENT_SCOPE)
 
 FOREACH(src_file ${ARGN})
@@ -47,3 +51,15 @@ ENDFOREACH()
 add_library( ${module_name} STATIC ${SRC_FILES} )
 
 endmacro( AddStaticModule )
+
+
+##
+# Create a symbolic link to Resources.
+##
+macro( LinkResources )
+message( STATUS "Linking Resources to build directory ${CMAKE_BINARY_DIR}" )
+execute_process(
+  COMMAND /usr/bin/ln -sf ${CMAKE_SOURCE_DIR}/Resources ${CMAKE_BINARY_DIR}/
+  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+)
+endmacro( LinkResources )

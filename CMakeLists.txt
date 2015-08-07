@@ -22,3 +22,5 @@ target_link_libraries( SFML_Playground
 )
 
 BuildProject( SFML_Playground )
+
+LinkResources()
