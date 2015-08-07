@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.1)
 
 include( cmake/cmake_defines.cmake )
 
@@ -11,16 +11,4 @@ add_subdirectory( src/game )
 add_subdirectory( src/utils )
 add_subdirectory( src/state_mgmt )
 
-target_link_libraries( SFML_Playground
-  rt
-  pthread
-  boost_system
-  sfml-system
-  sfml-window
-  sfml-graphics
-  X11
-)
-
 BuildProject( SFML_Playground )
-
-LinkResources()
