@@ -1,15 +1,11 @@
 cmake_minimum_required(VERSION 3.1)
 
-set(PROJECT_VERSION_MAJOR 0)
-set(PROJECT_VERSION_MINOR 1)
-configure_file(
-  "${PROJECT_SOURCE_DIR}/config.hpp.in"
-  "${PROJECT_BINARY_DIR}/config.hpp"
-)
-
 include( cmake/cmake_defines.cmake )
+include( cmake/external_libraries.cmake )
 
-CreateProject( SFML_Playground
+FindRequiredLibraries()
+
+CreateProject( SFML_Playground 0 1
   src/SFML_playground.cpp
 )
 
@@ -17,5 +13,8 @@ add_subdirectory( src/entities )
 add_subdirectory( src/game )
 add_subdirectory( src/utils )
 add_subdirectory( src/state_mgmt )
+add_subdirectory( src/resource_mgmt)
 
 BuildProject( SFML_Playground )
+
+SymLinkResources()

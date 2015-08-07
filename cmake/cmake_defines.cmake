@@ -1,29 +1,36 @@
 ##
 # Create and set up basic project properties
 ##
-macro( CreateProject project_name project_main_src_file)
+macro( CreateProject project_name version_major version_minor project_main_src_file)
 
 project( ${project_name} )
+
+set( PROJECT_NAME ${project_name} )
+set( PROJECT_VERSION_MAJOR ${version_major} )
+set( PROJECT_VERSION_MINOR ${version_minor} )
 
 if( NOT ${CMAKE_BUILD_TYPE} OR ${CMAKE_BUILD_TYPE} STREQUAL "" )
   set( CMAKE_BUILD_TYPE Debug )
 endif()
 
-message( STATUS "Configuring project ${project_name} for ${CMAKE_BUILD_TYPE} build" )
-
 if( ${CMAKE_BUILD_TYPE} MATCHES Debug )
   set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -g3 -fstack-protector-all -march=native -std=c++11 -Wall -Wextra -pedantic -Werror" )
 elseif( ${CMAKE_BUILD_TYPE} MATCHES Release )
   set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -march=native -std=c++11 -Wall -Wextra -pedantic -Werror")
+else()
+  message(ERROR "Unsupported build type ${CMAKE_BUILD_TYPE}")
 endif()
 
-FindRequiredLibraries()
+message( STATUS "Configuring project ${project_name} for ${CMAKE_BUILD_TYPE} build" )
+
+configure_file(
+  "${PROJECT_SOURCE_DIR}/config.hpp.in"
+  "${PROJECT_BINARY_DIR}/config.hpp"
+)
 
 include_directories( src )
 
 add_executable( ${project_name} ${project_main_src_file} )
-
-SymLinkResources()
 
 endmacro( CreateProject )
 
@@ -59,7 +66,7 @@ message( STATUS "Adding static module ${module_name}" )
 set( PROJECT_MODULES ${PROJECT_MODULES} ${module_name} PARENT_SCOPE)
 
 FOREACH(src_file ${ARGN})
-  set(SRC_FILES ${SRC_FILES} ${src_file})
+  set( SRC_FILES ${SRC_FILES} ${src_file} )
 ENDFOREACH()
 
 add_library( ${module_name} STATIC ${SRC_FILES} )
@@ -70,28 +77,18 @@ endmacro( AddStaticModule )
 
 
 
-
-
 ##
-# Find for required libraries
+# Add a collection of header files.
 ##
-macro( FindRequiredLibraries )
+macro( AddHeaderFiles target_name )
 
-set(THREADS_PREFER_PTHREAD_FLAG ON)
+FOREACH(hdr_file ${ARGN})
+  set( header_files ${header_files} ${hdr_file})
+ENDFOREACH()
 
-find_package(Threads REQUIRED)
-find_package(Boost 1.55 REQUIRED system)
-find_package(SFML  2.3  REQUIRED system window graphics network audio)
-find_package(X11   1.6  REQUIRED)
+add_custom_target( ${target_name} SOURCES ${header_files} )
 
-set(EXTERNAL_LIBRARIES
-  Threads::Threads
-  ${SFML_LIBRARIES}
-  ${Boost_LIBRARIES}
-  ${X11_LIBRARIES}
-)
-
-endmacro( FindRequiredLibraries )
+endmacro( AddHeaderFiles )
 
 
 
