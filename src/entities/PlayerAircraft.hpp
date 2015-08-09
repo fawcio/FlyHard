@@ -18,6 +18,14 @@ namespace sfml_playground
 class PlayerAircraft: public Entity
 {
 public:
+    enum class MovingState
+    {
+        eConstMoving,
+        eAccelerating,
+        eDecelerating
+    };
+
+public:
 	explicit PlayerAircraft(const sf::Vector2f& spawnPosition,
 							const float scrollSpeed,
 							const TextureHolder& textureHolder,
@@ -28,16 +36,13 @@ public:
 		return CommandCategory {CommandCategory::ePlayerAircraft};
 	}
 
-	void accelerate(const float vX)
-	{
-		float newXVelocity = getVelocity().x + vX;
-		if (newXVelocity > mMaxVelocity )
-			setVelocity(sf::Vector2f{mMaxVelocity, getVelocity().y});
-		else if (newXVelocity < -mMaxVelocity)
-			setVelocity(sf::Vector2f{-mMaxVelocity, getVelocity().y});
-		else
-			setVelocity(sf::Vector2f{newXVelocity, getVelocity().y});
-	}
+    void accelerate(const float vX);
+    void decelerate();
+
+    void setMoveState(MovingState state) { mState = state; }
+
+public:
+    static const float cAccelerationValue;
 
 private:
 	virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const override;
@@ -46,9 +51,12 @@ private:
 
 	void move(float offsetX, float offsetY);
 
+private:
+    MovingState mState;
+
 	sf::Sprite mRaptor;
 	sf::Sprite mShadow;
-	const float mMaxVelocity;
+    const float cMaxVelocity;
 
 	World* mWorld;
 };

@@ -20,9 +20,9 @@ Player::Player()
 	mKeyBinding[sf::Keyboard::Key::Space] = Action::eFirePrimary;
 	mKeyBinding[sf::Keyboard::Key::LControl] = Action::eFireSecondary;
 
-	mActionBinding[Action::eMoveLeft] = Command { derivedAction<PlayerAircraft>(AircraftMover{-6.f}),
+    mActionBinding[Action::eMoveLeft] = Command { derivedAction<PlayerAircraft>(AircraftMover{-PlayerAircraft::cAccelerationValue}),
 										CommandCategory {CommandCategory::ePlayerAircraft} };
-	mActionBinding[Action::eMoveRight] = Command { derivedAction<PlayerAircraft>(AircraftMover{6.f}),
+    mActionBinding[Action::eMoveRight] = Command { derivedAction<PlayerAircraft>(AircraftMover{PlayerAircraft::cAccelerationValue}),
 										 CommandCategory {CommandCategory::ePlayerAircraft} };
 }
 
@@ -38,24 +38,18 @@ void Player::handleEvent(const sf::Event& event, std::shared_ptr<CommandQueue> c
 					  << node.getPosition().y << '\n';
 		};
 		commands->push(std::move(output));
-	}
+	} 
 }
 
 void Player::handleRealTimeInput(std::shared_ptr<CommandQueue> commands)
 {
 	for (auto pair : mKeyBinding)
 	{
-		if (sf::Keyboard::isKeyPressed(pair.first) && isRealtimeAction(pair.second))
+        if (sf::Keyboard::isKeyPressed(pair.first))
 		{
 			commands->push(mActionBinding[pair.second]);
 		}
 	}
-}
-
-bool Player::isRealtimeAction(Player::Action action)
-{
-	(void) action;
-	return true;
 }
 
 }
