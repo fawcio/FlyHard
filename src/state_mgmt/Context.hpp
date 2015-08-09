@@ -12,7 +12,7 @@ namespace sfml_playground
 struct Context
 {
 public:
-    Context(sf::RenderWindow window,
+    Context(sf::RenderWindow& window,
             TextureHolder& textures,
             FontHolder& fonts,
             Player& player);

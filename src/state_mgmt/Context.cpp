@@ -3,7 +3,7 @@
 namespace sfml_playground
 {
 
-Context::Context(sf::RenderWindow window_,
+Context::Context(sf::RenderWindow& window_,
                  TextureHolder& textures_,
                  FontHolder& fonts_,
                  Player& player_)

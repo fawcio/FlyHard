@@ -1,10 +1,3 @@
-/*
- * Category.hpp
- *
- *  Created on: 13 maj 2015
- *      Author: slawek
- */
-
 #ifndef UTILS_CATEGORY_HPP_
 #define UTILS_CATEGORY_HPP_
 

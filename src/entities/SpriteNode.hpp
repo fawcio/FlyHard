@@ -1,10 +1,3 @@
-/*
- * SpriteNode.hpp
- *
- *  Created on: 16 lut 2015
- *      Author: slawek
- */
-
 #ifndef ENTITIES_SPRITENODE_HPP_
 #define ENTITIES_SPRITENODE_HPP_
 
@@ -18,14 +11,14 @@ namespace sfml_playground
 class SpriteNode : public SceneNode
 {
 public:
-	explicit		SpriteNode(const sf::Texture& texture, const sf::IntRect& rect);
-	virtual 		~SpriteNode();
+    explicit		SpriteNode(const sf::Texture& texture, const sf::IntRect& rect);
+    virtual 		~SpriteNode();
 
 private:
-	virtual void	drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const override;
+    virtual void	drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 private:
-	sf::Sprite		mSprite;
+    sf::Sprite		mSprite;
 };
 
 } /* namespace sfml_playground */

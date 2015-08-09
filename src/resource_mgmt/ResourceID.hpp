@@ -1,10 +1,3 @@
-/*
- * TextureID.hpp
- *
- *  Created on: 2 sty 2015
- *      Author: marta
- */
-
 #ifndef RESOURCE_MGMT_RESOURCEID_HPP_
 #define RESOURCE_MGMT_RESOURCEID_HPP_
 
@@ -12,26 +5,26 @@ namespace sfml_playground {
 
 enum class TextureID
 {
-	eLandscape,
-	eMissle,
-	eRaptor,
-	eRaptor_shadow,
-	eDefaultTextureId
+    eLandscape,
+    eMissle,
+    eRaptor,
+    eRaptor_shadow,
+    eDefaultTextureId
 };
 
 enum class FontID
 {
-	eDefaultFontId
+    eDefaultFontId
 };
 
 enum class SoundID
 {
-	eDefaultSoundId
+    eDefaultSoundId
 };
 
 enum class ShaderID
 {
-	eDefaultshaderId
+    eDefaultshaderId
 };
 
 }

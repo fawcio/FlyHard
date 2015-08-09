@@ -14,6 +14,7 @@ add_subdirectory( src/game )
 add_subdirectory( src/utils )
 add_subdirectory( src/state_mgmt )
 add_subdirectory( src/resource_mgmt)
+add_subdirectory( src/commands )
 
 BuildProject( SFML_Playground )
 

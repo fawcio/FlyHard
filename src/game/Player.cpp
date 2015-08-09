@@ -1,11 +1,5 @@
-/*
- * Player.cpp
- *
- *  Created on: 20 cze 2015
- *      Author: slawek
- */
-
 #include <iostream>
+#include <cassert>
 
 #include "game/Player.hpp"
 #include "entities/PlayerAircraft.hpp"
@@ -28,6 +22,8 @@ Player::Player()
 
 void Player::handleEvent(const sf::Event& event, std::shared_ptr<CommandQueue> commands)
 {
+    assert(commands.get() != nullptr);
+
 	if (event.type == sf::Event::KeyPressed
 		&& event.key.code == sf::Keyboard::P)
 	{
@@ -43,6 +39,8 @@ void Player::handleEvent(const sf::Event& event, std::shared_ptr<CommandQueue> c
 
 void Player::handleRealTimeInput(std::shared_ptr<CommandQueue> commands)
 {
+    assert(commands.get() != nullptr);
+
 	for (auto pair : mKeyBinding)
 	{
         if (sf::Keyboard::isKeyPressed(pair.first))

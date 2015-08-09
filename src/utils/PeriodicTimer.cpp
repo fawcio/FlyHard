@@ -1,11 +1,3 @@
-/*
- * PeriodicTiner.cpp
- *
- *  Created on: 11 lis 2014
- *      Author: slawek
- */
-#include <iostream>
-
 #include "PeriodicTimer.hpp"
 
 namespace sfml_playground

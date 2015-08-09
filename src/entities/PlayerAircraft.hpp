@@ -1,10 +1,3 @@
-/*
- * PlayerAircraft.hpp
- *
- *  Created on: 1 maj 2015
- *      Author: slawek
- */
-
 #ifndef ENTITIES_PLAYERAIRCRAFT_HPP_
 #define ENTITIES_PLAYERAIRCRAFT_HPP_
 
@@ -26,15 +19,15 @@ public:
     };
 
 public:
-	explicit PlayerAircraft(const sf::Vector2f& spawnPosition,
-							const float scrollSpeed,
-							const TextureHolder& textureHolder,
-							World* world);
+    explicit PlayerAircraft(const sf::Vector2f& spawnPosition,
+                            const float scrollSpeed,
+                            const TextureHolder& textureHolder,
+                            const World& world);
 
-	virtual CommandCategory	getCommandCategory() const
-	{
-		return CommandCategory {CommandCategory::ePlayerAircraft};
-	}
+    virtual CommandCategory	getCommandCategory() const
+    {
+        return CommandCategory {CommandCategory::ePlayerAircraft};
+    }
 
     void accelerate(const float vX);
     void decelerate();
@@ -45,34 +38,34 @@ public:
     static const float cAccelerationValue;
 
 private:
-	virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const override;
+    virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const override;
 
-	virtual void updateCurrent() override;
+    virtual void updateCurrent() override;
 
-	void move(float offsetX, float offsetY);
+    void move(float offsetX, float offsetY);
 
 private:
     MovingState mState;
 
-	sf::Sprite mRaptor;
-	sf::Sprite mShadow;
+    sf::Sprite mRaptor;
+    sf::Sprite mShadow;
     const float cMaxVelocity;
 
-	World* mWorld;
+    const World& mWorld;
 };
 
 
 class AircraftMover
 {
 public:
-	AircraftMover(float vX) : mVelocity(vX) {}
+    AircraftMover(float vX) : mVelocity(vX) {}
 
-	void operator() (PlayerAircraft& aircraft) const
-	{
-		aircraft.accelerate(mVelocity);
-	}
+    void operator() (PlayerAircraft& aircraft) const
+    {
+        aircraft.accelerate(mVelocity);
+    }
 private:
-	float mVelocity;
+    float mVelocity;
 };
 
 } //namespace sfml_playground

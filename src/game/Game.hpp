@@ -1,10 +1,3 @@
-/*
- * Game.hpp
- *
- *  Created on: 6 lis 2014
- *      Author: slawek
- */
-
 #ifndef GAME_HPP_
 #define GAME_HPP_
 #include <SFML/Graphics.hpp>
@@ -19,7 +12,7 @@ namespace sfml_playground
 class Game
 {
 public:
-	explicit Game(const sf::VideoMode &, const unsigned int);
+    explicit Game(const sf::VideoMode&, const unsigned int);
 
 	void run();
 
@@ -32,8 +25,6 @@ private:
 	void render();
 
 	void pause(sf::Clock&);
-
-	//void handlePlayerInput(const sf::Keyboard::Key key, bool isPressed);
 
 private:
 

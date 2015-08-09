@@ -1,19 +1,12 @@
-/*
- * PlayerAircraft.cpp
- *
- *  Created on: 1 maj 2015
- *      Author: slawek
- */
-
 #include "PlayerAircraft.hpp"
 #include "game/World.hpp"
 
 namespace sfml_playground
 {
 
-const float PlayerAircraft::cAccelerationValue = 5.f;
+const float PlayerAircraft::cAccelerationValue = 10.f;
 
-PlayerAircraft::PlayerAircraft(const sf::Vector2f& spawnPosition, const float scrollSpeed, const TextureHolder& textureHolder, World* world) :
+PlayerAircraft::PlayerAircraft(const sf::Vector2f& spawnPosition, const float scrollSpeed, const TextureHolder& textureHolder, const World& world) :
     mState(MovingState::eConstMoving),
     mRaptor(textureHolder.get(TextureID::eRaptor)),
     mShadow(textureHolder.get(TextureID::eRaptor_shadow)),
@@ -34,12 +27,19 @@ PlayerAircraft::PlayerAircraft(const sf::Vector2f& spawnPosition, const float sc
 void PlayerAircraft::accelerate(const float vX)
 {
     float newXVelocity = getVelocity().x + vX;
+
     if (newXVelocity > cMaxVelocity )
+    {
         setVelocity(sf::Vector2f{cMaxVelocity, getVelocity().y});
+    }
     else if (newXVelocity < -cMaxVelocity)
+    {
         setVelocity(sf::Vector2f{-cMaxVelocity, getVelocity().y});
+    }
     else
+    {
         setVelocity(sf::Vector2f{newXVelocity, getVelocity().y});
+    }
 
     setMoveState(MovingState::eAccelerating);
 }
@@ -47,6 +47,7 @@ void PlayerAircraft::accelerate(const float vX)
 void PlayerAircraft::decelerate()
 {
     float newXVelocity = 0.f;
+
     if (getVelocity().x != 0.f)
     {
         if (getVelocity().x > 0.f)
@@ -90,8 +91,10 @@ void PlayerAircraft::updateCurrent()
     {
         decelerate();
     }
+
     move(getVelocity().x * World::cTimePerFrame.asSeconds(),
          getVelocity().y * World::cTimePerFrame.asSeconds());
+
     if (mState != MovingState::eConstMoving)
     {
         setMoveState(MovingState::eDecelerating);
@@ -101,12 +104,15 @@ void PlayerAircraft::updateCurrent()
 void PlayerAircraft::move(float offsetX, float offsetY)
 {
     float newPosition = getPosition().x + offsetX;
-    if (newPosition > 0 && newPosition < mWorld->getWorldBounds().width)
+
+    if (newPosition > 0 && newPosition < mWorld.getWorldBounds().width)
+    {
         Entity::move(offsetX, offsetY);
+    }
     else
     {
         Entity::move(0.0f, offsetY);
-        setVelocity(0.0f, mWorld->getScrollSpeed());
+        setVelocity(0.0f, mWorld.getScrollSpeed());
     }
 }
 

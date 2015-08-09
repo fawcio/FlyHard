@@ -1,10 +1,3 @@
-/*
- * FPS.cpp
- *
- *  Created on: 11 lis 2014
- *      Author: slawek
- */
-
 #include <string>
 #include <iostream>
 #include <exception>
@@ -16,41 +9,41 @@ namespace sfml_playground
 
 FPS::FPS() : mTimer(this, 500), mFrameCounter(0)
 {
-	if (!mFont.loadFromFile("./Resources/fonts/DejaVuSansMono.ttf"))
-	{
-		throw new std::runtime_error("Could not load font DejaVuSansMono for FPS");
-	}
-	mText.setFont(mFont);
-	mText.setCharacterSize(14);
-	mText.setPosition(5.f, 5.f);
-	mText.setString("0 fps");
-	mText.setColor(sf::Color::White);
+    if (!mFont.loadFromFile("./Resources/fonts/DejaVuSansMono.ttf"))
+    {
+        throw new std::runtime_error("Could not load font DejaVuSansMono for FPS");
+    }
+    mText.setFont(mFont);
+    mText.setCharacterSize(14);
+    mText.setPosition(5.f, 5.f);
+    mText.setString("0 fps");
+    mText.setColor(sf::Color::White);
 
-	mTimer.start();
+    mTimer.start();
 }
 
 FPS::~FPS()
 {
-	mTimer.stop();
+    mTimer.stop();
 }
 
 void FPS::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	target.draw(mText, states);
+    target.draw(mText, states);
 }
 
 int FPS::operator++(int)
 {
-	this->mFrameCounter++;
-	return mFrameCounter;
+    this->mFrameCounter++;
+    return mFrameCounter;
 }
 
 void FPS::updateCurrent()
 {
-	std::string fpsStr = std::to_string(2*mFrameCounter);
-	mFrameCounter = 0;
-	fpsStr.append(" fps");
+    std::string fpsStr = std::to_string(2*mFrameCounter);
+    mFrameCounter = 0;
+    fpsStr.append(" fps");
 
-	mText.setString(sf::String(fpsStr));
+    mText.setString(sf::String(fpsStr));
 }
 } /* namespace sfml_playground */

@@ -1,10 +1,3 @@
-/*
- * PeriodicTiner.h
- *
- *  Created on: 11 lis 2014
- *      Author: slawek
- */
-
 #ifndef PERIODICTIMER_HPP_
 #define PERIODICTIMER_HPP_
 
@@ -20,23 +13,23 @@ namespace sfml_playground
 class PeriodicTimer
 {
 public:
-	PeriodicTimer(SceneNode* const node, const unsigned int milliseconds);
-	virtual ~PeriodicTimer();
-	bool start();
-	bool stop();
+    PeriodicTimer(SceneNode* const node, const unsigned int milliseconds);
+    virtual ~PeriodicTimer();
+    bool start();
+    bool stop();
 
-	void periodicEvent();
+    void periodicEvent();
 
 private:
 
-	SceneNode*						mNode;
+    SceneNode*						mNode;
 
-	std::thread						mWorker;
+    std::thread						mWorker;
 
-	boost::asio::deadline_timer*	mAsioTimer;
-	boost::asio::io_service			mIoService;
+    boost::asio::deadline_timer*	mAsioTimer;
+    boost::asio::io_service			mIoService;
 
-	unsigned int					mMilliseconds;
+    unsigned int					mMilliseconds;
 
 };
 

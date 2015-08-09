@@ -1,17 +1,10 @@
-/*
- * Player.hpp
- *
- *  Created on: 20 cze 2015
- *      Author: slawek
- */
-
 #ifndef SRC_GAME_PLAYER_HPP_
 #define SRC_GAME_PLAYER_HPP_
 
 #include <SFML/System.hpp>
 #include <map>
 
-#include "utils/CommandQueue.hpp"
+#include "commands/CommandQueue.hpp"
 
 namespace sfml_playground
 {

@@ -1,16 +1,8 @@
-/*
- * World.cpp
- *
- *  Created on: 16 lut 2015
- *      Author: slawek
- */
-
-#include <utils/CommandCategory.hpp>
-#include <cassert>
 #include "World.hpp"
 #include "entities/SpriteNode.hpp"
 #include "entities/PlayerAircraft.hpp"
 #include "utils/TypesAndTools.hpp"
+#include "commands/CommandCategory.hpp"
 
 namespace sfml_playground
 {
@@ -81,7 +73,7 @@ void World::buildScene()
 	backgroundSprite->setPosition(mWorldBoudns.left, mWorldBoudns.top);
 	mSceneLayers[LayerID::eBackground]->attachChild(std::move(backgroundSprite));
 
-	std::unique_ptr<PlayerAircraft> playerAircraft { new PlayerAircraft {mSpawnPosition, mScrollSpeed, mTextures, this} };
+    std::unique_ptr<PlayerAircraft> playerAircraft { new PlayerAircraft {mSpawnPosition, mScrollSpeed, mTextures, *this} };
 	mPlayerAircraft = playerAircraft.get();
 
 	mSceneLayers[LayerID::eAir]->attachChild(std::move(playerAircraft));
