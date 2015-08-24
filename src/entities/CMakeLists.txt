@@ -3,4 +3,5 @@ AddStaticModule( entities
   PlayerAircraft.cpp
   SceneNode.cpp
   SpriteNode.cpp
+  Landscape.cpp
 )

@@ -30,9 +30,9 @@ int main()
 		Game game { sf::VideoMode(1280, 800), sf::Style::Default };
 		game.run();
 	}
-	catch (std::exception& e)
+    catch (std::exception* e)
 	{
-		std::cerr << "EXCEPTION: " << e.what() << std::endl;
+        std::cerr << "EXCEPTION: " << e->what() << std::endl;
 	}
 
 	exit(EXIT_SUCCESS);

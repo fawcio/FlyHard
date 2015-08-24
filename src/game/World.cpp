@@ -8,20 +8,20 @@ namespace sfml_playground
 {
 
 const sf::Time World::cTimePerFrame = sf::milliseconds(2);
+const float World::cScrollSpeed = -50.f;
 
 World::World(sf::RenderWindow& window) :
-		mWindow(window),
-		mWorldView(window.getDefaultView()),
-		mWorldBoudns(0.0f, 0.0f, mWorldView.getSize().x, 100000.0f),
-		mSpawnPosition(mWorldView.getSize().x / 2.0f, mWorldBoudns.height - 100.0f),
-		mScrollSpeed(-100.0f),
-		mPlayerAircraft(nullptr),
-		mCommandQueue(new CommandQueue {})
+    mWindow(window),
+    mWorldView(window.getDefaultView()),
+    mWorldBoudns(0.0f, 0.0f, mWorldView.getSize().x, 100000.0f),
+    mSpawnPosition(mWorldView.getSize().x / 2.0f, mWorldBoudns.height - 100.0f),
+    mPlayerAircraft(nullptr),
+    mCommandQueue(new CommandQueue {})
 {
-	loadTextures();
-	buildScene();
+    loadTextures();
+    buildScene();
 
-	mWorldView.setCenter(mWorldBoudns.width / 2.0f, mWorldBoudns.height - mWindow.getSize().y / 2.0f);
+    mWorldView.setCenter(mWorldBoudns.width / 2.0f, mWorldBoudns.height - mWindow.getSize().y / 2.0f);
 }
 
 World::~World()
@@ -30,53 +30,53 @@ World::~World()
 
 void World::update()
 {
-	while (!mCommandQueue->isEmpty())
-	{
-		mScenGraph.onCommand(mCommandQueue->pop());
-	}
+    while (!mCommandQueue->isEmpty())
+    {
+        mScenGraph.onCommand(mCommandQueue->pop());
+    }
 
-	mWorldView.move(0.0f, mScrollSpeed * cTimePerFrame.asSeconds());
+    mWorldView.move(0.0f, cScrollSpeed * cTimePerFrame.asSeconds());
 
-	mScenGraph.update();
+    mScenGraph.update();
 }
 
 void World::draw()
 {
-	mWindow.setView(mWorldView);
-	mWindow.draw(mScenGraph);
+    mWindow.setView(mWorldView);
+    mWindow.draw(mScenGraph);
 
 }
 
 void World::loadTextures()
 {
-	mTextures.load(TextureID::eRaptor, "Resources/images/Raptor.png");
-	mTextures.load(TextureID::eRaptor_shadow, "Resources/images/Raptor_shadow.png");
-	mTextures.load(TextureID::eLandscape, "Resources/images/Sand-Background_blurred.png");
+    mTextures.load(TextureID::eRaptor, "Resources/images/Raptor.png");
+    mTextures.load(TextureID::eRaptor_shadow, "Resources/images/Raptor_shadow.png");
+    mTextures.load(TextureID::eLandscape, "Resources/textures/landscape/SoilSand0204_8_M.jpg");
 }
 
 void World::buildScene()
 {
-	// Add layers to scene graph
-	for (std::size_t i=0; i < LayerID::eLayerCount; ++i)
-	{
-		std::unique_ptr<SceneNode> layer(new SceneNode());
-		mSceneLayers[i] = layer.get();
+    // Add layers to scene graph
+    for (std::size_t i=0; i < LayerID::eLayerCount; ++i)
+    {
+        std::unique_ptr<SceneNode> layer(new SceneNode());
+        mSceneLayers[i] = layer.get();
 
-		mScenGraph.attachChild(std::move(layer));
-	}
+        mScenGraph.attachChild(std::move(layer));
+    }
 
-	sf::Texture& texture = mTextures.get(TextureID::eLandscape);
-	sf::IntRect  textureRect(mWorldBoudns);
-	texture.setRepeated(true);
+    sf::Texture& texture = mTextures.get(TextureID::eLandscape);
+    sf::IntRect  textureRect(mWorldBoudns);
+    texture.setRepeated(true);
 
-	std::unique_ptr<SpriteNode> backgroundSprite(new SpriteNode(texture, textureRect));
-	backgroundSprite->setPosition(mWorldBoudns.left, mWorldBoudns.top);
-	mSceneLayers[LayerID::eBackground]->attachChild(std::move(backgroundSprite));
+    std::unique_ptr<SpriteNode> backgroundSprite(new SpriteNode(texture, textureRect));
+    backgroundSprite->setPosition(mWorldBoudns.left, mWorldBoudns.top);
+    mSceneLayers[LayerID::eBackground]->attachChild(std::move(backgroundSprite));
 
-    std::unique_ptr<PlayerAircraft> playerAircraft { new PlayerAircraft {mSpawnPosition, mScrollSpeed, mTextures, *this} };
-	mPlayerAircraft = playerAircraft.get();
+    std::unique_ptr<PlayerAircraft> playerAircraft { new PlayerAircraft {mSpawnPosition, cScrollSpeed, mTextures, *this} };
+    mPlayerAircraft = playerAircraft.get();
 
-	mSceneLayers[LayerID::eAir]->attachChild(std::move(playerAircraft));
+    mSceneLayers[LayerID::eAir]->attachChild(std::move(playerAircraft));
 }
 
 } /* namespace sfml_playground */

@@ -4,7 +4,7 @@
 namespace sfml_playground
 {
 
-const float PlayerAircraft::cAccelerationValue = 10.f;
+const float PlayerAircraft::cAccelerationValue = 5.f;
 
 PlayerAircraft::PlayerAircraft(const sf::Vector2f& spawnPosition, const float scrollSpeed, const TextureHolder& textureHolder, const World& world) :
     mState(MovingState::eConstMoving),
@@ -16,7 +16,8 @@ PlayerAircraft::PlayerAircraft(const sf::Vector2f& spawnPosition, const float sc
     sf::FloatRect bounds = mRaptor.getLocalBounds();
     mRaptor.setOrigin(bounds.width/2.0f, bounds.height/2.0f);
 
-    mShadow.setPosition(getPosition() + sf::Vector2f{-40.f, 20.f});
+    mShadow.setPosition(getPosition() + sf::Vector2f{-120.f, 60.f});
+    mShadow.setScale(0.5f, 0.5f);
     bounds = mShadow.getLocalBounds();
     mShadow.setOrigin(bounds.width/2.0f, bounds.height/2.0f);
 
@@ -112,7 +113,7 @@ void PlayerAircraft::move(float offsetX, float offsetY)
     else
     {
         Entity::move(0.0f, offsetY);
-        setVelocity(0.0f, mWorld.getScrollSpeed());
+        setVelocity(0.0f, World::cScrollSpeed);
     }
 }
 

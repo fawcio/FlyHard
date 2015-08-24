@@ -23,7 +23,6 @@ public:
     std::shared_ptr<CommandQueue> getCommandQueue() const { return mCommandQueue; }
 
     const sf::FloatRect& getWorldBounds() const { return mWorldBoudns; }
-    float getScrollSpeed() const { return mScrollSpeed; }
 
 private:
 	void			loadTextures();
@@ -35,11 +34,13 @@ private:
 		eBackground,
 		eAir,
 		eForeground,
+
 		eLayerCount
 	};
 
 public:
 	static const sf::Time cTimePerFrame;
+    static const float	  cScrollSpeed;
 
 private:
 	sf::RenderWindow&		mWindow;
@@ -50,8 +51,7 @@ private:
 
 	sf::FloatRect			mWorldBoudns;
 	sf::Vector2f			mSpawnPosition;
-	float					mScrollSpeed;
-	SceneNode*				mPlayerAircraft;
+    SceneNode*				mPlayerAircraft;
 
 	std::shared_ptr<CommandQueue> mCommandQueue;
 };
