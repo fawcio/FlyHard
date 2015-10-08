@@ -7,7 +7,10 @@
 
 #include <iostream>
 #include <cstdlib>
+
+#include "config.hpp"
 #include "utils/TypesAndTools.hpp"
+#include "utils/ConfigParser.hpp"
 #include "game/Game.hpp"
 
 #include <X11/Xlib.h>
@@ -15,20 +18,22 @@
 using namespace sfml_playground;
 class TestClass;
 
-int main()
+int main(int argc, char **argv)
 {
-	if (0 == XInitThreads())
-	{
-		exit(EXIT_FAILURE);
-	}
+    std::cout << PROJECT_NAME << " version: " << PROJECT_VERSION << std::endl;
+
+    if (0 == XInitThreads())
+    {
+        exit(EXIT_FAILURE);
+    }
 
 	try
-	{
-		// Run the game in default desktop resolution (and in fullscreen).
-		//Game game {sf::VideoMode::getDesktopMode(), sf::Style::Fullscreen};
+    {
+        ConfigParser parser { argc, argv };
 
-		Game game { sf::VideoMode(1280, 800), sf::Style::Default };
-		game.run();
+        Game game { parser.getVideoMode(), parser.getVideoStyle() };
+
+        game.run();
 	}
     catch (std::exception* e)
 	{

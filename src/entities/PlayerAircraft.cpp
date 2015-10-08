@@ -1,5 +1,7 @@
 #include "PlayerAircraft.hpp"
 #include "game/World.hpp"
+#include "commands/CommandCategory.hpp"
+#include "resource_mgmt/ResourceHolder.hpp"
 
 namespace sfml_playground
 {
@@ -23,6 +25,11 @@ PlayerAircraft::PlayerAircraft(const sf::Vector2f& spawnPosition, const float sc
 
     setPosition(spawnPosition);
     setVelocity(0.0f, scrollSpeed);
+}
+
+CommandCategory PlayerAircraft::getCommandCategory() const
+{
+    return CommandCategory { CommandCategory::ePlayerAircraft };
 }
 
 void PlayerAircraft::accelerate(const float vX)

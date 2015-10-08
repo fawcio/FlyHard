@@ -3,10 +3,15 @@
 
 #include "Entity.hpp"
 #include "resource_mgmt/ResourceHolder.hpp"
-#include "game/World.hpp"
 
 namespace sfml_playground
 {
+
+/**
+ * Forward declarations
+ */
+class World;
+class CommandCategory;
 
 class PlayerAircraft: public Entity
 {
@@ -24,10 +29,7 @@ public:
                             const TextureHolder& textureHolder,
                             const World& world);
 
-    virtual CommandCategory	getCommandCategory() const
-    {
-        return CommandCategory {CommandCategory::ePlayerAircraft};
-    }
+    virtual CommandCategory	getCommandCategory() const;
 
     void accelerate(const float vX);
     void decelerate();

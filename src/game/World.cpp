@@ -1,8 +1,9 @@
 #include "World.hpp"
-#include "entities/SpriteNode.hpp"
+#include "entities/Landscape.hpp"
 #include "entities/PlayerAircraft.hpp"
 #include "utils/TypesAndTools.hpp"
 #include "commands/CommandCategory.hpp"
+#include "commands/CommandQueue.hpp"
 
 namespace sfml_playground
 {
@@ -51,7 +52,7 @@ void World::loadTextures()
 {
     mTextures.load(TextureID::eRaptor, "Resources/images/Raptor.png");
     mTextures.load(TextureID::eRaptor_shadow, "Resources/images/Raptor_shadow.png");
-    mTextures.load(TextureID::eLandscape, "Resources/textures/landscape/SoilSand0204_8_M.jpg");
+    mTextures.load(TextureID::eLandscape, "Resources/images/Sand-Background_blurred.png");
 }
 
 void World::buildScene()
@@ -69,7 +70,7 @@ void World::buildScene()
     sf::IntRect  textureRect(mWorldBoudns);
     texture.setRepeated(true);
 
-    std::unique_ptr<SpriteNode> backgroundSprite(new SpriteNode(texture, textureRect));
+    std::unique_ptr<Landscape> backgroundSprite(new Landscape(texture, textureRect));
     backgroundSprite->setPosition(mWorldBoudns.left, mWorldBoudns.top);
     mSceneLayers[LayerID::eBackground]->attachChild(std::move(backgroundSprite));
 

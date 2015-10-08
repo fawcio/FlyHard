@@ -3,6 +3,7 @@
 
 #include "game/Player.hpp"
 #include "entities/PlayerAircraft.hpp"
+#include "commands/CommandQueue.hpp"
 
 namespace sfml_playground
 {

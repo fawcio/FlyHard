@@ -4,14 +4,16 @@
 #include <functional>
 #include <cassert>
 #include <SFML/System.hpp>
-#include <commands/CommandCategory.hpp>
 
+#include "CommandCategory.hpp"
 #include "entities/SceneNode.hpp"
 
 namespace sfml_playground
 {
 
-// Forward declaration of SceneNode
+/**
+ * Forward declarations
+ */
 class SceneNode;
 
 struct Command

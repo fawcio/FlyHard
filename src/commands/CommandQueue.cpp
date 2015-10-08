@@ -1,4 +1,4 @@
-#include "commands/CommandQueue.hpp"
+#include "CommandQueue.hpp"
 
 namespace sfml_playground
 {

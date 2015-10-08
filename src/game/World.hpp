@@ -6,10 +6,15 @@
 
 #include "resource_mgmt/ResourceHolder.hpp"
 #include "entities/SceneNode.hpp"
-#include "commands/CommandQueue.hpp"
 
 namespace sfml_playground
 {
+
+/**
+ * Forward declarations
+ */
+class CommandQueue;
+class SceneNode;
 
 class World: private sf::NonCopyable
 {
@@ -46,7 +51,7 @@ private:
 	sf::RenderWindow&		mWindow;
 	sf::View				mWorldView;
 	TextureHolder			mTextures;
-	SceneNode				mScenGraph;
+    SceneNode				mScenGraph;
 	std::array<SceneNode*, LayerID::eLayerCount> mSceneLayers;
 
 	sf::FloatRect			mWorldBoudns;

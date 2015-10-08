@@ -4,13 +4,15 @@
 #include <memory>
 #include <vector>
 #include <SFML/Graphics.hpp>
-#include "commands/CommandCategory.hpp"
-#include "commands/Command.hpp"
 
 namespace sfml_playground
 {
 
+/**
+ * Forward declarations
+ */
 class Command;
+class CommandCategory;
 
 class SceneNode : public sf::Drawable, public sf::Transformable, private sf::NonCopyable
 {
@@ -19,7 +21,7 @@ public:
     virtual ~SceneNode() = default;
 
     SceneNode*					getParent() const { return mParent; }
-    virtual CommandCategory		getCommandCategory() const { return CommandCategory {CommandCategory::eScene}; }
+    virtual CommandCategory		getCommandCategory() const;
 
     void						attachChild(std::unique_ptr<SceneNode> child);
     std::unique_ptr<SceneNode>	detachChild(const SceneNode& node);

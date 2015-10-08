@@ -5,7 +5,7 @@ include( cmake/external_libraries.cmake )
 
 FindRequiredLibraries()
 
-CreateProject( SFML_Playground 0 1 2
+CreateProject( SFML_Playground 0 1 3
   src/SFML_playground.cpp
 )
 

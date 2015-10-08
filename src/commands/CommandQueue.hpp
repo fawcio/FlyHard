@@ -8,6 +8,11 @@
 namespace sfml_playground
 {
 
+/**
+ * Forward declarations
+ */
+class Command;
+
 class CommandQueue
 {
 public:

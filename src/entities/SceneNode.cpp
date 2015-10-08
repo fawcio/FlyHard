@@ -3,12 +3,19 @@
 
 #include "SceneNode.hpp"
 #include "utils/TypesAndTools.hpp"
+#include "commands/CommandCategory.hpp"
+#include "commands/Command.hpp"
 
 namespace sfml_playground
 {
 
 SceneNode::SceneNode() : mParent(nullptr)
 {
+}
+
+CommandCategory SceneNode::getCommandCategory() const
+{
+    return CommandCategory { CommandCategory::eScene };
 }
 
 void SceneNode::attachChild(std::unique_ptr<SceneNode> child)

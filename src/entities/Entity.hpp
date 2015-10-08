@@ -2,6 +2,7 @@
 #define ENTITIES_ENTITY_HPP_
 
 #include <SFML/System/Vector2.hpp>
+
 #include "SceneNode.hpp"
 
 namespace sfml_playground

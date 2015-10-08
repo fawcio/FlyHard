@@ -15,9 +15,9 @@ if( NOT ${CMAKE_BUILD_TYPE} OR ${CMAKE_BUILD_TYPE} STREQUAL "" )
 endif()
 
 if( ${CMAKE_BUILD_TYPE} MATCHES Debug )
-  set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -g3 -fstack-protector-all -march=native -std=c++11 -Wall -Wextra -pedantic -Werror" )
+  set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -g3 -fstack-protector-all -march=native -std=c++1y -Wall -Wextra -pedantic -Werror" )
 elseif( ${CMAKE_BUILD_TYPE} MATCHES Release )
-  set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -march=native -std=c++11 -Wall -Wextra -pedantic -Werror")
+  set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -march=native -std=c++1y -Wall -Wextra -pedantic -Werror")
 else()
   message(ERROR "Unsupported build type ${CMAKE_BUILD_TYPE}")
 endif()
@@ -26,10 +26,11 @@ message( STATUS "Configuring project ${project_name} for ${CMAKE_BUILD_TYPE} bui
 
 configure_file(
   "${PROJECT_SOURCE_DIR}/config.hpp.in"
-  "${PROJECT_BINARY_DIR}/config.hpp"
+  "${PROJECT_BINARY_DIR}/src/config.hpp"
 )
 
 include_directories( src )
+include_directories( ${PROJECT_BINARY_DIR}/src )
 
 add_executable( ${project_name} ${project_main_src_file} )
 
