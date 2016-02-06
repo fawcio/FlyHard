@@ -5,7 +5,7 @@
 #include "commands/CommandCategory.hpp"
 #include "commands/CommandQueue.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 const sf::Time World::cTimePerFrame = sf::milliseconds(2);

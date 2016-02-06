@@ -1,18 +1,17 @@
-#ifndef ENTITIES_SCENENODE_HPP_
-#define ENTITIES_SCENENODE_HPP_
+#pragma once
 
 #include <memory>
 #include <vector>
 #include <SFML/Graphics.hpp>
 
-namespace sfml_playground
+namespace SFGame
 {
 
 /**
  * Forward declarations
  */
-class Command;
-class CommandCategory;
+struct Command;
+struct CommandCategory;
 
 class SceneNode : public sf::Drawable, public sf::Transformable, private sf::NonCopyable
 {
@@ -47,5 +46,3 @@ private:
 };
 
 } /* namespace sfml_playground */
-
-#endif /* ENTITIES_SCENENODE_HPP_ */

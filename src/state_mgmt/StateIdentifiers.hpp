@@ -1,7 +1,6 @@
-#ifndef STATEIDENTIFIERS_HPP
-#define STATEIDENTIFIERS_HPP
+#pragma once
 
-namespace sfml_playground
+namespace SFGame
 {
 
 enum class StateID
@@ -10,6 +9,3 @@ enum class StateID
 };
 
 }
-
-#endif // STATEIDENTIFIERS_HPP
-

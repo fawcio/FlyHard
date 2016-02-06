@@ -1,17 +1,16 @@
-#ifndef ENTITIES_PLAYERAIRCRAFT_HPP_
-#define ENTITIES_PLAYERAIRCRAFT_HPP_
+#pragma once
 
 #include "Entity.hpp"
 #include "resource_mgmt/ResourceHolder.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 /**
  * Forward declarations
  */
 class World;
-class CommandCategory;
+struct CommandCategory;
 
 class PlayerAircraft: public Entity
 {
@@ -29,7 +28,7 @@ public:
                             const TextureHolder& textureHolder,
                             const World& world);
 
-    virtual CommandCategory	getCommandCategory() const;
+	virtual CommandCategory	getCommandCategory() const override;
 
     void accelerate(const float vX);
     void decelerate();
@@ -71,5 +70,3 @@ private:
 };
 
 } //namespace sfml_playground
-
-#endif /* ENTITIES_PLAYERAIRCRAFT_HPP_ */

@@ -1,7 +1,7 @@
 ##
 # Create and set up basic project properties
 ##
-macro( CreateProject project_name version_major version_minor version_revison project_main_src_file)
+macro( CreateProject project_name version_major version_minor version_revison)
 
 project( ${project_name} )
 
@@ -31,8 +31,6 @@ configure_file(
 
 include_directories( src )
 include_directories( ${PROJECT_BINARY_DIR}/src )
-
-add_executable( ${project_name} ${project_main_src_file} )
 
 endmacro( CreateProject )
 

@@ -1,6 +1,6 @@
 #include "CommandQueue.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 Command CommandQueue::pop()

@@ -1,17 +1,16 @@
-#ifndef SRC_UTILS_COMMANDQUEUE_HPP_
-#define SRC_UTILS_COMMANDQUEUE_HPP_
+#pragma once
 
 #include <queue>
 
 #include "Command.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 /**
  * Forward declarations
  */
-class Command;
+struct Command;
 
 class CommandQueue
 {
@@ -31,5 +30,3 @@ private:
 };
 
 } /* namespace sfml_playground */
-
-#endif /* SRC_UTILS_COMMANDQUEUE_HPP_ */

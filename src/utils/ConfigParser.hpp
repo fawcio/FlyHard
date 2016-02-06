@@ -1,10 +1,9 @@
-#ifndef CONFIGPARSER_HPP
-#define CONFIGPARSER_HPP
+#pragma once
 
 #include <boost/program_options.hpp>
 #include <SFML/Graphics.hpp>
 
-namespace sfml_playground
+namespace SFGame
 {
 
 class ConfigParser : private sf::NonCopyable
@@ -38,5 +37,3 @@ private:
 };
 
 }
-
-#endif // CONFIGPARSER_HPP

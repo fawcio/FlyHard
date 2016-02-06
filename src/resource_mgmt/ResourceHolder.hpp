@@ -8,7 +8,7 @@
 #include <cassert>
 #include "ResourceID.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 template <typename ResourceT, typename IdentifierT>

@@ -1,5 +1,4 @@
-#ifndef STATESTACK_HPP
-#define STATESTACK_HPP
+#pragma once
 
 #include <SFML/System.hpp>
 
@@ -7,7 +6,7 @@
 
 class State;
 
-namespace sfml_playground
+namespace SFGame
 {
 
 class StateStack : private sf::NonCopyable
@@ -26,5 +25,3 @@ public:
 };
 
 }
-
-#endif // STATESTACK_HPP

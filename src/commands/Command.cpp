@@ -1,6 +1,6 @@
 #include "Command.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 Command::Command(std::function<void(SceneNode&)>&& action, CommandCategory&& category)

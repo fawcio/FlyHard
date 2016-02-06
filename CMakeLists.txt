@@ -5,9 +5,7 @@ include( cmake/external_libraries.cmake )
 
 FindRequiredLibraries()
 
-CreateProject( SFML_Playground 0 1 3
-  src/SFML_playground.cpp
-)
+CreateProject( SFGame 0 1 4 )
 
 add_subdirectory( src/entities )
 add_subdirectory( src/game )
@@ -16,6 +14,8 @@ add_subdirectory( src/state_mgmt )
 add_subdirectory( src/resource_mgmt)
 add_subdirectory( src/commands )
 
-BuildProject( SFML_Playground )
+add_executable( SFGame src/SFML_playground.cpp )
+
+BuildProject( SFGame )
 
 SymLinkResources()

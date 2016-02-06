@@ -1,5 +1,4 @@
-#ifndef FPS_HPP_
-#define FPS_HPP_
+#pragma once
 
 #include <SFML/Graphics.hpp>
 
@@ -7,7 +6,7 @@
 #include "PeriodicTimer.hpp"
 
 
-namespace sfml_playground
+namespace SFGame
 {
 
 class FPS : public SceneNode
@@ -31,5 +30,3 @@ private:
 };
 
 } /* namespace sfml_playground */
-
-#endif /* FPS_HPP_ */

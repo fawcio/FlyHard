@@ -9,14 +9,12 @@
 #include <cstdlib>
 
 #include "config.hpp"
-#include "utils/TypesAndTools.hpp"
 #include "utils/ConfigParser.hpp"
 #include "game/Game.hpp"
 
 #include <X11/Xlib.h>
 
-using namespace sfml_playground;
-class TestClass;
+using namespace SFGame;
 
 int main(int argc, char **argv)
 {
@@ -35,9 +33,9 @@ int main(int argc, char **argv)
 
         game.run();
 	}
-    catch (std::exception* e)
+	catch (std::exception& e)
 	{
-        std::cerr << "EXCEPTION: " << e->what() << std::endl;
+		std::cerr << "EXCEPTION: " << e.what() << std::endl;
 	}
 
 	exit(EXIT_SUCCESS);

@@ -3,7 +3,7 @@
 #include "commands/CommandCategory.hpp"
 #include "resource_mgmt/ResourceHolder.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 const float PlayerAircraft::cAccelerationValue = 5.f;

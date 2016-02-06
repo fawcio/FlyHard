@@ -1,5 +1,4 @@
-#ifndef STATE_HPP
-#define STATE_HPP
+#pragma once
 
 #include <memory>
 
@@ -9,7 +8,7 @@
 
 class StateStack;
 
-namespace sfml_playground
+namespace SFGame
 {
 
 class State
@@ -39,4 +38,3 @@ private:
 };
 
 }
-#endif // STATE_HPP

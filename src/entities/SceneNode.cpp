@@ -6,7 +6,7 @@
 #include "commands/CommandCategory.hpp"
 #include "commands/Command.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 SceneNode::SceneNode() : mParent(nullptr)

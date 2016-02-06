@@ -3,7 +3,7 @@
 #include <utility>
 #include "config.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 ConfigParser::ConfigParser(int argc, char **argv)
@@ -12,8 +12,7 @@ ConfigParser::ConfigParser(int argc, char **argv)
             ("help,h", "Prints this help message")
             ("full-screen,f", boost::program_options::bool_switch(&mConfiguration.fullScreen)->default_value(false))
             ("resolution,r", boost::program_options::value<std::vector<uint32_t>>()->multitoken(),
-              "Game resolution")
-            ;
+			  "Game resolution");
 
     boost::program_options::variables_map vm;
     boost::program_options::store(boost::program_options::parse_command_line(argc, argv, mDescription), vm);

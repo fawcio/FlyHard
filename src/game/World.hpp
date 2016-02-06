@@ -1,5 +1,4 @@
-#ifndef GAME_WORLD_HPP_
-#define GAME_WORLD_HPP_
+#pragma once
 
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
@@ -7,7 +6,7 @@
 #include "resource_mgmt/ResourceHolder.hpp"
 #include "entities/SceneNode.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 /**
@@ -62,5 +61,3 @@ private:
 };
 
 } /* namespace sfml_playground */
-
-#endif /* GAME_WORLD_HPP_ */

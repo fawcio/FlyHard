@@ -1,7 +1,7 @@
 #include "Entity.hpp"
 #include "game/World.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 void Entity::updateCurrent()

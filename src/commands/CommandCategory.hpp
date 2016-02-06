@@ -1,7 +1,6 @@
-#ifndef UTILS_CATEGORY_HPP_
-#define UTILS_CATEGORY_HPP_
+#pragma once
 
-namespace sfml_playground
+namespace SFGame
 {
 
 struct CommandCategory
@@ -34,5 +33,3 @@ inline CommandCategory operator&(const CommandCategory left, CommandCategory rig
 }
 
 }
-
-#endif /* UTILS_CATEGORY_HPP_ */

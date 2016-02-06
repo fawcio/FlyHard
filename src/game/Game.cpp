@@ -4,7 +4,7 @@
 
 #include "Game.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 Game::Game(const sf::VideoMode& vMode, const unsigned int style) :

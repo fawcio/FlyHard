@@ -1,12 +1,11 @@
-#ifndef LANDSCAPE_HPP
-#define LANDSCAPE_HPP
+#pragma once
 
 #include <SFML/Graphics.hpp>
 
 #include "SceneNode.hpp"
 #include "resource_mgmt/ResourceHolder.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 class Landscape : public SceneNode
@@ -24,5 +23,3 @@ private:
 };
 
 }
-
-#endif // LANDSCAPE_HPP

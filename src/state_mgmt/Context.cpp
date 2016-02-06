@@ -1,6 +1,6 @@
 #include "Context.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 Context::Context(sf::RenderWindow& window_,

@@ -1,5 +1,4 @@
-#ifndef PERIODICTIMER_HPP_
-#define PERIODICTIMER_HPP_
+#pragma once
 
 #include <thread>
 #include <boost/bind.hpp>
@@ -7,7 +6,7 @@
 
 #include "entities/SceneNode.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 class PeriodicTimer
@@ -34,5 +33,3 @@ private:
 };
 
 } /* namespace sfml_playground */
-
-#endif /* PERIODICTIMER_HPP_ */

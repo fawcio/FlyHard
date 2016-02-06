@@ -1,7 +1,6 @@
-#ifndef RESOURCE_MGMT_RESOURCEID_HPP_
-#define RESOURCE_MGMT_RESOURCEID_HPP_
+#pragma once
 
-namespace sfml_playground {
+namespace SFGame {
 
 enum class TextureID
 {
@@ -28,5 +27,3 @@ enum class ShaderID
 };
 
 }
-
-#endif /* RESOURCE_MGMT_RESOURCEID_HPP_ */

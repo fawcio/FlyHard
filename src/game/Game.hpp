@@ -1,12 +1,12 @@
-#ifndef GAME_HPP_
-#define GAME_HPP_
+#pragma once
+
 #include <SFML/Graphics.hpp>
 
 #include "Player.hpp"
 #include "utils/FPS.hpp"
 #include "World.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 class Game
@@ -37,5 +37,3 @@ private:
 };
 
 } /* namespace sfml_playground */
-
-#endif /* GAME_HPP_ */

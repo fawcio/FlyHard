@@ -1,6 +1,6 @@
 #include "Landscape.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 Landscape::Landscape(const sf::Texture& texture, const sf::IntRect& rect) :

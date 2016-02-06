@@ -1,6 +1,6 @@
 #include "State.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 State::State(StateStack &stack, Context context)

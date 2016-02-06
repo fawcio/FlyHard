@@ -4,7 +4,7 @@
 
 #include "FPS.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 FPS::FPS() : mTimer(this, 500), mFrameCounter(0)

@@ -1,12 +1,11 @@
-#ifndef CONTEXT_HPP
-#define CONTEXT_HPP
+#pragma once
 
 #include <SFML/Graphics.hpp>
 
 #include "resource_mgmt/ResourceHolder.hpp"
 #include "game/Player.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 struct Context
@@ -24,5 +23,3 @@ public:
 };
 
 }
-
-#endif // CONTEXT_HPP

@@ -1,5 +1,4 @@
-#ifndef UTILS_COMMAND_HPP_
-#define UTILS_COMMAND_HPP_
+#pragma once
 
 #include <functional>
 #include <cassert>
@@ -8,7 +7,7 @@
 #include "CommandCategory.hpp"
 #include "entities/SceneNode.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 /**
@@ -40,5 +39,3 @@ std::function<void(SceneNode&)> derivedAction(Function fn)
 }
 
 } /* namespace sfml_playground */
-
-#endif /* UTILS_COMMAND_HPP_ */

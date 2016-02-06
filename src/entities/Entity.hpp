@@ -1,11 +1,10 @@
-#ifndef ENTITIES_ENTITY_HPP_
-#define ENTITIES_ENTITY_HPP_
+#pragma once
 
 #include <SFML/System/Vector2.hpp>
 
 #include "SceneNode.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 class Entity : public SceneNode
@@ -23,5 +22,3 @@ private:
 };
 
 } /* namespace sfml_playground */
-
-#endif /* ENTITIES_ENTITY_HPP_ */

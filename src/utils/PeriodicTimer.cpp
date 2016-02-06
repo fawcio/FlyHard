@@ -1,6 +1,6 @@
 #include "PeriodicTimer.hpp"
 
-namespace sfml_playground
+namespace SFGame
 {
 
 PeriodicTimer::PeriodicTimer(SceneNode* const updateable, const unsigned int milliseconds)
