@@ -1,10 +1,3 @@
-//============================================================================
-// Name        : SFML_playground.cpp
-// Author      : Sławomir Cielepak
-// Copyright   : 2014 All rights reserved
-// Description : A simple game to test SFML library.
-//============================================================================
-
 #include <iostream>
 #include <cstdlib>
 

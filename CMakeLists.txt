@@ -14,8 +14,8 @@ add_subdirectory( src/state_mgmt )
 add_subdirectory( src/resource_mgmt)
 add_subdirectory( src/commands )
 
-add_executable( SFGame src/SFML_playground.cpp )
+add_executable( sf_game src/main.cpp )
 
-BuildProject( SFGame )
+LinkExecutable( sf_game )
 
 SymLinkResources()

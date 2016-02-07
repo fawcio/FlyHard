@@ -41,17 +41,17 @@ endmacro( CreateProject )
 
 
 ##
-# Finish set up of a project
+# Link the game executable 
 ##
-macro( BuildProject project_name )
-message( STATUS "Linking modules with project ${project_name}" )
+macro( LinkExecutable exec_name )
+message( STATUS "Linking executable ${exec_name}" )
 
-target_link_libraries( ${project_name}
+target_link_libraries( ${exec_name}
   -Wl,--start-group ${PROJECT_MODULES} -Wl,--end-group
   ${EXTERNAL_LIBRARIES}
 )
 
-endmacro( BuildProject )
+endmacro( LinkExecutable )
 
 
 

@@ -53,7 +53,7 @@ if [ "$1" == "" ]; then
   usage
   exit 1
 fi
-BUILD_DIRECTORY="$1/SFML_Playground-$BUILD_TYPE_CMAKE"
+BUILD_DIRECTORY="$1/SFGame-$BUILD_TYPE_CMAKE"
 SOURCE_DIRECTORY=`pwd`
 mkdir -p $BUILD_DIRECTORY
 cd $BUILD_DIRECTORY
