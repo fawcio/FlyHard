@@ -10,6 +10,7 @@ namespace SFGame
 
 const sf::Time World::cTimePerFrame = sf::milliseconds(2);
 const float World::cScrollSpeed = -50.f;
+const Length World::cWorldWidth = 315_m;
 
 World::World(sf::RenderWindow& window) :
     mWindow(window),

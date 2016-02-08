@@ -2,6 +2,7 @@
 
 #include "Entity.hpp"
 #include "resource_mgmt/ResourceHolder.hpp"
+#include "utils/Units.hpp"
 
 namespace SFGame
 {
@@ -51,6 +52,7 @@ private:
     sf::Sprite mRaptor;
     sf::Sprite mShadow;
     const float cMaxVelocity;
+	const Speed cMaxSpeed;
 
     const World& mWorld;
 };
@@ -59,7 +61,7 @@ private:
 class AircraftMover
 {
 public:
-    AircraftMover(float vX) : mVelocity(vX) {}
+	AircraftMover(float vX) : mVelocity(vX), mSpeed(vX*10.0_px/1.0_s) {}
 
     void operator() (PlayerAircraft& aircraft) const
     {
@@ -67,6 +69,7 @@ public:
     }
 private:
     float mVelocity;
+	Speed mSpeed;
 };
 
 } //namespace sfml_playground

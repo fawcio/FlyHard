@@ -13,6 +13,7 @@ PlayerAircraft::PlayerAircraft(const sf::Vector2f& spawnPosition, const float sc
     mRaptor(textureHolder.get(TextureID::eRaptor)),
     mShadow(textureHolder.get(TextureID::eRaptor_shadow)),
     cMaxVelocity(500.0f),
+	cMaxSpeed(5_cm/1_s),
     mWorld(world)
 {
     sf::FloatRect bounds = mRaptor.getLocalBounds();

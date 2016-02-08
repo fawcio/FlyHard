@@ -5,6 +5,7 @@
 
 #include "resource_mgmt/ResourceHolder.hpp"
 #include "entities/SceneNode.hpp"
+#include "utils/Units.hpp"
 
 namespace SFGame
 {
@@ -45,6 +46,8 @@ private:
 public:
 	static const sf::Time cTimePerFrame;
     static const float	  cScrollSpeed;
+
+	static const Length  cWorldWidth;
 
 private:
 	sf::RenderWindow&		mWindow;
