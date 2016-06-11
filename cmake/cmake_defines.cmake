@@ -100,9 +100,9 @@ endmacro( AddHeaderFiles )
 # Create a symbolic link to Resources.
 ##
 macro( SymLinkResources )
-message( STATUS "Creating a symlink to Resources in build directory ${CMAKE_BINARY_DIR}" )
+message( STATUS "Creating a symlink to Resources in build directory ${CMAKE_SOURCE_DIR}/Resources -> ${CMAKE_BINARY_DIR}" )
 execute_process(
-  COMMAND /usr/bin/ln -sf ${CMAKE_SOURCE_DIR}/Resources ${CMAKE_BINARY_DIR}/
+  COMMAND ln -sf ${CMAKE_SOURCE_DIR}/Resources ${CMAKE_BINARY_DIR}/
   WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 )
 endmacro( SymLinkResources )

@@ -12,9 +12,18 @@ namespace SFGame
 class Game
 {
 public:
+	enum State : size_t
+	{
+		eRunning = 0,
+		ePaused = 1
+	};
+
+public:
     explicit Game(const sf::VideoMode&, const unsigned int);
 
 	void run();
+
+	void start();
 
 private:
 
@@ -24,14 +33,17 @@ private:
 
 	void render();
 
-	void pause(sf::Clock&);
+	void pause();
 
 private:
 
-	bool				mIsPaused;
 	sf::RenderWindow	mWindow;
 	World				mWorld;
 	Player				mPlayer;
+	sf::Clock			mClock;
+
+	State				mGameState;
+	std::function<void()> mCurrentStateRoutine[2];
 
 	FPS					mFps;
 };

@@ -1,15 +1,36 @@
 #pragma once
 
 #include <ratio>
+#include <cmath>
+
+#include "Constants.hpp"
+
+/**
+ * @brief Units example
+ *
+ * Length someLen = 7.4_cm;
+ *
+ * std::cout << "Length: " << someLen.as(pixel) << " px == " << someLen.as(millimetre) << " mm == "
+ *			 << someLen.as(inch) << " inches == " << someLen.as(metre) << " m\n";
+ *
+ * Acceleration a = 7_G;
+ * Mass m = 80.7_kg;
+ *
+ * Force f = m * a;
+ *
+ * std::cout << m.as(kg) << "kg on " << a.as(mps2) << " mps2 produces force equal to " << f.as(newton) << " N\n";
+ * std::cout << m.as(pound) << "lbs on " << a.as(G) << " G produces force equal to " << f.as(newton) << " N\n";
+ *
+ */
+
 
 namespace SFGame
 {
 
-
-// "Quantity.h" header file
-
-// The "Quantity" class is the prototype template container class, that just holds a double value. The
-// class SHOULD NOT BE INSTANTIATED directly by itself, rather use the quantity types defined below.
+/*!
+ * @brief The Quantity class is the prototype template container class, that just holds a double value. The
+ * class SHOULD NOT BE INSTANTIATED directly by itself, rather use the quantity types defined below.
+ */
 template<typename MassDim, typename LengthDim, typename TimeDim, typename AngleDim>
 class Quantity
 {
@@ -46,7 +67,6 @@ public:
 	}
 };
 
-
 // Predefined (physical unit) quantity types:
 // ------------------------------------------
 #define QUANTITY_TYPE(_Mdim, _Ldim, _Tdim, _Adim, name) \
@@ -80,12 +100,21 @@ constexpr Quantity<M, L, T, A>
 {
 	return Quantity<M, L, T, A>(lhs.getValue() + rhs.getValue());
 }
+
 template <typename M, typename L, typename T, typename A>
 constexpr Quantity<M, L, T, A>
 	operator-(const Quantity<M, L, T, A>& lhs, const Quantity<M, L, T, A>& rhs)
 {
 	return Quantity<M, L, T, A>(lhs.getValue() - rhs.getValue());
 }
+
+template <typename M, typename L, typename T, typename A>
+constexpr Quantity<M, L, T, A>
+	operator-(const Quantity<M, L, T, A>& rhs)
+{
+	return Quantity<M, L, T, A>(rhs.getValue());
+}
+
 template <typename M1, typename L1, typename T1, typename A1,
 		  typename M2, typename L2, typename T2, typename A2>
 constexpr Quantity<std::ratio_add<M1, M2>, std::ratio_add<L1, L2>,
@@ -96,12 +125,14 @@ constexpr Quantity<std::ratio_add<M1, M2>, std::ratio_add<L1, L2>,
 					 std::ratio_add<T1, T2>, std::ratio_add<A1, A2>>
 					(lhs.getValue()*rhs.getValue());
 }
+
 template <typename M, typename L, typename T, typename A>
 constexpr Quantity<M, L, T, A>
 	operator*(const double& lhs, const Quantity<M, L, T, A>& rhs)
 {
 	return Quantity<M, L, T, A>(lhs*rhs.getValue());
 }
+
 template <typename M1, typename L1, typename T1, typename A1,
 		  typename M2, typename L2, typename T2, typename A2>
 constexpr Quantity<std::ratio_subtract<M1, M2>, std::ratio_subtract<L1, L2>,
@@ -112,6 +143,7 @@ constexpr Quantity<std::ratio_subtract<M1, M2>, std::ratio_subtract<L1, L2>,
 					 std::ratio_subtract<T1, T2>, std::ratio_subtract<A1, A2>>
 					(lhs.getValue() / rhs.getValue());
 }
+
 template <typename M, typename L, typename T, typename A>
 constexpr Quantity<std::ratio_subtract<std::ratio<0>, M>, std::ratio_subtract<std::ratio<0>, L>,
 					std::ratio_subtract<std::ratio<0>, T>, std::ratio_subtract<std::ratio<0>, A>>
@@ -121,6 +153,7 @@ constexpr Quantity<std::ratio_subtract<std::ratio<0>, M>, std::ratio_subtract<st
 					 std::ratio_subtract<std::ratio<0>, T>, std::ratio_subtract<std::ratio<0>, A>>
 					(x / rhs.getValue());
 }
+
 template <typename M, typename L, typename T, typename A>
 constexpr Quantity<M, L, T, A>
 	operator/(const Quantity<M, L, T, A>& rhs, double x)
@@ -136,26 +169,31 @@ constexpr bool operator==(const Quantity<M, L, T, A>& lhs, const Quantity<M, L, 
 {
 	return (lhs.getValue() == rhs.getValue());
 }
+
 template <typename M, typename L, typename T, typename A>
 constexpr bool operator!=(const Quantity<M, L, T, A>& lhs, const Quantity<M, L, T, A>& rhs)
 {
 	return (lhs.getValue() != rhs.getValue());
 }
+
 template <typename M, typename L, typename T, typename A>
 constexpr bool operator<=(const Quantity<M, L, T, A>& lhs, const Quantity<M, L, T, A>& rhs)
 {
 	return (lhs.getValue() <= rhs.getValue());
 }
+
 template <typename M, typename L, typename T, typename A>
 constexpr bool operator>=(const Quantity<M, L, T, A>& lhs, const Quantity<M, L, T, A>& rhs)
 {
 	return (lhs.getValue() >= rhs.getValue());
 }
+
 template <typename M, typename L, typename T, typename A>
 constexpr bool operator< (const Quantity<M, L, T, A>& lhs, const Quantity<M, L, T, A>& rhs)
 {
 	return (lhs.getValue()<rhs.getValue());
 }
+
 template <typename M, typename L, typename T, typename A>
 constexpr bool operator> (const Quantity<M, L, T, A>& lhs, const Quantity<M, L, T, A>& rhs)
 {
@@ -167,7 +205,7 @@ constexpr bool operator> (const Quantity<M, L, T, A>& lhs, const Quantity<M, L, 
 // -----------------
 
 // Predefined mass units:
-constexpr Mass kg(1.0);                            // SI base unit
+constexpr Mass kg(1.0);                        // SI base unit
 constexpr Mass gramme = 0.001 * kg;
 constexpr Mass tonne = 1000 * kg;
 constexpr Mass ounce = 0.028349523125 * kg;
@@ -184,7 +222,7 @@ constexpr Length inch = 2.54 * centimetre;
 constexpr Length foot = 12 * inch;
 constexpr Length yard = 3 * foot;
 constexpr Length mile = 5280 * foot;
-constexpr Length pixel = 0.276086956522*millimetre;
+constexpr Length pixel = cWorldScale*cDpi*millimetre;
 
 constexpr Area kilometre2 = kilometre*kilometre;
 constexpr Area metre2 = metre*metre;
@@ -206,7 +244,9 @@ constexpr Volume foot3 = foot2*foot;
 constexpr Volume mile3 = mile2*mile;
 
 // Predefined time-derived units:
-constexpr Time second(1.0);                        // SI base unit
+constexpr Time second(1.0);                  // SI base unit
+constexpr Time msecond = 0.001 * second;
+constexpr Time usecond = 0.000001 * second;
 constexpr Time minute = 60 * second;
 constexpr Time hour = 60 * minute;
 constexpr Time day = 24 * hour;
@@ -268,10 +308,14 @@ constexpr Frequency operator"" _Hz(unsigned long long int x)
 
 // literals for time units
 constexpr Time operator"" _s(long double x) { return Time(x); }
+constexpr Time operator"" _ms(long double x) { return static_cast<double>(x)*msecond; }
+constexpr Time operator"" _us(long double x) { return static_cast<double>(x)*usecond; }
 constexpr Time operator"" _min(long double x) { return static_cast<double>(x)*minute; }
 constexpr Time operator"" _h(long double x) { return static_cast<double>(x)*hour; }
 constexpr Time operator"" _day(long double x) { return static_cast<double>(x)*day; }
 constexpr Time operator"" _s(unsigned long long int x) { return Time(static_cast<double>(x)); }
+constexpr Time operator"" _ms(unsigned long long int x) { return static_cast<double>(x)*msecond; }
+constexpr Time operator"" _us(unsigned long long int x) { return static_cast<double>(x)*usecond; }
 constexpr Time operator"" _min(unsigned long long int x) { return static_cast<double>(x)*minute; }
 constexpr Time operator"" _h(unsigned long long int x) { return static_cast<double>(x)*hour; }
 constexpr Time operator"" _day(unsigned long long int x) { return static_cast<double>(x)*day; }
@@ -351,16 +395,15 @@ constexpr Quantity<std::ratio_divide<M, std::ratio<2>>, std::ratio_divide<L, std
 // Typesafe trigonometric operations
 inline double sin(const Angle &num)
 {
-	return sin(num.getValue());
+	return std::sin(num.getValue());
 }
 inline double cos(const Angle &num)
 {
-	return cos(num.getValue());
+	return std::cos(num.getValue());
 }
 inline double tan(const Angle &num)
 {
-	return tan(num.getValue());
+	return std::tan(num.getValue());
 }
-
 
 }

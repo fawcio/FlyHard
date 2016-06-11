@@ -15,6 +15,7 @@ find_package(X11   1.6  REQUIRED)
 
 set(EXTERNAL_LIBRARIES
   Threads::Threads
+  m
   ${SFML_LIBRARIES}
   ${Boost_LIBRARIES}
   ${X11_LIBRARIES}

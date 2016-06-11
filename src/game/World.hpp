@@ -44,8 +44,11 @@ private:
 	};
 
 public:
-	static const sf::Time cTimePerFrame;
-    static const float	  cScrollSpeed;
+
+	static const Frequency	cFrameLimit;
+	static const sf::Time	cTimePerFrame;
+	static const float		cScrollSpeed;
+	static const Speed		cScrollSpeed_;
 
 	static const Length  cWorldWidth;
 

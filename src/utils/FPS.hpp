@@ -12,7 +12,7 @@ namespace SFGame
 class FPS : public SceneNode
 {
 public:
-    FPS();
+	FPS() throw(std::runtime_error);
     virtual ~FPS();
 
     int 			operator++(int);

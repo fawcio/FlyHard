@@ -8,36 +8,38 @@ namespace SFGame
 {
 
 Game::Game(const sf::VideoMode& vMode, const unsigned int style) :
-    mIsPaused(false), mWindow(vMode, "SFML playground", style), mWorld(mWindow)
+	mWindow(vMode, "SFML playground", style),
+	mWorld(mWindow),
+	mGameState(State::eRunning)
 {
-    mWindow.setFramerateLimit(100);
+	mWindow.setFramerateLimit(World::cFrameLimit.getValue());
+	mCurrentStateRoutine[State::eRunning] = std::bind(&Game::run, this);
+	mCurrentStateRoutine[State::ePaused] = std::bind(&Game::pause, this);
 }
 
 void Game::run()
 {
-    sf::Clock clock;
-    sf::Time timeSinceLastUpdate = sf::Time::Zero;
+	static sf::Time timeSinceLastUpdate = sf::Time::Zero;
 
+	processInput();
+	timeSinceLastUpdate += mClock.restart();
+	update();
+
+	while (timeSinceLastUpdate > World::cTimePerFrame)
+	{
+		timeSinceLastUpdate -= World::cTimePerFrame;
+		processInput();
+		update();
+	}
+
+	render();
+}
+
+void Game::start()
+{
     while (mWindow.isOpen())
     {
-        if (mIsPaused)
-        {
-            pause(clock);
-            continue;
-        }
-
-        processInput();
-        timeSinceLastUpdate += clock.restart();
-        update();
-
-        while (timeSinceLastUpdate > World::cTimePerFrame)
-        {
-            timeSinceLastUpdate -= World::cTimePerFrame;
-            processInput();
-            update();
-        }
-
-        render();
+		mCurrentStateRoutine[mGameState]();
     }
 }
 
@@ -60,10 +62,10 @@ void Game::processInput()
             mWindow.close();
             break;
         case sf::Event::GainedFocus:
-            mIsPaused = false;
+			mGameState = State::eRunning;
             break;
         case sf::Event::LostFocus:
-            mIsPaused = true;
+			mGameState = State::ePaused;
             break;
         default:
             break;
@@ -90,11 +92,11 @@ void Game::render()
     mFps++;
 }
 
-void Game::pause(sf::Clock &clock)
+void Game::pause()
 {
     processInput();
-    usleep(1000);
-    clock.restart();
+	usleep(50000);
+	mClock.restart();
 }
 
 } /* namespace sfml_playground */

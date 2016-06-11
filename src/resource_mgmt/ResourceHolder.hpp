@@ -18,10 +18,10 @@ public:
     ResourceHolder() = default;
     virtual	~ResourceHolder() = default;
 
-    void				load(IdentifierT id, const std::string& filename);
+	void				load(IdentifierT id, const std::string& filename) throw(std::runtime_error);
 
     template <typename ParameterT>
-    void				load(IdentifierT id, const std::string& filename, const ParameterT& secondParam);
+	void				load(IdentifierT id, const std::string& filename, const ParameterT& secondParam) throw(std::runtime_error);
 
     ResourceT&			get(IdentifierT id);
 
@@ -32,7 +32,7 @@ private:
 };
 
 template <typename ResourceT, typename IdentifierT>
-void ResourceHolder<ResourceT, IdentifierT>::load(IdentifierT id, const std::string& filename)
+void ResourceHolder<ResourceT, IdentifierT>::load(IdentifierT id, const std::string& filename) throw(std::runtime_error)
 {
     std::unique_ptr<ResourceT> resource(new ResourceT);
 
@@ -47,7 +47,7 @@ void ResourceHolder<ResourceT, IdentifierT>::load(IdentifierT id, const std::str
 template <typename ResourceT, typename IdentifierT>
 template <typename ParameterT>
 void ResourceHolder<ResourceT, IdentifierT>::load(IdentifierT id, const std::string& filename,
-                                                  const ParameterT& secondParam)
+												  const ParameterT& secondParam) throw(std::runtime_error)
 {
     std::unique_ptr<ResourceT> resource(new ResourceT);
 

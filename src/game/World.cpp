@@ -2,15 +2,19 @@
 #include "entities/Landscape.hpp"
 #include "entities/PlayerAircraft.hpp"
 #include "utils/TypesAndTools.hpp"
+#include "utils/Units.hpp"
 #include "commands/CommandCategory.hpp"
 #include "commands/CommandQueue.hpp"
 
 namespace SFGame
 {
 
-const sf::Time World::cTimePerFrame = sf::milliseconds(2);
+const Frequency World::cFrameLimit = 90_Hz;
+const sf::Time World::cTimePerFrame = sf::milliseconds(10);
+
 const float World::cScrollSpeed = -50.f;
-const Length World::cWorldWidth = 315_m;
+const Speed World::cScrollSpeed_ = -100_kmph;
+const Length World::cWorldWidth = 1000_km;
 
 World::World(sf::RenderWindow& window) :
     mWindow(window),

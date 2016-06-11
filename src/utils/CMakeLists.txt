@@ -3,5 +3,6 @@ AddStaticModule( utils
   PeriodicTimer.cpp
   Gason.cpp
   ConfigParser.cpp
+  Constants.hpp
   Units.hpp
 )
