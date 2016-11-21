@@ -13,7 +13,7 @@ namespace SFGame
 class World;
 struct CommandCategory;
 
-class PlayerAircraft: public Entity
+class PlayerAircraft : public Entity
 {
 public:
     enum class MovingState

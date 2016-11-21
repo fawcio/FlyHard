@@ -45,9 +45,9 @@ void Game::start()
 
 void Game::processInput()
 {
-    std::shared_ptr<CommandQueue> commands = mWorld.getCommandQueue();
-
     static sf::Event event;
+	auto commands = mWorld.getCommandQueue().lock();
+
     while (mWindow.pollEvent(event))
     {
         mPlayer.handleEvent(event, commands);

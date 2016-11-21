@@ -15,6 +15,8 @@ public:
 	{
 		eMoveLeft,
 		eMoveRight,
+		eAccelerate,
+		eSlowDown,
 		eFirePrimary,
 		eFireSecondary
 	};

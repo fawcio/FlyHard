@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <atomic>
 
 #include "Player.hpp"
 #include "utils/FPS.hpp"
@@ -42,7 +43,7 @@ private:
 	Player				mPlayer;
 	sf::Clock			mClock;
 
-	State				mGameState;
+    std::atomic<State>	mGameState;
 	std::function<void()> mCurrentStateRoutine[2];
 
 	FPS					mFps;

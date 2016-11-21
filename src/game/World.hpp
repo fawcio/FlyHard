@@ -25,7 +25,7 @@ public:
 	void			update();
 	void 			draw();
 
-    std::shared_ptr<CommandQueue> getCommandQueue() const { return mCommandQueue; }
+	std::weak_ptr<CommandQueue> getCommandQueue() const { return mCommandQueue; }
 
     const sf::FloatRect& getWorldBounds() const { return mWorldBoudns; }
 

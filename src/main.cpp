@@ -12,8 +12,6 @@ using namespace SFGame;
 
 int main(int argc, char **argv)
 {
-	(void)argc; (void)argv;
-
 	std::cout << PROJECT_NAME << " version: " << PROJECT_VERSION << std::endl;
 
 	if (0 == XInitThreads())
