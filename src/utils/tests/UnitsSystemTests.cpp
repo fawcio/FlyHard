@@ -21,42 +21,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-#pragma once
-
-#include <boost/program_options.hpp>
-#include <SFML/Graphics.hpp>
+#include <gtest/gtest.h>
+#include "Units.hpp"
 
 namespace SFGame
 {
 
-class ConfigParser : private sf::NonCopyable
+TEST(UnitsSystemTests, NewtonsThirdLawTest)
 {
-public:
-    struct Configuration
-    {
-        bool fullScreen { false };
-        std::unique_ptr<std::pair<uint32_t, uint32_t>> resolution { nullptr };
-    };
+	auto distance = 7_m;
+	auto time = 1_s;
+	auto acceleration = distance/(time*time);
 
-public:
-    explicit ConfigParser(int argc, char **argv);
+	ASSERT_TRUE(acceleration == 7_mps2);
 
-    virtual ~ConfigParser() = default;
+	auto mass = 80.7_kg;
+	auto force = mass*acceleration;
 
-    const Configuration& getConfiguration() const
-    {
-        return mConfiguration;
-    }
-
-    const sf::VideoMode getVideoMode() const;
-
-    unsigned int getVideoStyle() const;
-
-private:
-    Configuration mConfiguration;
-
-    boost::program_options::options_description mDescription { "Available options" };
-
-};
+	ASSERT_TRUE(force == 564.9_N);
+}
 
 }

@@ -41,17 +41,24 @@ endmacro( CreateProject )
 
 
 ##
-# Link the game executable 
+# Create the game executable
 ##
-macro( LinkExecutable exec_name )
-message( STATUS "Linking executable ${exec_name}" )
+macro( CreateGameExecutable exec_name )
+message( STATUS "Creating GAME_EXECUTABLE ${exec_name}" )
+
+add_executable( ${exec_name}
+  ${CMAKE_SOURCE_DIR}/src/main.cpp
+)
 
 target_link_libraries( ${exec_name}
   -Wl,--start-group ${PROJECT_MODULES} -Wl,--end-group
   ${EXTERNAL_LIBRARIES}
 )
 
-endmacro( LinkExecutable )
+set_target_properties( ${exec_name} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin )
+
+endmacro( CreateGameExecutable )
+
 
 
 
@@ -62,7 +69,7 @@ endmacro( LinkExecutable )
 # Add a static project module.
 ##
 macro( AddStaticModule module_name )
-message( STATUS "Adding static module ${module_name}" )
+message( STATUS "Adding MODULE ${module_name}" )
 set( PROJECT_MODULES ${PROJECT_MODULES} ${module_name} PARENT_SCOPE)
 
 FOREACH(src_file ${ARGN})
@@ -72,6 +79,8 @@ ENDFOREACH()
 add_library( ${module_name} STATIC ${SRC_FILES} )
 
 endmacro( AddStaticModule )
+
+
 
 
 
@@ -89,6 +98,39 @@ ENDFOREACH()
 add_custom_target( ${target_name} SOURCES ${header_files} )
 
 endmacro( AddHeaderFiles )
+
+
+
+
+
+
+
+##
+# Add a test suite.
+##
+macro( AddTestSuite suite_name )
+
+message( STATUS "Adding TEST_SUITE ${suite_name}" )
+set( PROJECT_TEST_SUITES ${PROJECT_MODULES} ${suite_name} PARENT_SCOPE)
+
+add_executable( ${suite_name}
+  ${CMAKE_SOURCE_DIR}/src/tests.cpp
+  ${ARGN}
+)
+
+target_include_directories( ${suite_name} PUBLIC
+  ./
+  ${GTEST_INCLUDE_DIRS}
+)
+
+target_link_libraries( ${suite_name}
+  ${GTEST_LIBRARIES}
+  pthread
+)
+
+set_target_properties( ${suite_name} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/tests )
+
+endmacro( AddTestSuite )
 
 
 

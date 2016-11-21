@@ -7,15 +7,9 @@ AddStaticModule( utils
   Units.hpp
 )
 
-add_executable( utils_tests
-  tests/UtilsTestsMain.cpp
-  tests/UnitsTests.cpp
-)
-
-include_directories(${GTEST_INCLUDE_DIRS})
-
-target_link_libraries( utils_tests
-  utils
-  ${GTEST_LIBRARIES}
-  pthread
+AddTestSuite( utils_tests
+  tests/UnitsSystemTests.cpp
+  tests/ConfigParserTests.cpp
+  tests/FPSTests.cpp
+  tests/PeriodicTimerTests.cpp
 )

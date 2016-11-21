@@ -3,3 +3,8 @@ AddStaticModule( commands
   CommandQueue.cpp
   CommandCategory.hpp
 )
+
+AddTestSuite( commands_tests
+  tests/CommandTests.cpp
+  tests/CommandQueueTests.cpp
+)

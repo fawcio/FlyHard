@@ -22,4 +22,9 @@ set(EXTERNAL_LIBRARIES
   ${X11_LIBRARIES}
 )
 
+set(TEST_LIBRARIES
+  ${GTEST_LIBRARIES}
+  pthread
+)
+
 endmacro( FindRequiredLibraries )

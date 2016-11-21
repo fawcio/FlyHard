@@ -5,7 +5,7 @@ include( cmake/external_libraries.cmake )
 
 FindRequiredLibraries()
 
-CreateProject( SFGame 0 1 4 )
+CreateProject( SFGame 0 1 5 )
 
 add_subdirectory( src/entities )
 add_subdirectory( src/game )
@@ -14,8 +14,6 @@ add_subdirectory( src/state_mgmt )
 add_subdirectory( src/resource_mgmt)
 add_subdirectory( src/commands )
 
-add_executable( sf_game src/main.cpp )
-
-LinkExecutable( sf_game )
+CreateGameExecutable( sf_game )
 
 SymLinkResources()
