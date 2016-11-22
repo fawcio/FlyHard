@@ -93,7 +93,7 @@ public:
 // Predefined (physical unit) quantity types:
 // ------------------------------------------
 #define QUANTITY_TYPE(_Mdim, _Ldim, _Tdim, _Adim, name) \
-	typedef Quantity<std::ratio<_Mdim>, std::ratio<_Ldim>, std::ratio<_Tdim>, std::ratio<_Adim>> name
+	using name = Quantity<std::ratio<_Mdim>, std::ratio<_Ldim>, std::ratio<_Tdim>, std::ratio<_Adim>>
 
 // Replacement of "double" type
 QUANTITY_TYPE(0, 0, 0, 0, Number);

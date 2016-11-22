@@ -27,18 +27,40 @@
 namespace SFGame
 {
 
-TEST(UnitsSystemTests, NewtonsThirdLawTest)
+TEST(UnitsSystemTests, NewtonsThirdLaw)
 {
 	auto distance = 7_m;
 	auto time = 1_s;
-	auto acceleration = distance/(time*time);
-
-	ASSERT_TRUE(acceleration == 7_mps2);
-
 	auto mass = 80.7_kg;
-	auto force = mass*acceleration;
+	auto accelerationMPS = distance/(time*time);
+	auto accelerationG = 0.7138013490845498_G;
 
-	ASSERT_TRUE(force == 564.9_N);
+	// Cross compare with literals
+	EXPECT_EQ(0.7138013490845498_G, accelerationMPS);
+	EXPECT_EQ(7_mps2, accelerationG);
+
+	// Quantities are exactly the same.
+	EXPECT_FLOAT_EQ(accelerationMPS.getValue(), accelerationG.getValue());
+
+	// Calculate force
+	auto forceN = mass*accelerationMPS;
+	auto forceLbf = mass*accelerationG;
+
+	// Cross compare with literals
+	EXPECT_EQ(126.99457195702645_lbf, forceN);
+	EXPECT_EQ(564.9_N, forceLbf);
+
+	// Again quantities are exactly the same
+	EXPECT_FLOAT_EQ(forceN.getValue(), forceLbf.getValue());
+
+	// Compare casted values
+	EXPECT_FLOAT_EQ(564.9, forceN.as(newton));
+	EXPECT_FLOAT_EQ(564.9, forceLbf.as(newton));
+	EXPECT_FLOAT_EQ(126.99457195702645, forceN.as(poundforce));
+	EXPECT_FLOAT_EQ(126.99457195702645, forceLbf.as(poundforce));
+
+	// Comparison with finite precision
+	EXPECT_NEAR(forceN.as(poundforce), 126.99457, 0.00001);
 }
 
 }
