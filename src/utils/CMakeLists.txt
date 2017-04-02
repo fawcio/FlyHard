@@ -5,6 +5,7 @@ AddStaticModule( utils
   ConfigParser.cpp
   Constants.hpp
   Units.hpp
+  NonCopyable.hpp
 )
 
 AddTestSuite( utils_tests

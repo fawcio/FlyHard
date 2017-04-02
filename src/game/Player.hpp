@@ -27,11 +27,12 @@
 #include <map>
 
 #include "commands/CommandQueue.hpp"
+#include "utils/NonCopyable.hpp"
 
 namespace SFGame
 {
 
-class Player
+class Player : NonCopyable
 {
 public:
 	enum class Action

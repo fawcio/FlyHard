@@ -36,8 +36,8 @@ Game::Game(const sf::VideoMode& vMode, const unsigned int style) :
 	mGameState(State::eRunning)
 {
 	mWindow.setFramerateLimit(World::cFrameLimit.getValue());
-	mCurrentStateRoutine[State::eRunning] = std::bind(&Game::run, this);
-	mCurrentStateRoutine[State::ePaused] = std::bind(&Game::pause, this);
+    mCurrentStateRoutine[State::eRunning] = [this](){ run(); };
+    mCurrentStateRoutine[State::ePaused] =  [this](){ pause(); };
 }
 
 void Game::run()

@@ -27,12 +27,13 @@
 #include <boost/bind.hpp>
 #include <boost/asio.hpp>
 
+#include "NonCopyable.hpp"
 #include "entities/SceneNode.hpp"
 
 namespace SFGame
 {
 
-class PeriodicTimer
+class PeriodicTimer : NonCopyable
 {
 public:
     PeriodicTimer(SceneNode* const node, const unsigned int milliseconds);

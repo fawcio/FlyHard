@@ -76,7 +76,7 @@ const sf::VideoMode ConfigParser::getVideoMode() const
     }
     else
     {
-        return sf::VideoMode(800, 600);
+        return sf::VideoMode(1200, 800);
     }
 }
 

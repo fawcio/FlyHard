@@ -26,6 +26,7 @@
 #include <queue>
 
 #include "Command.hpp"
+#include "utils/NonCopyable.hpp"
 
 namespace SFGame
 {
@@ -35,7 +36,7 @@ namespace SFGame
  */
 struct Command;
 
-class CommandQueue
+class CommandQueue : NonCopyable
 {
 public:
     CommandQueue() 			= default;

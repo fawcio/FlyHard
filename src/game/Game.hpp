@@ -27,13 +27,14 @@
 #include <atomic>
 
 #include "Player.hpp"
+#include "utils/NonCopyable.hpp"
 #include "utils/FPS.hpp"
 #include "World.hpp"
 
 namespace SFGame
 {
 
-class Game
+class Game : NonCopyable
 {
 public:
 	enum State : size_t

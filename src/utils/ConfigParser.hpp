@@ -25,11 +25,12 @@
 
 #include <boost/program_options.hpp>
 #include <SFML/Graphics.hpp>
+#include "NonCopyable.hpp"
 
 namespace SFGame
 {
 
-class ConfigParser : private sf::NonCopyable
+class ConfigParser : NonCopyable
 {
 public:
     struct Configuration
@@ -42,6 +43,9 @@ public:
     explicit ConfigParser(int argc, char **argv);
 
     virtual ~ConfigParser() = default;
+
+    ConfigParser(ConfigParser &&other) = default;
+    ConfigParser &operator=(ConfigParser &&other) = default;
 
     const Configuration& getConfiguration() const
     {

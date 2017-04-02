@@ -40,7 +40,7 @@ FPS::FPS() throw(std::runtime_error) : mTimer(this, 500), mFrameCounter(0)
     mText.setCharacterSize(14);
     mText.setPosition(5.f, 5.f);
     mText.setString("0 fps");
-    mText.setColor(sf::Color::White);
+    mText.setFillColor(sf::Color::White);
 
     mTimer.start();
 }

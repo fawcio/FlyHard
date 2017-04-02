@@ -22,10 +22,11 @@
  * SOFTWARE.
  */
 #pragma once
+#include <cstdint>
 
 namespace SFGame {
 
-enum class TextureID
+enum class TextureID : size_t
 {
     eLandscape,
     eMissle,
@@ -34,17 +35,17 @@ enum class TextureID
     eDefaultTextureId
 };
 
-enum class FontID
+enum class FontID : size_t
 {
     eDefaultFontId
 };
 
-enum class SoundID
+enum class SoundID : size_t
 {
     eDefaultSoundId
 };
 
-enum class ShaderID
+enum class ShaderID : size_t
 {
     eDefaultshaderId
 };

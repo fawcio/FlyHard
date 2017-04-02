@@ -29,6 +29,7 @@
 #include "resource_mgmt/ResourceHolder.hpp"
 #include "entities/SceneNode.hpp"
 #include "utils/Units.hpp"
+#include "utils/NonCopyable.hpp"
 
 namespace SFGame
 {
@@ -39,7 +40,7 @@ namespace SFGame
 class CommandQueue;
 class SceneNode;
 
-class World: private sf::NonCopyable
+class World : NonCopyable
 {
 public:
     explicit		World(sf::RenderWindow& window);

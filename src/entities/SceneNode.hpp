@@ -26,6 +26,7 @@
 #include <memory>
 #include <vector>
 #include <SFML/Graphics.hpp>
+#include "utils/NonCopyable.hpp"
 
 namespace SFGame
 {
@@ -36,7 +37,7 @@ namespace SFGame
 struct Command;
 struct CommandCategory;
 
-class SceneNode : public sf::Drawable, public sf::Transformable, private sf::NonCopyable
+class SceneNode : NonCopyable, public sf::Drawable, public sf::Transformable
 {
 public:
     SceneNode();

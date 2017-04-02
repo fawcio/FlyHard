@@ -33,7 +33,7 @@ set(CMAKE_MODULE_PATH /usr/share/SFML/cmake/Modules/)
 
 find_package(Threads REQUIRED)
 find_package(Boost 1.62 REQUIRED system program_options)
-find_package(SFML  2.3  REQUIRED system window graphics network audio)
+find_package(SFML  2.4.2  REQUIRED system window graphics network audio)
 find_package(X11   1.6  REQUIRED)
 find_package(GTest 1.7 REQUIRED)
 
@@ -49,5 +49,10 @@ set(TEST_LIBRARIES
   ${GTEST_LIBRARIES}
   pthread
 )
+
+find_program(CCACHE_PROGRAM ccache)
+if(CCACHE_PROGRAM)
+    set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
+endif()
 
 endmacro( FindRequiredLibraries )
