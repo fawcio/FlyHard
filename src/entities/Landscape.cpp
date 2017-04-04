@@ -23,17 +23,51 @@
  */
 #include "Landscape.hpp"
 
+#include <random>
+#include <cmath>
+#include <iostream>
+
 namespace SFGame
 {
 
-Landscape::Landscape(const sf::Texture& texture, const sf::IntRect& rect) :
-    mSprite(texture, rect)
+FarSpace::FarSpace(const sf::IntRect& rect) :
+    mSpaceBounds(rect)
 {
+    generateStars();
 }
 
-void Landscape::drawCurrent(sf::RenderTarget &target, sf::RenderStates states) const
+void FarSpace::drawCurrent(sf::RenderTarget &target, sf::RenderStates states) const
 {
-    target.draw(mSprite, states);
+    for (auto const& star : mStars)
+    {
+        target.draw(star, states);
+    }
+}
+
+void FarSpace::generateStars()
+{
+    std::random_device rd;
+    std::mt19937 mt(rd());
+    std::uniform_real_distribution<double> distX(mSpaceBounds.left, mSpaceBounds.width);
+    std::uniform_real_distribution<double> distY(mSpaceBounds.top, mSpaceBounds.height);
+
+    for (size_t n=0; n < 10000; ++n)
+    {
+        sf::RectangleShape newShape(sf::Vector2f{1,1});
+        newShape.setFillColor(sf::Color::White);
+        newShape.setPosition(distX(mt), distY(mt));
+
+        mStars.push_back(std::move(newShape));
+
+        if (n%5 == 0)
+        {
+            sf::RectangleShape newShape(sf::Vector2f{2,2});
+            newShape.setFillColor(sf::Color::White);
+            newShape.setPosition(distX(mt), distY(mt));
+
+            mStars.push_back(std::move(newShape));
+        }
+    }
 }
 
 }

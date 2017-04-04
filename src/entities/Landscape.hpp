@@ -24,6 +24,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <vector>
 
 #include "SceneNode.hpp"
 #include "resource_mgmt/ResourceHolder.hpp"
@@ -31,18 +32,21 @@
 namespace SFGame
 {
 
-class Landscape : public SceneNode
+class FarSpace : public SceneNode
 {
 public:
-    Landscape(const sf::Texture& texture, const sf::IntRect& rect);
-    virtual ~Landscape() = default;
+    FarSpace(const sf::IntRect& rect);
+    virtual ~FarSpace() = default;
 
 private:
     virtual void	drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const override;
 
+    void generateStars();
+
 private:
-    sf::Sprite		mSprite;
-    sf::Sprite      mDistantSpace;
+
+    const sf::IntRect mSpaceBounds;
+    std::vector<sf::RectangleShape>  mStars;
 };
 
 }

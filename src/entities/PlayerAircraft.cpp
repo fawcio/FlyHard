@@ -32,11 +32,10 @@ namespace SFGame
 const float PlayerAircraft::cAccelerationValue = 5.f;
 
 PlayerAircraft::PlayerAircraft(const sf::Vector2f& spawnPosition, const float scrollSpeed, const TextureHolder& textureHolder, const World& world) :
-    mState(MovingState::eConstMoving),
+    mState(MovingState::eAccelerating),
     mRaptor(textureHolder.get(TextureID::eRaptor)),
     mShadow(textureHolder.get(TextureID::eRaptor_shadow)),
     cMaxVelocity(500.0f),
-	cMaxSpeed(5_cm/1_s),
     mWorld(world)
 {
     sf::FloatRect bounds = mRaptor.getLocalBounds();
@@ -56,7 +55,94 @@ CommandCategory PlayerAircraft::getCommandCategory() const
     return CommandCategory { CommandCategory::ePlayerAircraft };
 }
 
-void PlayerAircraft::accelerate(const float vX)
+
+void PlayerAircraft::accelerate(const float vY)
+{
+    float newXVelocity = getVelocity().y + vY;
+
+    if (newXVelocity >= -50.f)
+    {
+        return;
+    }
+
+    if (newXVelocity > cMaxVelocity )
+    {
+        setVelocity(sf::Vector2f{getVelocity().x, cMaxVelocity});
+    }
+    else if (newXVelocity < -cMaxVelocity)
+    {
+        setVelocity(sf::Vector2f{getVelocity().x, -cMaxVelocity});
+    }
+    else
+    {
+        setVelocity(sf::Vector2f{getVelocity().x, newXVelocity});
+    }
+
+    setMoveState(MovingState::eAccelerating);
+}
+
+void PlayerAircraft::decelerate()
+{
+    const float refXVelocity = 0.f;
+    const float refYVelocity = -200.f;
+    float newXVelocity = refXVelocity;
+    float newYVelocity = refYVelocity;
+
+    if (getVelocity().y != refYVelocity)
+    {
+        if (getVelocity().y > refYVelocity)
+        {
+            newYVelocity = getVelocity().y - cAccelerationValue;
+            if (newYVelocity < refYVelocity)
+            {
+                newYVelocity = refYVelocity;
+            }
+        }
+        else if (getVelocity().y < refYVelocity)
+        {
+            newYVelocity = getVelocity().y + cAccelerationValue;
+            if (newYVelocity > refYVelocity)
+            {
+                newYVelocity = refYVelocity;
+            }
+        }
+        setVelocity(sf::Vector2f{getVelocity().x, newYVelocity});
+    }
+
+
+    if (getVelocity().x != refXVelocity)
+    {
+        if (getVelocity().x > refXVelocity)
+        {
+            newXVelocity = getVelocity().x - cAccelerationValue;
+            if (newXVelocity < refXVelocity)
+            {
+                newXVelocity = refXVelocity;
+            }
+        }
+        else if (getVelocity().x < refXVelocity)
+        {
+            newXVelocity = getVelocity().x + cAccelerationValue;
+            if (newXVelocity > refXVelocity)
+            {
+                newXVelocity = refXVelocity;
+            }
+        }
+        setVelocity(sf::Vector2f{newXVelocity, getVelocity().y});
+    }
+
+
+    if (newYVelocity == refYVelocity && newXVelocity == refXVelocity)
+    {
+        setMoveState(MovingState::eConstMoving);
+    }
+    else
+    {
+        setMoveState(MovingState::eDecelerating);
+    }
+}
+
+void PlayerAircraft::strafe(const float vX)
 {
     float newXVelocity = getVelocity().x + vX;
 
@@ -74,40 +160,6 @@ void PlayerAircraft::accelerate(const float vX)
     }
 
     setMoveState(MovingState::eAccelerating);
-}
-
-void PlayerAircraft::decelerate()
-{
-    float newXVelocity = 0.f;
-
-    if (getVelocity().x != 0.f)
-    {
-        if (getVelocity().x > 0.f)
-        {
-            newXVelocity = getVelocity().x - cAccelerationValue;
-            if (newXVelocity < 0.f)
-            {
-                newXVelocity = 0.f;
-            }
-        }
-        else if (getVelocity().x < 0.f)
-        {
-            newXVelocity = getVelocity().x + cAccelerationValue;
-            if (newXVelocity > 0.f)
-            {
-                newXVelocity = 0.f;
-            }
-        }
-        setVelocity(sf::Vector2f{newXVelocity, getVelocity().y});
-    }
-    if (newXVelocity == 0.f)
-    {
-        setMoveState(MovingState::eConstMoving);
-    }
-    else
-    {
-        setMoveState(MovingState::eDecelerating);
-    }
 }
 
 void PlayerAircraft::drawCurrent(sf::RenderTarget& target,
@@ -144,7 +196,7 @@ void PlayerAircraft::move(float offsetX, float offsetY)
     else
     {
         Entity::move(0.0f, offsetY);
-        setVelocity(0.0f, World::cScrollSpeed);
+        setVelocity(0.0f, -200.f);
     }
 }
 

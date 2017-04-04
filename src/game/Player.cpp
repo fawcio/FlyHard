@@ -40,14 +40,14 @@ Player::Player()
 	mKeyBinding[sf::Keyboard::Key::Space] = Action::eFirePrimary;
 	mKeyBinding[sf::Keyboard::Key::LControl] = Action::eFireSecondary;
 
-    mActionBinding[Action::eMoveLeft] = Command { derivedAction<PlayerAircraft>(AircraftMover{-PlayerAircraft::cAccelerationValue}),
+    mActionBinding[Action::eAccelerate] = Command { derivedAction<PlayerAircraft>(AircraftMover{-PlayerAircraft::cAccelerationValue, 0.}),
 										CommandCategory {CommandCategory::ePlayerAircraft} };
-    mActionBinding[Action::eMoveRight] = Command { derivedAction<PlayerAircraft>(AircraftMover{PlayerAircraft::cAccelerationValue}),
+    mActionBinding[Action::eSlowDown] = Command { derivedAction<PlayerAircraft>(AircraftMover{PlayerAircraft::cAccelerationValue, 0.}),
 										 CommandCategory {CommandCategory::ePlayerAircraft} };
-	mActionBinding[Action::eAccelerate] = Command { derivedAction<PlayerAircraft>(AircraftMover{PlayerAircraft::cAccelerationValue}),
-										 CommandCategory {CommandCategory::ePlayerAircraft} };
-	mActionBinding[Action::eSlowDown] = Command { derivedAction<PlayerAircraft>(AircraftMover{PlayerAircraft::cAccelerationValue}),
-										 CommandCategory {CommandCategory::ePlayerAircraft} };
+    mActionBinding[Action::eMoveLeft] = Command { derivedAction<PlayerAircraft>(AircraftMover{0., -PlayerAircraft::cAccelerationValue}),
+                                        CommandCategory {CommandCategory::ePlayerAircraft} };
+    mActionBinding[Action::eMoveRight] = Command { derivedAction<PlayerAircraft>(AircraftMover{0., PlayerAircraft::cAccelerationValue}),
+                                         CommandCategory {CommandCategory::ePlayerAircraft} };
 }
 
 void Player::handleEvent(const sf::Event& event, std::shared_ptr<CommandQueue> commands)

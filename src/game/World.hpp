@@ -71,7 +71,9 @@ public:
 
 	static const Frequency	cFrameLimit;
 	static const sf::Time	cTimePerFrame;
-	static const float		cScrollSpeed;
+    static float    		ScrollSpeed;
+    static const float      cMaxScrollSpeed;
+    static const float      cMinScrollSpeed;
 	static const Speed		cScrollSpeed_;
 
 	static const Length  cWorldWidth;

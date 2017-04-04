@@ -78,7 +78,7 @@ void Game::processInput()
         switch (event.type)
         {
         case sf::Event::KeyReleased:
-            if(sf::Keyboard::Escape == event.key.code)
+            if (sf::Keyboard::Escape == event.key.code)
                 mWindow.close();
             break;
         case sf::Event::Closed:

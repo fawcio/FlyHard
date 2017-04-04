@@ -32,10 +32,11 @@
 namespace SFGame
 {
 
-const Frequency World::cFrameLimit = 90_Hz;
+const Frequency World::cFrameLimit = 100_Hz;
 const sf::Time World::cTimePerFrame = sf::milliseconds(10);
 
-const float World::cScrollSpeed = -50.f;
+const float World::cMinScrollSpeed = -15.f;
+const float World::cMaxScrollSpeed = -100.f;
 const Speed World::cScrollSpeed_ = -100_kmph;
 const Length World::cWorldWidth = 1000_km;
 
@@ -64,7 +65,7 @@ void World::update()
         mScenGraph.onCommand(mCommandQueue->pop());
     }
 
-    mWorldView.move(0.0f, cScrollSpeed * cTimePerFrame.asSeconds());
+    mWorldView.setCenter(mWindow.getSize().x/2.f, mPlayerAircraft->getPosition().y-300);
 
     mScenGraph.update();
 }
@@ -80,7 +81,6 @@ void World::loadTextures()
 {
     mTextures.load(TextureID::eRaptor, "Resources/images/Raptor.png");
     mTextures.load(TextureID::eRaptor_shadow, "Resources/images/Raptor_shadow.png");
-    mTextures.load(TextureID::eLandscape, "Resources/images/Sand-Background_blurred.png");
 }
 
 void World::buildScene()
@@ -94,15 +94,13 @@ void World::buildScene()
         mScenGraph.attachChild(std::move(layer));
     }
 
-    sf::Texture& texture = mTextures.get(TextureID::eLandscape);
     sf::IntRect  textureRect(mWorldBoudns);
-    texture.setRepeated(true);
 
-    std::unique_ptr<Landscape> backgroundSprite(new Landscape(texture, textureRect));
+    std::unique_ptr<FarSpace> backgroundSprite(new FarSpace(textureRect));
     backgroundSprite->setPosition(mWorldBoudns.left, mWorldBoudns.top);
     mSceneLayers[LayerID::eBackground]->attachChild(std::move(backgroundSprite));
 
-    std::unique_ptr<PlayerAircraft> playerAircraft { new PlayerAircraft {mSpawnPosition, cScrollSpeed, mTextures, *this} };
+    std::unique_ptr<PlayerAircraft> playerAircraft { new PlayerAircraft {mSpawnPosition, 0.f, mTextures, *this} };
     mPlayerAircraft = playerAircraft.get();
 
     mSceneLayers[LayerID::eAir]->attachChild(std::move(playerAircraft));
