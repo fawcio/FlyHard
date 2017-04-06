@@ -34,17 +34,11 @@ const float PlayerAircraft::cAccelerationValue = 5.f;
 PlayerAircraft::PlayerAircraft(const sf::Vector2f& spawnPosition, const float scrollSpeed, const TextureHolder& textureHolder, const World& world) :
     mState(MovingState::eAccelerating),
     mRaptor(textureHolder.get(TextureID::eRaptor)),
-    mShadow(textureHolder.get(TextureID::eRaptor_shadow)),
     cMaxVelocity(500.0f),
     mWorld(world)
 {
     sf::FloatRect bounds = mRaptor.getLocalBounds();
     mRaptor.setOrigin(bounds.width/2.0f, bounds.height/2.0f);
-
-    mShadow.setPosition(getPosition() + sf::Vector2f{-120.f, 60.f});
-    mShadow.setScale(0.5f, 0.5f);
-    bounds = mShadow.getLocalBounds();
-    mShadow.setOrigin(bounds.width/2.0f, bounds.height/2.0f);
 
     setPosition(spawnPosition);
     setVelocity(0.0f, scrollSpeed);
@@ -165,7 +159,6 @@ void PlayerAircraft::strafe(const float vX)
 void PlayerAircraft::drawCurrent(sf::RenderTarget& target,
                                  sf::RenderStates states) const
 {
-    target.draw(mShadow, states);
     target.draw(mRaptor, states);
 }
 

@@ -31,11 +31,11 @@ namespace SFGame
 {
 
 Game::Game(const sf::VideoMode& vMode, const unsigned int style) :
-	mWindow(vMode, "SFML playground", style),
+    mWindow(vMode, "Fly Hard", style),
 	mWorld(mWindow),
 	mGameState(State::eRunning)
 {
-	mWindow.setFramerateLimit(World::cFrameLimit.getValue());
+    mWindow.setFramerateLimit(World::cFrameLimit);
     mCurrentStateRoutine[State::eRunning] = [this](){ run(); };
     mCurrentStateRoutine[State::ePaused] =  [this](){ pause(); };
 }
@@ -44,14 +44,14 @@ void Game::run()
 {
 	static sf::Time timeSinceLastUpdate = sf::Time::Zero;
 
-	processInput();
+    processInput();
 	timeSinceLastUpdate += mClock.restart();
-	update();
+//	update();
 
 	while (timeSinceLastUpdate > World::cTimePerFrame)
 	{
 		timeSinceLastUpdate -= World::cTimePerFrame;
-		processInput();
+        processInput();
 		update();
 	}
 

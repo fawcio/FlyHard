@@ -25,6 +25,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <functional>
 
 #include "SceneNode.hpp"
 #include "resource_mgmt/ResourceHolder.hpp"
@@ -32,21 +33,21 @@
 namespace SFGame
 {
 
-class FarSpace : public SceneNode
+class Stars : public SceneNode
 {
 public:
-    FarSpace(const sf::IntRect& rect);
-    virtual ~FarSpace() = default;
+    Stars(const sf::FloatRect &worldBounds, size_t starCount,
+          std::function<void(float&, float&)> getCurentViewBounds);
+    virtual ~Stars() = default;
 
 private:
     virtual void	drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const override;
 
-    void generateStars();
-
 private:
 
-    const sf::IntRect mSpaceBounds;
-    std::vector<sf::RectangleShape>  mStars;
+    mutable std::vector<sf::RectangleShape>::iterator mLastBegin, mLastEnd;
+    std::function<void(float&, float&)> mCurentBoundsGetter;
+    std::vector<sf::RectangleShape> mStarShapes;
 };
 
 }

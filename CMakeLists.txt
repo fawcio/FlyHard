@@ -27,7 +27,7 @@ include( cmake/external_libraries.cmake )
 
 FindRequiredLibraries()
 
-CreateProject( SFGame 0 1 5 )
+CreateProject( FlyHard 0 1 6 )
 
 add_subdirectory( src/entities )
 add_subdirectory( src/game )
@@ -36,6 +36,6 @@ add_subdirectory( src/state_mgmt )
 add_subdirectory( src/resource_mgmt)
 add_subdirectory( src/commands )
 
-CreateGameExecutable( sf_game )
+CreateGameExecutable( flyhard )
 
 SymLinkResources()

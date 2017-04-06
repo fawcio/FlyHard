@@ -73,7 +73,6 @@ private:
     MovingState mState;
 
     sf::Sprite mRaptor;
-    sf::Sprite mShadow;
     const float cMaxVelocity;
 
     const World& mWorld;

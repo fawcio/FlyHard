@@ -43,24 +43,24 @@ class SceneNode;
 class World : NonCopyable
 {
 public:
-    explicit		World(sf::RenderWindow& window);
+    explicit	World(sf::RenderWindow& window);
 	virtual			~World();
 
-	void			update();
-	void 			draw();
+    void		update();
+    void 		draw();
 
 	std::weak_ptr<CommandQueue> getCommandQueue() const { return mCommandQueue; }
 
     const sf::FloatRect& getWorldBounds() const { return mWorldBoudns; }
 
 private:
-	void			loadTextures();
-	void			buildScene();
+    void		loadTextures();
+    void		buildScene();
 
 private:
 	enum LayerID : std::size_t
 	{
-		eBackground,
+        eFarGalaxy,
 		eAir,
 		eForeground,
 
@@ -69,14 +69,11 @@ private:
 
 public:
 
-	static const Frequency	cFrameLimit;
+    static const uint32_t	cFrameLimit;
 	static const sf::Time	cTimePerFrame;
     static float    		ScrollSpeed;
     static const float      cMaxScrollSpeed;
     static const float      cMinScrollSpeed;
-	static const Speed		cScrollSpeed_;
-
-	static const Length  cWorldWidth;
 
 private:
 	sf::RenderWindow&		mWindow;

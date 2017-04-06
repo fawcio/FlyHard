@@ -26,7 +26,7 @@
 namespace SFGame
 {
 
-TEST(LandscpeTests, Unimplemented)
+TEST(StarsTests, Unimplemented)
 {
 	ASSERT_STREQ("Implemented", "LandscapeTests");
 }

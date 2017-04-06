@@ -57,12 +57,12 @@ public:
     void						onCommand(const Command& command);
 
 private:
-    virtual void		draw(sf::RenderTarget& target, sf::RenderStates states) const final override;
-    virtual void		drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
-    void				drawChildren(sf::RenderTarget& target, sf::RenderStates states) const;
+    virtual void    draw(sf::RenderTarget& target, sf::RenderStates states) const final override;
+    virtual void    drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
+    void            drawChildren(sf::RenderTarget& target, sf::RenderStates states) const;
 
-    virtual void		updateCurrent();
-    void				updateChildren();
+    virtual void    updateCurrent();
+    void            updateChildren();
 
 private:
     std::vector<std::unique_ptr<SceneNode>>	mChildren;

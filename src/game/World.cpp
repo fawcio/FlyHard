@@ -22,23 +22,23 @@
  * SOFTWARE.
  */
 #include "World.hpp"
-#include "entities/Landscape.hpp"
+#include <random>
+#include <cmath>
+
+#include "entities/Stars.hpp"
 #include "entities/PlayerAircraft.hpp"
 #include "utils/TypesAndTools.hpp"
-#include "utils/Units.hpp"
 #include "commands/CommandCategory.hpp"
 #include "commands/CommandQueue.hpp"
 
 namespace SFGame
 {
 
-const Frequency World::cFrameLimit = 100_Hz;
+const uint32_t World::cFrameLimit = 120000;
 const sf::Time World::cTimePerFrame = sf::milliseconds(10);
 
 const float World::cMinScrollSpeed = -15.f;
 const float World::cMaxScrollSpeed = -100.f;
-const Speed World::cScrollSpeed_ = -100_kmph;
-const Length World::cWorldWidth = 1000_km;
 
 World::World(sf::RenderWindow& window) :
     mWindow(window),
@@ -74,7 +74,6 @@ void World::draw()
 {
     mWindow.setView(mWorldView);
     mWindow.draw(mScenGraph);
-
 }
 
 void World::loadTextures()
@@ -94,13 +93,12 @@ void World::buildScene()
         mScenGraph.attachChild(std::move(layer));
     }
 
-    sf::IntRect  textureRect(mWorldBoudns);
+    mSceneLayers[LayerID::eFarGalaxy]->attachChild(std::make_unique<Stars>(mWorldBoudns, 100000, [this](float& upperBound, float& lowerBound) {
+        lowerBound = mPlayerAircraft->getPosition().y-700;
+        upperBound = mPlayerAircraft->getPosition().y+100;
+    }));
 
-    std::unique_ptr<FarSpace> backgroundSprite(new FarSpace(textureRect));
-    backgroundSprite->setPosition(mWorldBoudns.left, mWorldBoudns.top);
-    mSceneLayers[LayerID::eBackground]->attachChild(std::move(backgroundSprite));
-
-    std::unique_ptr<PlayerAircraft> playerAircraft { new PlayerAircraft {mSpawnPosition, 0.f, mTextures, *this} };
+    auto playerAircraft = std::make_unique<PlayerAircraft>(mSpawnPosition, 0.f, mTextures, *this);
     mPlayerAircraft = playerAircraft.get();
 
     mSceneLayers[LayerID::eAir]->attachChild(std::move(playerAircraft));
