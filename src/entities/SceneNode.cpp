@@ -29,7 +29,7 @@
 #include "commands/CommandCategory.hpp"
 #include "commands/Command.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 SceneNode::SceneNode() : mParent(nullptr)
@@ -131,5 +131,5 @@ void SceneNode::onCommand(const Command& command)
     }
 }
 
-} /* namespace sfml_playground */
+}
 

@@ -29,7 +29,7 @@
 #include "commands/CommandQueue.hpp"
 #include "utils/NonCopyable.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 class Player : NonCopyable

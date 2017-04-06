@@ -27,7 +27,7 @@
 
 #include "FPS.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 FPS::FPS() throw(std::runtime_error) : mTimer(this, 500), mFrameCounter(0)
@@ -69,4 +69,5 @@ void FPS::updateCurrent()
 
     mText.setString(sf::String(fpsStr));
 }
-} /* namespace sfml_playground */
+
+}

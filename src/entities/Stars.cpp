@@ -25,7 +25,7 @@
 #include <algorithm>
 #include <iostream>
 
-namespace SFGame
+namespace fly_hard
 {
 
 Stars::Stars(const sf::FloatRect &worldBounds, const size_t starCount,

@@ -29,7 +29,7 @@
 
 class State;
 
-namespace SFGame
+namespace fly_hard
 {
 
 class StateStack : private sf::NonCopyable

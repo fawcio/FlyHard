@@ -30,7 +30,7 @@
 #include "CommandCategory.hpp"
 #include "entities/SceneNode.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 /**
@@ -61,4 +61,4 @@ std::function<void(SceneNode&)> derivedAction(Function fn)
     };
 }
 
-} /* namespace sfml_playground */
+}

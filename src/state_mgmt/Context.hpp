@@ -28,7 +28,7 @@
 #include "resource_mgmt/ResourceHolder.hpp"
 #include "game/Player.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 struct Context

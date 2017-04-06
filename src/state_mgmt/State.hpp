@@ -31,7 +31,7 @@
 
 class StateStack;
 
-namespace SFGame
+namespace fly_hard
 {
 
 class State

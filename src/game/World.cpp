@@ -31,7 +31,7 @@
 #include "commands/CommandCategory.hpp"
 #include "commands/CommandQueue.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 const uint32_t World::cFrameLimit = 120000;
@@ -79,7 +79,6 @@ void World::draw()
 void World::loadTextures()
 {
     mTextures.load(TextureID::eRaptor, "Resources/images/Raptor.png");
-    mTextures.load(TextureID::eRaptor_shadow, "Resources/images/Raptor_shadow.png");
 }
 
 void World::buildScene()
@@ -104,4 +103,4 @@ void World::buildScene()
     mSceneLayers[LayerID::eAir]->attachChild(std::move(playerAircraft));
 }
 
-} /* namespace sfml_playground */
+}

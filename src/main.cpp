@@ -27,11 +27,10 @@
 #include "config.hpp"
 #include "utils/ConfigParser.hpp"
 #include "game/Game.hpp"
-#include "utils/Units.hpp"
 
 #include <X11/Xlib.h>
 
-using namespace SFGame;
+using namespace fly_hard;
 
 int main(int argc, char **argv)
 {

@@ -28,7 +28,7 @@
 #include <SFML/Graphics.hpp>
 #include "utils/NonCopyable.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 /**
@@ -69,4 +69,4 @@ private:
     SceneNode*								mParent;
 };
 
-} /* namespace sfml_playground */
+}

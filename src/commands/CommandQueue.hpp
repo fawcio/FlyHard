@@ -28,7 +28,7 @@
 #include "Command.hpp"
 #include "utils/NonCopyable.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 /**
@@ -53,4 +53,4 @@ private:
     std::queue<Command> mQueue;
 };
 
-} /* namespace sfml_playground */
+}

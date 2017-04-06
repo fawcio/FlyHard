@@ -27,7 +27,7 @@
 
 #include "SceneNode.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 class Entity : public SceneNode
@@ -44,4 +44,4 @@ private:
     sf::Vector2f	mVelocity;
 };
 
-} /* namespace sfml_playground */
+}

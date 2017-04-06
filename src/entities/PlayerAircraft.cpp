@@ -26,7 +26,7 @@
 #include "commands/CommandCategory.hpp"
 #include "resource_mgmt/ResourceHolder.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 const float PlayerAircraft::cAccelerationValue = 5.f;
@@ -193,4 +193,4 @@ void PlayerAircraft::move(float offsetX, float offsetY)
     }
 }
 
-} //namespace sfml_playground
+}

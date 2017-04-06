@@ -31,7 +31,7 @@
 #include "ResourceID.hpp"
 #include "utils/NonCopyable.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 template <typename ResourceT, typename IdentifierT>
@@ -90,4 +90,4 @@ ResourceT& ResourceHolder<ResourceT, IdentifierT>::get(IdentifierT id) const
 using TextureHolder = ResourceHolder<sf::Texture, TextureID>;
 using FontHolder    = ResourceHolder<sf::Font, FontID>;
 
-} /* namespace sfml_playground */
+}

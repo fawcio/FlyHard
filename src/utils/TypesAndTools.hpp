@@ -8,7 +8,7 @@
 #ifndef SRC_UTILS_TYPESANDTOOLS_HPP_
 #define SRC_UTILS_TYPESANDTOOLS_HPP_
 
-namespace SFGame
+namespace fly_hard
 {
 
 template<typename T>

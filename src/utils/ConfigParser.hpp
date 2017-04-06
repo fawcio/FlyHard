@@ -27,7 +27,7 @@
 #include <SFML/Graphics.hpp>
 #include "NonCopyable.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 class ConfigParser : NonCopyable

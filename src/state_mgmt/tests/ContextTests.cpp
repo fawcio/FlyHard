@@ -23,7 +23,7 @@
  */
 #include <gtest/gtest.h>
 
-namespace SFGame
+namespace fly_hard
 {
 
 TEST(ContextTests, Unimplemented)

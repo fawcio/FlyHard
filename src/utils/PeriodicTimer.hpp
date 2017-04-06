@@ -30,7 +30,7 @@
 #include "NonCopyable.hpp"
 #include "entities/SceneNode.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 class PeriodicTimer : NonCopyable
@@ -56,4 +56,4 @@ private:
 
 };
 
-} /* namespace sfml_playground */
+}

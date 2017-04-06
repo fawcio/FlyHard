@@ -25,8 +25,10 @@
 
 #include "Entity.hpp"
 #include "resource_mgmt/ResourceHolder.hpp"
+#include <atomic>
+#include <iostream>
 
-namespace SFGame
+namespace fly_hard
 {
 
 /**
@@ -70,7 +72,7 @@ private:
     void move(float offsetX, float offsetY);
 
 private:
-    MovingState mState;
+    MovingState mState {MovingState::eAccelerating};
 
     sf::Sprite mRaptor;
     const float cMaxVelocity;
@@ -94,4 +96,53 @@ private:
     float mYVelocity;
 };
 
-} //namespace sfml_playground
+class Bullet : public Entity
+{
+public:
+
+    Bullet(float posX, float posY) : mBulletShape(sf::Vector2f{2.f, 4.f})
+    {
+        mBulletShape.setFillColor(sf::Color::White);
+        mBulletShape.setPosition(posX, posY);
+        setVelocity(0.5f, -1000.f);
+    }
+
+private:
+    virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const override
+    {
+        target.draw(mBulletShape, states);
+    }
+
+private:
+    sf::RectangleShape mBulletShape;
+};
+
+class AircraftShooter
+{
+public:
+    enum class Type
+    {
+        eMinigun,
+        eRocket
+    };
+
+public:
+    AircraftShooter(const Type t) : mType(t) {}
+
+    void operator() (PlayerAircraft& aircraft) const
+    {
+        static std::atomic<bool> readyToShoot {true};
+        (void) mType;
+        if (readyToShoot)
+        {
+            readyToShoot = false;
+            std::cerr << (size_t*)aircraft.getParent() << std::endl;
+            aircraft.getParent()->attachChild(std::make_unique<Bullet>(aircraft.getPosition().x, aircraft.getPosition().y-50.f));
+        }
+    }
+
+private:
+    Type mType;
+};
+
+}

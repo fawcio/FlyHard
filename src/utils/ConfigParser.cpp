@@ -26,7 +26,7 @@
 #include <utility>
 #include "config.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 ConfigParser::ConfigParser(int argc, char **argv)

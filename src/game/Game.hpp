@@ -31,7 +31,7 @@
 #include "utils/FPS.hpp"
 #include "World.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 class Game : NonCopyable
@@ -73,4 +73,4 @@ private:
 	FPS					mFps;
 };
 
-} /* namespace sfml_playground */
+}

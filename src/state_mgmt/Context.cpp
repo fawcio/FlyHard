@@ -23,7 +23,7 @@
  */
 #include "Context.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 Context::Context(sf::RenderWindow& window_,

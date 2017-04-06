@@ -23,7 +23,7 @@
  */
 #include "State.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 State::State(StateStack &stack, Context context)

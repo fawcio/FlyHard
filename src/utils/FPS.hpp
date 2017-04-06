@@ -29,7 +29,7 @@
 #include "PeriodicTimer.hpp"
 
 
-namespace SFGame
+namespace fly_hard
 {
 
 class FPS : public SceneNode
@@ -52,4 +52,4 @@ private:
     sf::Text			mText;
 };
 
-} /* namespace sfml_playground */
+}

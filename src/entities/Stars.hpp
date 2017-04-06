@@ -30,7 +30,7 @@
 #include "SceneNode.hpp"
 #include "resource_mgmt/ResourceHolder.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 class Stars : public SceneNode

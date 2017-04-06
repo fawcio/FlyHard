@@ -23,7 +23,7 @@
  */
 #include "CommandQueue.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 Command CommandQueue::pop()
@@ -33,6 +33,6 @@ Command CommandQueue::pop()
     return command;
 }
 
-} /* namespace sfml_playground */
+}
 
 

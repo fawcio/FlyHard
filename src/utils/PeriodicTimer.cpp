@@ -23,7 +23,7 @@
  */
 #include "PeriodicTimer.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 PeriodicTimer::PeriodicTimer(SceneNode* const updateable, const unsigned int milliseconds)
@@ -61,4 +61,4 @@ void PeriodicTimer::periodicEvent()
 	mAsioTimer->async_wait(boost::bind(&PeriodicTimer::periodicEvent, this));
 }
 
-} /* namespace sfml_playground */
+}

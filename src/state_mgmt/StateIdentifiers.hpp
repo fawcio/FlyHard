@@ -23,7 +23,7 @@
  */
 #pragma once
 
-namespace SFGame
+namespace fly_hard
 {
 
 enum class StateID

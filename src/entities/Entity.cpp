@@ -24,7 +24,7 @@
 #include "Entity.hpp"
 #include "game/World.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 void Entity::updateCurrent()
@@ -32,5 +32,5 @@ void Entity::updateCurrent()
     move(mVelocity * World::cTimePerFrame.asSeconds());
 }
 
-} /* namespace sfml_playground */
+}
 

@@ -23,7 +23,7 @@
  */
 #pragma once
 
-namespace SFGame
+namespace fly_hard
 {
 	constexpr double cWorldScale = 1.0 / 600.0;
 	constexpr double cDpi = 72.0;

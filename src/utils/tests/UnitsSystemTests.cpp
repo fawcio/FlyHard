@@ -24,7 +24,7 @@
 #include <gtest/gtest.h>
 #include "Units.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 TEST(UnitsSystemTests, NewtonsThirdLaw)

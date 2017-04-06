@@ -31,7 +31,7 @@
 #include "utils/Units.hpp"
 #include "utils/NonCopyable.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 /**
@@ -89,4 +89,4 @@ private:
 	std::shared_ptr<CommandQueue> mCommandQueue;
 };
 
-} /* namespace sfml_playground */
+}

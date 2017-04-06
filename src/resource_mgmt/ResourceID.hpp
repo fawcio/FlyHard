@@ -24,7 +24,7 @@
 #pragma once
 #include <cstdint>
 
-namespace SFGame {
+namespace fly_hard {
 
 enum class TextureID : size_t
 {

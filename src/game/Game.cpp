@@ -27,7 +27,7 @@
 
 #include "Game.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 Game::Game(const sf::VideoMode& vMode, const unsigned int style) :
@@ -122,5 +122,5 @@ void Game::pause()
 	mClock.restart();
 }
 
-} /* namespace sfml_playground */
+}
 

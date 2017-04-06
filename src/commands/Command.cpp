@@ -23,7 +23,7 @@
  */
 #include "Command.hpp"
 
-namespace SFGame
+namespace fly_hard
 {
 
 Command::Command(std::function<void(SceneNode&)>&& action, CommandCategory&& category)
