@@ -1,4 +1,4 @@
-# SF Game
+# Fly Hard
 
 This project is a playground for making a game / game engine with SFML library.
 Target of this project is a simple space-shooter game or simmilar, nothing fancy,
@@ -15,7 +15,7 @@ make sure your compiler supports it.
 
 ##### Requirements
 * cmake 3.7.0
-* SFML 2.3 (system window graphics network audio)
+* SFML 2.4.3 (system window graphics network audio)
 * boost 1.62 (system program_options)
 * GTest 1.7
 * X11 1.6
@@ -31,7 +31,7 @@ To select a compiler (GNU C++ or Clang), set the value CXX while running cmake, 
 
 ### Running
 To run the game just type:
-* `$ ./bin/sf_game`
+* `$ ./bin/flyhard`
 
 ### Unit Tests
 Unit tests are curently in development. The binaries are placed under: `bin/tests`
