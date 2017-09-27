@@ -24,6 +24,7 @@
 #include "Stars.hpp"
 #include <algorithm>
 #include <iostream>
+#include <random>
 
 namespace fly_hard
 {

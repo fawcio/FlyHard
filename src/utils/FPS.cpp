@@ -30,7 +30,7 @@
 namespace fly_hard
 {
 
-FPS::FPS() throw(std::runtime_error) : mTimer(this, 500), mFrameCounter(0)
+FPS::FPS() : mTimer(this, 500), mFrameCounter(0)
 {
     if (!mFont.loadFromFile("./Resources/fonts/DejaVuSansMono.ttf"))
     {

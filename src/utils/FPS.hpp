@@ -35,7 +35,7 @@ namespace fly_hard
 class FPS : public SceneNode
 {
 public:
-	FPS() throw(std::runtime_error);
+	FPS();
     virtual ~FPS();
 
     int 			operator++(int);
