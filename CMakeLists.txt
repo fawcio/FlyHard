@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-cmake_minimum_required(VERSION 3.7)
+cmake_minimum_required(VERSION 3.8) #for C++17
 
 include( cmake/cmake_defines.cmake )
 include( cmake/external_libraries.cmake )
