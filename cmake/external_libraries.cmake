@@ -32,7 +32,7 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 set(CMAKE_MODULE_PATH /usr/share/SFML/cmake/Modules/)
 
 find_package(Threads REQUIRED)
-find_package(Boost 1.62 REQUIRED system program_options)
+find_package(Boost 1.58 REQUIRED COMPONENTS system program_options)
 find_package(SFML  2.4.2  REQUIRED system window graphics network audio)
 find_package(X11   1.6  REQUIRED)
 find_package(GTest 1.7 REQUIRED)
