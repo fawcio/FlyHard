@@ -1,1 +1,14 @@
 language: cpp
+sudo: required
+dist: xenial
+compiler:
+    - clang
+os:
+    - linux
+before_install:
+    - echo $LANG
+branches:
+  only:
+    - master
+notifications:
+    email: false
